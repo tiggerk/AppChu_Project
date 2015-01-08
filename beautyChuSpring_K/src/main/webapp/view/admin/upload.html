@@ -5,21 +5,18 @@
 <meta charset="UTF-8" />
 <title>Test Uploader</title>
 
-<!-- qunit -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-git.css" type="text/css" />
-<script src="http://code.jquery.com/qunit/qunit-git.js"></script>
 <style>
   .thumb {
-    height: 75px;
+    height: 200px;
     border: 1px solid #000;
     margin: 10px 5px 0 0;
   }
 </style>
 </head>
+
 <body>
 <input type="file" id="files" name="files[]" multiple />
-<output id="list"></output>
+<output id="list"><br></output>
 
 <script>
   function handleFileSelect(evt) {
