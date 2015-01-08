@@ -1,0 +1,135 @@
+@CHARSET "EUC-KR";
+
+* {
+    	/* border: 1px solid red;    */
+}
+
+#style-main{
+	height: 400px;
+}
+
+#shop-main{
+	height: 350px;
+}
+
+footer{
+	height: 60px;
+	text-align: center;
+}
+
+
+ul{
+	list-style: none;
+	padding-left: 7px;
+	padding-right: 7px;
+}
+
+nav li{
+	display: inline;
+}
+
+nav li a{
+	
+}
+
+nav{
+	float: right;
+}
+
+#clear{
+	clear: both;
+}
+
+/*-------------------*/
+.well-sm {
+	text-align: right;
+}
+
+ strong {
+	float: left;
+} 
+
+.container {
+	width: 100%;
+
+}
+.thumbnail>img {
+	width: 286px;
+	height: 165px;
+	border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+}
+
+.col-lg-4 {
+	width: 23%;
+	padding-right: 6px;
+	padding-left: 6px;
+	margin-left: 10px;
+	margin-right: 10px;
+	height: 100%;
+}
+
+.thumbnail {
+	border-radius: 5px;
+}
+
+.row {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+.starrr{
+	width: 100px;
+}
+
+.list-group-item-text {
+	width: 70%;
+}
+
+.thumbnail a > img {
+	height: 165px;
+}
+
+/* ÆË¾÷ */
+/* ÆË¾÷ ³ÐÀÌ */
+.modal-dialog {
+	width: 940px;
+}
+
+ .carousel-inner>.item>img{
+ width:635px;
+ height: 400px;
+ 
+ 
+ }
+ .col-sm-2 > .thumbnail > img {
+  width: 118px;
+ height: 69px;
+ }
+ 
+ .btn {
+ padding: 0px 0px;
+ }
+ 
+ .btn-group > .btn {
+ 	padding: 5px 10px;
+ }
+ 
+ p {
+ 	margin: 0 0 0px;
+ 	float: right;
+ }
+ 
+.col-md-8 {
+	padding: 0px;
+}
+.col-md-6 {
+	width: 223px;
+}
+.col-xs-12 {
+	padding-left: 0px;
+	padding-right: 0px; 
+}
+#distance {
+	margin-right: 7px;
+}
+ 
