@@ -12,9 +12,8 @@
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-	<context:component-scan base-package="beautyChu">
-	  <context:exclude-filter type="regex" 
-	       expression="beautyChu.control.*"/>
+	<context:component-scan base-package="beautychu">
+	  <context:exclude-filter type="regex" expression="beautychu.control.*"/>
 	</context:component-scan>
 
 	<!-- Database 커넥션 풀 준비 -->
@@ -22,18 +21,16 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url"
-			value="jdbc:mysql://localhost:3306/studydb?useUnicode=true&amp;characterEncoding=utf8" />
-		<property name="username" value="study" />
-		<property name="password" value="study" />
+			value="jdbc:mysql://192.168.0.125:3306/beautychudb?useUnicode=true&amp;characterEncoding=utf8" />
+		<property name="username" value="beautychu" />
+		<property name="password" value="beautychu" />
 	</bean>
 
 	<!-- SqlSessionFactory 준비 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="mapperLocations" 
-		          value="classpath*:beautyChu/dao/*Dao.xml" />
-		<property name="typeAliasesPackage" 
-		          value="beautyChu.domain" />
+		<property name="mapperLocations" value="classpath*:beautychu/dao/*Dao.xml" />
+		<property name="typeAliasesPackage" value="beautychu.domain" />
 	</bean>
 
 	<bean id="transactionManager"
@@ -42,14 +39,13 @@
 	</bean>
 	
 	<!-- @Transactional 애노테이션을 처리하는 역할
-	  => @Transactional 애노테이션을 사용하려면 다음 태그를 추가해야 한다. 
-	 -->
+	  		=> @Transactional 애노테이션을 사용하려면 다음 태그를 추가해야 한다. -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	
 	<!-- DAO 클래스 자동 생성 설정하기 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 	  <!-- DAO를 위한 인터페이스가 선언된 패키지 지정 -->
-	  <property name="basePackage" value="beautyChu.dao" />
+	  <property name="basePackage" value="beautychu.dao" />
 	</bean>
 </beans>
 

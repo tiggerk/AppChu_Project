@@ -1,0 +1,56 @@
+
+===============================DB 참고=============================================
+
+1. 사용 DB는 MARIADB(편의상 '마리아'로 지칭) 
+
+	-mysql이 오라클로 넘어가면서 차차 고급기능들이 일부 유료화 되었는데
+	 mysql 개발자 중 일부가 마리아를 만듬.
+
+	-mysql대비 사용법이 99% 비슷하며 속도 또한 대부분의 영역에서 더 빨라 많은 기업들이
+	 마리아로 갈아 타는 추세. 사실 시기적으로 이전이 거의 끝남.
+
+	-mysql 사용은 이미 해봤으니 더 성능 좋고 사용법이 같은 마리아를 사용하기로 결정
+	 사용법은 https://mariadb.com/kb/ko/mariadb/ 여기서 볼 수 있음.
+	 (어차피 우리는 깊게 사용하지 않을거라..ㅜㅜ)
+
+
+2. 아이디 및 데이터 베이스
+
+id(password)
+┗root(beautychu)
+┗beautychu(beautychu)
+*모두 beautychu 계정으로 작업.
+
+database이름 - beautychudb 
+
+서버 ip 192.168.0.181
+디비 ip 192.168.0.177
+사설에 유동아이피지만 서버를 끄지 않을예정이므로 고정으로 생각하고 사용하면 됨.
+
+======================데이터베이스와 계정 권한 생성 명령어 =================================
+
+
+
+create database beautychudb character set utf8 collate utf8_general_ci;
+
+create user 'beautychu'@'localhost' identified by 'beautychu';
+
+create user 'beautychu'@'192.168.%' identified by 'beautychu';
+
+grant all privileges on beautychudb.* to 'beautychu'@localhost with grant option;
+
+grant all privileges on beautychudb.* to 'beautychu'@'192.168.%' with grant option; 
+
+====================================외부접속 허용 코드 변경 =================================
+
+/etc/mysql/my.cnf 이 파일에서
+
+bind-address = 127.0.0.1
+┗로컬에서만 접속가능하게 락 걸려있음 해제. # 으로 주석처리.
+
+sudo /etc/init.d/mysql restart
+┗재시작으로 설정을 리로드 해주어야함.
+
+=====================================================================================
+
+

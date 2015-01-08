@@ -28,7 +28,7 @@
 	
 	<filter>
 		<filter-name>AuthFilter</filter-name>
-		<filter-class>beautyChu.filters.AuthFilter</filter-class>
+		<filter-class>beautychu.filters.AuthFilter</filter-class>
 	</filter>
 
 
@@ -69,7 +69,6 @@
 		<!-- 매핑할 URL의 패턴 지정 -->
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
-	
 	
 </web-app>
 
