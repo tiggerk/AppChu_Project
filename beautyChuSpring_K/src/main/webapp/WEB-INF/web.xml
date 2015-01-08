@@ -70,6 +70,22 @@
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 	
+	
+	
+	
+	
+	
+	<!-- 파일업로드 서블릿 -->
+	<!-- <servlet>
+		<servlet-name>FileUploadAndPreviewServlet</servlet-name>
+		<servlet-class> beautychu.service</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+       <servlet-name>FileUploadAndPreviewServlet</servlet-name>
+       <url-pattern>/servlets/FilePreview</url-pattern>
+   </servlet-mapping> -->
+	
 </web-app>
 
 

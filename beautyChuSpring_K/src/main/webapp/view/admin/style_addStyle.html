@@ -273,6 +273,19 @@
                   	  
                       <form class="form-horizontal style-form" method="get">
                       
+                      	  <div class="form-group">
+                          	<label class="col-lg-2 col-sm-2 control-label">분류</label>
+                          	<div class="col-sm-3">
+	                            <select class="form-control">
+								  <option>Cut</option>
+								  <option>Perm</option>
+								  <option>Color</option>
+								  <option>Care</option>
+								  <option>ETC</option>
+								</select>
+							</div>
+                          </div>
+						
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">제목</label>
                               <div class="col-sm-10">
@@ -294,35 +307,23 @@
                           </div>
                           
                           <div class="form-group">
-                              <label class="col-lg-2 col-sm-2 control-label">시술 시간</label>
+                              <label class="col-lg-2 col-sm-2 control-label">가격(s/m/l)</label>
                               <div class="col-xs-3">
-                                  <input type="text" class="form-control round-form">
+                                  <input type="text" class="form-control">
                               </div>
                               <div class="col-xs-3">
-                                  <input type="text" class="form-control round-form">
+                                  <input type="text" class="form-control">
                               </div>
                               <div class="col-xs-3">
-                                  <input type="text" class="form-control round-form">
-                              </div>
-                          </div>
-                          
-                          <div class="form-group">
-                              <label class="col-lg-2 col-sm-2 control-label">가격</label>
-                              <div class="col-xs-3">
-                                  <input type="text" class="form-control round-form">
-                              </div>
-                              <div class="col-xs-3">
-                                  <input type="text" class="form-control round-form">
-                              </div>
-                              <div class="col-xs-3">
-                                  <input type="text" class="form-control round-form">
+                                  <input type="text" class="form-control">
                               </div>
                           </div>
                           
                           <div class="form-group">
                               <label class="col-lg-2 col-sm-2 control-label">사진</label>
-                              <div class="col-sm-8">
+                              <div class="col-sm-6">
                                   <input type="text" class="form-control round-form">
+                                  <input id="files-upload" type="file" multiple>
                               </div>
                               	<button type="submit" class="btn btn-theme">Upload new picture</button>
                           </div>
@@ -350,7 +351,7 @@
                       <form class="form-horizontal style-form" role="form">
                           
                           <div class="form-group">
-                              <label class="col-lg-2 col-sm-2 control-label">머리 기장</label>
+                              <label class="col-lg-2 col-sm-2 control-label"></label>
                               <div class="col-xs-3">
                                   <p class="form-control-static text-center">short</p>
                               </div>
