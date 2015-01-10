@@ -426,12 +426,14 @@
 					                          </div>
                                           </div>
                                       </li>
-                                      
+
 
                                   </ul>
                               </div>
                               <div class=" add-task-row">
-                                  <a class="btn btn-success btn-sm pull-left" href="l#">Add New Price List</a>
+                                  <a  id='addBtn' class="btn btn-success btn-sm pull-left">Add New Price List</a>
+                                  <button>추가</button>
+                                  <button id='deleteBtn'>삭제</button>
                               </div>
                           </div>
                       </section>
@@ -482,14 +484,34 @@
     </script>
     
     
-  <script>
-      //custom select box
+<!-- add버튼 -->
+<script>
+$(function(){
+	$('#addBtn').click(function(){
+		addRow();
+	});
+});
+$(function(){
+	$('.deleteBtn').click(function(){
+		delRow();
+	});
+});
+function addRow(){
+	var html = "<li class='list-warning'><i class='fa fa-ellipsis-v'></i><div class='task-title'><div class='form-group'>"
+					+ "<div class='col-xs-3'><select class='form-control round-form'><option>Cut</option><option>Perm</option>"
+					+ "<option>Color</option><option>Care</option><option>ETC</option></select></div>"
+					+ "<div class='col-xs-3'><input type='text' class='form-control round-form text-center'></div>"
+					+ "<div class='col-xs-3'><input type='text' class='form-control round-form text-center'></div>"
+					+ "<div class='col-sm-3'><button class='btn btn-success fa fa-check'></button>;"
+            		+ "<button class='btn btn-primary fa fa-pencil'></button><button class='btn btn-danger fa fa-trash-o deleteBtn' name='del_btn' onClick='javascript:delRow(this)'></button>"
+	                + "</div></div></div></li>";
+	$('#sortable').append(html);
+}
+function delRow(object){						
+	var index = $(".list-warning [name=del_btn]").index(object);			
+	$(".list-warning").eq(index).remove();			
+}
+</script>
 
-      $(function(){
-          $('select.styled').customSelect();
-      });
-
-  </script>
-
-  </body>
+</body>
 </html>
