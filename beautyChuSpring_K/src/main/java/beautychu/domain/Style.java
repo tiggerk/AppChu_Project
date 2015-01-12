@@ -6,15 +6,15 @@ public class Style implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	protected int styleNumber;
-	protected String people;
-	protected String gender;
-	protected String styleLength;
-	protected String styleName;
-	protected String styleIntro;
-	protected int SkillTime;
-	protected int price;
-	protected String email;
+	int styleNumber;
+	String people;
+	String gender;
+	String styleLength;
+	String styleName;
+	String styleIntro;
+	int SkillTime;
+	int price;
+	String email;
 	
 	
 	public int getStyleNumber() {

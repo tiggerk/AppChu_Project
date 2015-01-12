@@ -272,7 +272,7 @@
                       <form class="form-horizontal style-form" method="get">
                       
                           <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">매장프로필사진</label>
+                              <label class="col-sm-2 col-sm-2 control-label">샵프로필사진</label>
                               <div class="col-sm-10">
                               	<img class="thumb" width="100" src="assets/img/ui-zac.jpg" alt="shop-profile-img">
                               	<input type="file" id="files-short" name="filesS[]" multiple />
@@ -281,37 +281,44 @@
                           </div>
                           
                           <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">매장이름</label>
+                              <label class="col-sm-2 col-sm-2 control-label">이메일</label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control round-form" placeholder="박준 뷰티랩">
+                                  <input type="text" id='email' class="form-control round-form" value="" placeholder="aa@gmail.com">
                               </div>
                           </div>
                           
                           <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">매장주소</label>
+                              <label class="col-sm-2 col-sm-2 control-label">사업자번호</label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control round-form" placeholder="서울시 강남구 삼성로 725">
+                                  <input type="text" id='licenseeNo' class="form-control round-form" placeholder="118-444-2443">
                               </div>
                           </div>
                           
                           <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">전화</label>
+                              <label class="col-sm-2 col-sm-2 control-label">샵이름</label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control round-form" placeholder="02-511-1414">
+                                  <input type="text" id='shopName' class="form-control round-form" placeholder="박준 뷰티랩">
                               </div>
                           </div>
                           
                           <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">핸드폰</label>
+                              <label class="col-sm-2 col-sm-2 control-label">샵주소</label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control round-form" placeholder="010-1234-1234">
+                                  <input type="text" id='shopAddr' class="form-control round-form" placeholder="서울시 강남구 삼성로 725">
                               </div>
                           </div>
                           
                           <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">소개</label>
+                              <label class="col-sm-2 col-sm-2 control-label">샵전화번호</label>
                               <div class="col-sm-10">
-                              	<textarea name="shop-info" rows="2" cols="80" class="form-control round-form">박준뷰티랩은 고객의 아름다움과 즐거움을 위해 다양한 뷰티 서비스를 제공합니다.
+                                  <input type="text" id='shopTel' class="form-control round-form" placeholder="02-511-1414">
+                              </div>
+                          </div>
+                          
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">샵소개</label>
+                              <div class="col-sm-10">
+                              	<textarea id='shopIntro' name="shop-intro" rows="2" cols="80" class="form-control round-form">박준뷰티랩은 고객의 아름다움과 즐거움을 위해 다양한 뷰티 서비스를 제공합니다.
 고객의 외모뿐 아니라 아름다운 마음으로 나가실 수 있도록 늘 고객에게 집중하고 있습니다.</textarea>
 								<div class="remaining text-right">남은 글자수: <span class="info-count">100</span></div>
                               </div>
@@ -327,7 +334,7 @@
                           
                           <div class="form-group">
                           	<div class="col-sm-12">
-                          		<button type="button" class="btn btn-theme btn-block btn-lg">Save & Update</button>
+                          		<button type="button" id='shop-updateBtn' class="btn btn-theme btn-block btn-lg">Save & Update</button>
                           	</div>
                        	  </div>
                           	
@@ -411,9 +418,67 @@
 	        });
 	        update();
 	    });
+	    
+	    
+	    
+	    $.ajax({
+			type : 'get',
+			dataType : "json",
+			url : '../../json/auth/loginUser.do',
+			success : function(data) {
+				console.log(data.status);
+				console.log(data.loginUser);
+				alert("추가완료");
+				$('#email').val(data.loginUser.email);
+				console.log(data.loginUser.email);
+			},
+			error : function() {
+				console.log('ajax 실패');
+			}
+
+		});
+	    
+	    
+	    
 	});
   </script>
-  
-  
-  </body>
+
+
+<!-- AJAX 스크립트 -->
+<script>
+
+	$('#shop-updateBtn').click(function() {
+		$.ajax({
+			type : 'post',
+			dataType : "json",
+			url : '../../json/shop/update.do',
+			data : {
+				email : $('#email').val(),
+				licenseeNo : $('#licenseeNo').val(),
+				shopName : $('#shopName').val(),
+				shopAddr : $('#shopAddr').val(),
+				shopTel : $('#shopTel').val(),
+				shopIntro : $('#shopIntro').val(),
+				
+			},
+			success : function(data) {
+				console.log(data.status);
+				console.log(data.loginUser);
+				alert("추가완료");
+				//$('#email').html(data.loginUser.email);
+				console.log(data.loginUser.email);
+			},
+			error : function() {
+				console.log('ajax 실패');
+			}
+
+		});
+
+	});
+</script>
+
+
+
+
+</body>
 </html>

@@ -1,0 +1,97 @@
+/* html,body,ul,li{margin:0;padding:0; font-family:arial} */
+.jy-comment-wrap ul {
+width: 400px;  height: 300px; overflow: hidden;
+}
+
+.jy-comment-wrap li {
+list-style: none; margin: 0; height: auto; 
+}
+.jy-comment-wrap .left {
+width: 40px; height:40px; float: left; margin: 5px 0px;
+}
+
+.jy-comment-wrap .right {
+width: 350px; height:auto; float: left; margin-left: 10px; margin: 5px 0px 5px 10px;
+}
+
+.jy-comment-wrap .right .album {
+/* margin-top: 60px; */ font-size: 11px; margin: 3px 0px 8px 0px;
+}
+
+.jy-comment-wrap .right .band {
+font-size: 11px; /* color: #838383; */ color: black; 
+}
+.jy-comment-wrap .right .band .band-comment {
+margin: 3px 0px;
+}
+.jy-comment-wrap .multiple li {
+width: 190px;
+}
+
+.jy-comment-wrap .jy-DG-wrapper {
+margin: 0 auto; /* border:5px solid #ddd; border-radius:10px; */ padding:5px;
+}
+/* prev, next button effect css */ 
+.jy-comment-wrap .jy-DG-prev {
+position: absolute; top: 45%; left: -40px; width: 31px; height: 31px; 
+text-indent: -999999px; background: url(icon_arrow_left.png) no-repeat 0 -31px;
+}
+
+.jy-comment-wrap .jy-DG-next {
+position: absolute; top: 45%; right: -40px; width: 31px; height: 31px; 
+text-indent: -999999px; background: url(icon_arrow_right.png) no-repeat 0 -31px;
+}
+.jy-comment-wrap .jy-DG-next:hover,
+.jy-comment-wrap .jy-DG-prev:hover {
+background-position: 0 0;
+}
+
+/*start / stop*/
+.jy-DG-auto {
+text-align: center;
+}
+
+.jy-DG-start {
+color: #f1eee7; font-size: 14px; background: #838383; padding: 4px 7px;	
+border-radius: 3px; text-transform: capitalize;
+}
+
+.jy-DG-start:hover {
+background: #525044; text-decoration: none;
+}
+
+/*pager*/
+.jy-DG-pager {
+text-align: center;
+}
+
+.jy-DG-pager a {
+font-size: 16px; background: #f5f5f5; /* padding: 4px 7px; */ border-radius: 3px; 
+color: #838383; padding: 0 10px; margin:2px; text-decoration: none;
+}
+
+.jy-DG-pager .pager-active,
+.jy-DG-pager a:hover {
+color: #fff; background: #838383; /* padding: 4px 7px; */ border-radius: 3px; 
+text-decoration: none; margin:2px;
+}
+.comment {
+	/* margin-bottom: 10px; */
+}
+
+/* write commnet form css */
+
+.write-comment-form { margin:0 auto; margin-top: 150px; height: 50px; width: 400px; }
+.jy-commentform {margin-top: 100px; margin-left:50px; width:350px; height:50px; color:white;}
+#jy-comments { width: 100%;}
+.jy-btn-comment { float:right; margin-top: 10px; margin-right: -5px;}
+	
+.jy-comment-list { border-radius:0 0 2px 2px; width: 350px;}	
+.jy-wr-comment { }
+.write-comment { width: 290px; height: 34px; margin-left: 5px;}
+.jy-profile-phot { float: left; width: 40px; height: 40px;}
+.jy-submit-comment { float: right; text-align: center; } 
+.jy-comment-submit-icon { height: 40px; width: 50px;}	
+
+.buyer { border:1px solid green; color: green; padding: 1px; border-radius:3px;}
+.nobuy { border:1px solid orange; color: orange; padding: 1px; border-radius:3px;}

@@ -32,7 +32,10 @@
     SELECT STYLENO,PEOPLE,GENDER,STYLELENGTH,STYLENAME,STYLEINTRO,SKILLTIME,PRICE,EMAIL 
     FROM STYLE
   </select>
- 
+   <select id="insertStyle" parameterType="Style" >
+    INSERT INTO STYLE (PEOPLE,GENDER,STYLELENGTH,STYLENAME,STYLEINTRO,SKILLTIME,PRICE,EMAIL)
+    VALUES (#{people},#{gender},#{styleLength},#{styleName},#{styleIntro},#{skillTime},#{price},#{email})
+  </select>
   
 </mapper>
 

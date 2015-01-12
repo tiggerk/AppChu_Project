@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>dbtest</title>
+<script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+
+
+people<input id="kh-people"><br>
+gender<input id="kh-gender"><br>
+stylelength<input id="kh-stylelength"><br>
+stylename<input id="kh-stylename"><br>
+styleintro<input id="kh-styleintro"><br>
+skilltime<input id="kh-skilltime"><br>
+price<input id="kh-price"><br>
+email<input id="kh-email"><br>
+<button id="kh-styleadd">add</button>
+
+
+
+<script>
+$('#kh-styleadd').click(function() {
+		$.ajax({
+			type : 'post',
+			dataType : "json",
+			url : '../json/style/add.do',
+			data : {
+				people : $('#kh-people').val(),
+				gender : $('#kh-gender').val(),
+				stylelength : $('#kh-stylelength').val(),
+				stylename : $('#kh-stylename').val(),
+				styleintro : $('#kh-skillintro').val(),
+				skilltime : $('#kh-skilltime').val(),
+				price : $('#kh-price').val(),
+				email : $('#kh-email').val()
+				
+			},
+			success : function(data) {
+				console.log(data.status);
+				console.log(data.loginUser);
+				alert("추가완료");
+				/* location.href = 'jy_main.html'; */
+
+			},
+			error : function() {
+				console.log('회원가입 ajax 실패');
+			}
+
+		});
+
+	});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="beautychu.dao.ShopInfoDao">
+
+  <resultMap type="ShopInfo" id="shopInfoMap">
+    <id column="EMAIL" property="email"/>
+    <result column="LICENSEENO" property="licenseeNo"/>
+    <result column="SHOPNAME" property="shopName"/>
+    <result column="SHOPADDR" property="shopAddr"/>
+    <result column="SHOPTEL" property="shopTel"/>
+    <result column="SHOPINTRO" property="shopIntro"/>    
+  </resultMap>
+  
+  <select id="getList" parameterType="map" resultMap="shopInfoMap">
+    SELECT EMAIL, LICENSEENO, SHOPNAME, SHOPADDR, SHOPTEL, SHOPINTRO 
+    FROM SHOP WHERE EMAIL = #{email}
+  </select>
+  
+  <update id="insertShopInfo" parameterType="ShopInfo" >
+  UPDATE SHOP SET 
+  	LICENSEENO=#{licenseeNo},
+  	SHOPNAME=#{shopName},
+  	SHOPADDR=#{shopAddr},
+ 	SHOPTEL=#{shopTel},
+ 	SHOPINTRO=#{shopIntro}
+ WHERE EMAIL = #{email};
+  </update>
+ 
+  
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
