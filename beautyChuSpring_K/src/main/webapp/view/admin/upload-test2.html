@@ -1,0 +1,76 @@
+<html>
+<head>
+<style type="text/css">
+html {
+	font: 12px/1.25 'Malgun Gothic', '맑은 고딕', NanumGothicWeb, sans-serif
+		!important;
+}
+</style>
+<title>폼 추가/삭제 예제</title>
+<script type="text/javascript">
+	var count = 0;
+
+	function addForm() {
+		var addedFormDiv = document.getElementById("addedFormDiv");
+
+		var date = new Date();
+		var file = date.getTime();
+
+		var str = "";
+		//                     str+="<br>값1-"+count+" <input type='text' name='"+aaa+"'>";
+		str = "<input type=file id="+file+" name='file[]' > <a href='javascript:addForm()'>추가</a> <a href='javascript:del("
+				+ file
+				+ ")'>삭제</a> <a href='javascript:addLink("
+				+ file
+				+ ")'>본문에링그삽입</a>";
+		// 추가할 폼(에 들어갈 HTML)
+
+		var addedDiv = document.createElement("div"); // 폼 생성
+		addedDiv.id = file; // 폼 Div에 ID 부 여 (삭제를 위해)
+		addedDiv.innerHTML = str; // 폼 Div안에 HTML삽입
+		addedFormDiv.appendChild(addedDiv); // 삽입할 DIV에 생성한 폼 삽입
+
+		/*                      var obj = document.getElementById('content');
+		 obj.value = obj.value + "\n테스트입니다";
+		 */
+
+	}
+
+	function del(value) {
+		var addedFormDiv = document.getElementById("addedFormDiv");
+		var addedDiv = document.getElementById(value);
+		// 마지막으로 생성된 폼의 ID를 통해 Div객체를 가져옴
+		addedFormDiv.removeChild(addedDiv); // 폼 삭제 
+	}
+
+	function addLink(value) {
+		var obj = document.getElementById('content');
+		obj.value = obj.value + "\n테스트입니다";
+	}
+</script>
+</head>
+<body>
+	<h1>
+		<strong>테스트입니다.</strong>
+	</h1>
+	<br>
+	<br> 이제 살펴봅시다
+	<br>
+
+
+	<textarea id="content" name="content" cols=90 rows="16"
+		style="width: 770px; border: 1px solid #cccccc; font-size: 13px; font-family: '굴림';"
+		name="content">${status.value}</textarea>
+
+	<br>
+	<input type=file id="file" name='file[]'>
+	<a href='javascript:addForm()'>추가</a>
+	<a href=javascript:addLink()>본문에링크삽입</a>
+	<!-- 폼을 삽입할 DIV -->
+	<div id="addedFormDiv"></div>
+	<BR>
+	<!-- 폼을 삽입할 DIV -->
+
+
+</body>
+</html>
