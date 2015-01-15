@@ -34,19 +34,21 @@
 	  <div id="login-page">
 	  	<div class="container">
 	  	
-		      <form class="form-login" action="coupon.html">
+		      <!-- <form class="form-login" action="coupon.html"> -->
+		      <form class="form-login">
 		        <h2 class="form-login-heading">sign in now</h2>
 		        <div class="login-wrap">
-		            <input type="text" class="form-control" placeholder="User ID" autofocus>
+		            <input type="email" id="jy-inputEmail" class="form-control" placeholder="User ID" autofocus>
 		            <br>
-		            <input type="password" class="form-control" placeholder="Password">
+		            <input type="password" id="jy-inputPassword" class="form-control" placeholder="Password">
 		            <label class="checkbox">
+		            	<span id="jy-login-check"></span>
 		                <span class="pull-right">
 		                    <a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
 		
 		                </span>
 		            </label>
-		            <button class="btn btn-theme btn-block" href="#" type="submit"><i class="fa fa-lock"></i> SIGN IN</button>
+		            <button id="jy-btn-login" class="btn btn-theme btn-block" type="button"><i class="fa fa-lock"></i> SIGN IN</button>
 		            <hr>
 		            
 		            <div class="login-social-link centered">
@@ -99,7 +101,57 @@
     <script type="text/javascript" src="assets/js/jquery.backstretch.min.js"></script>
     <script>
         $.backstretch("assets/img/login-bg.jpg", {speed: 500});
+        
+        /* AJAX node 연결 */
+    	(function() {
+    		/* ajax node 연결 - 이메일 유효성 검사 */
+    		var joinpass = 0; // 0이면 통과x  1이면 통과
+    		var passwordpass = 0;
+
+    		
+    		/* 로그인 자바스크립트  */
+
+     		$('#jy-btn-login').click(function() {
+    			
+    			var email=$('#jy-inputEmail').val();
+    			var password=$('#jy-inputPassword').val();
+    	
+    			if(email===''){
+    				$('#jy-login-check').html('이메일을 입력 해주세요.');
+    			}else if(password===''){
+    				$('#jy-login-check').html('비밀번호를 입력 해주세요.');
+    			}else{
+    				
+    		 		$.ajax({
+    				type : 'post',
+    				dataType : "json",
+    				url : '../../json/auth/login.do',
+    				data : {
+    					'email' : email,
+    					'password' : password
+    				},
+    				success : function(data) {
+    					if(data.loginUser){
+     					alert(data.loginUser.name+"님 로그인 되었습니다.");
+    					location.href = 'coupon.html'; 
+    					}else{
+    						$('#jy-login-check').html('아이디 혹은 비밀번호가 맞지 않습니다.');
+
+    					}
+    				},
+    				error : function() {
+    					console.log('로그인 ajax 실패');
+    				}
+
+    			});
+    			}
+
+    		}) 
+    		/* -------------------  */
+
+    	})();
     </script>
+    
 
 
   </body>

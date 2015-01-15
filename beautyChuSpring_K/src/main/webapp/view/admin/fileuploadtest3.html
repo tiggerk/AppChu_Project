@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/jquery.form.js"></script>
+</head>
+<body>
+	
+	<!-- 	3번방법 갯수는 맞는데 똑같은 파일이 올라감.. -->
+	<form id="f" name="f" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="strFileName" value="">
+        <input name="file" type="file" style="width: 350px;" onchange="limitFileChk();" multiple/></td>
+        <a href="javascript:ajaxUpload()">confirm</a>
+             &nbsp;
+            <a href="javascript:window.close()">close</a>
+    </form>
+    
+	<script>
+	function ajaxUpload() {
+        var objForm = document.f;
+        var sf = objForm.file.files;
+        if (objForm.file.value == "") {
+            alert("파일을 선택해 주십시오.");
+            return;
+        } else {
+            try {
+                for (var i = 0; i < sf.length; i++) {
+                    objForm.strFileName.value = sf[i].name.substr(sf[i].name.lastIndexOf("\\") + 1);
+                    var formData = new FormData(objForm);
+                    var xhr = initAjax();
+                    xhr.open("POST", "../../json/fileUploadAjax.do", false);
+                    xhr.send(formData);
+                }
+            } catch (e) {
+                console.log("Upload Error : "+e);
+                alert("업로드 중 오류가 발생하였습니다.");
+                return;
+            } finally {
+                alert("업로드가 완료되었습니다.");
+                /* opener.location.reload(); */
+                self.close();
+            }
+        }
+    }
+ 
+    function initAjax() { // 브라우저에 따른 AjaxObject 인스턴스 분기 처리
+        var xmlhttp;
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        return xmlhttp;
+    }
+ 
+    function limitFileChk() { //    파일 업로드 제한 
+        var objForm = document.f;
+        var sf = objForm.file.files;
+        var fileLimit = sf.length;
+        
+        if (fileLimit > 10) {
+            reloadDialog("eml 파일 업로드는 10개를 넘길 수 없습니다. zip 으로 업로드해주시기 바랍니다.", objForm);
+            return;
+        }
+        /* if (!multiFileChk(objForm)) { // 다중 업로드시 확장자 체크
+            return;
+        } */
+    }
+ 
+    function reloadDialog(msg, objForm) { // 팝업창 갱신
+        alert(msg);
+        objForm.file.value = null; //    firefox multi-file Form flush code
+        location.reload();
+    }
+ 	</script>
+	
+	
+	
+</body>
+</html>

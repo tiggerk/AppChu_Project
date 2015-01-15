@@ -13,8 +13,8 @@
 	<link href="assets/css/bootstrap.css" rel="stylesheet">
 	<!--external css-->
 	<link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-	<link rel="stylesheet" type="text/css" href="assets/js/bootstrap-datepicker/css/datepicker.css" />
-	<link rel="stylesheet" type="text/css" href="assets/js/bootstrap-daterangepicker/daterangepicker.css" />
+	<!-- <link rel="stylesheet" type="text/css" href="assets/js/bootstrap-datepicker/css/datepicker.css" /> 
+	<link rel="stylesheet" type="text/css" href="assets/js/bootstrap-daterangepicker/daterangepicker.css" />-->
 	    
 	<!-- Custom styles for this template -->
 	<link href="assets/css/style.css" rel="stylesheet">
@@ -32,6 +32,21 @@
 	border: 1px solid #ccc;
 	margin: 10px 5px 0 0;
 }
+
+#list-short div, #list-medium div, #list-long div {
+	display: inline-block;
+}
+#list-short div a, #list-medium div a, #list-long div a{
+	color: #555;
+	font-size: 0.8em;
+}
+#list-short div a:focus, #list-short div a:hover,
+#list-medium div a:focus, #list-medium div a:hover,
+#list-long div a:focus, #list-long div a:hover {
+	color: red;
+	font-size: 0.8em;
+}
+
 </style>
 </head>
 
@@ -279,7 +294,7 @@
                   <div class="form-panel">
                   	  <h4 class="mb"><i class="fa fa-angle-right"></i> Add Style</h4>
                   	  
-                      <form class="form-horizontal style-form" method="get">
+                      <form class="form-horizontal style-form" method="post" enctype="multipart/formdata">
                       
                       	  <div class="form-group">
                           	<label class="col-lg-1 col-sm-1 control-label"><b>분 류</b></label>
@@ -316,7 +331,7 @@
                               <div class="col-sm-1">
                               	  <p class="form-control-static">사진 &nbsp;&nbsp;:</p>
                               </div>
-                              <div class="col-sm-9">	
+                              <div class="col-sm-9">
                               	<input type="file" id="files-short" name="filesS[]" multiple />
 								<output id="list-short"><br></output>
 								</div>
@@ -520,6 +535,9 @@
       <!--footer end-->
   </section>
 
+    <!-- ajax fileupload
+    <script src="assets/js/jquery.form.js"></script> -->
+    
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
@@ -542,14 +560,14 @@
 	
 	<!--custom checkbox & radio-->
 	
-	<script type="text/javascript" src="assets/js/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+	<!-- <script type="text/javascript" src="assets/js/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 	<script type="text/javascript" src="assets/js/bootstrap-daterangepicker/date.js"></script>
-	<script type="text/javascript" src="assets/js/bootstrap-daterangepicker/daterangepicker.js"></script>
+	<script type="text/javascript" src="assets/js/bootstrap-daterangepicker/daterangepicker.js"></script> -->
 	
 	<script type="text/javascript" src="assets/js/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
 	
 	
-	<script src="assets/js/form-component.js"></script>    
+	<!-- <script src="assets/js/form-component.js"></script> -->    
     
   
   <!-- Browse Short... image preview ------------------------------------------------------------------------>
@@ -557,6 +575,7 @@
   function handleFileSelect(evt) {
     var files = evt.target.files; // FileList object
 
+    console.log("files" + files);
     // Loop through the FileList and render image files as thumbnails.
     for (var i = 0, f; f = files[i]; i++) {
 
@@ -564,7 +583,7 @@
       if (!f.type.match('image.*')) {
         continue;
       }
-
+      console.log(f);
       var reader = new FileReader();
 
       // Closure to capture the file information.
@@ -574,12 +593,13 @@
           var date = new Date();
           var file = date.getTime();
           
-          var span = document.createElement('span');
-          span.innerHTML = ['<div id=',file,'><img class="thumb" src="', e.target.result,
-                            '" title="', escape(theFile.name), '"/><a href="javascript:del(',file,')">삭제</a></div>'].join('');
+          var div = document.createElement('div');
+          div.id = file;
+          div.innerHTML = ['<img class="thumb" src="', e.target.result,
+                            '" title="', escape(theFile.name), '"/><br>',escape(theFile.name),
+                            '&nbsp; <a href="javascript:del(',file,')">삭제</a>'].join('');
           
-          
-          document.getElementById('list-short').insertBefore(span, null);
+          document.getElementById('list-short').insertBefore(div, null);
         };
       })(f);
 
@@ -617,12 +637,13 @@
 	          var date = new Date();
 	          var file = date.getTime();
 	          
-	          var span = document.createElement('span');
-	          span.innerHTML = ['<div id=',file,'><img class="thumb" src="', e.target.result,
-	                            '" title="', escape(theFile.name), '"/><a href="javascript:del(',file,')">삭제</a></div>'].join('');
+	          var div = document.createElement('div');
+	          div.id = file;
+	          div.innerHTML = ['<img class="thumb" src="', e.target.result,
+	                            '" title="', escape(theFile.name), '"/><br>',escape(theFile.name),
+	                            '&nbsp; <a href="javascript:del(',file,')">삭제</a>'].join('');
 	          
-	          
-	          document.getElementById('list-medium').insertBefore(span, null);
+	          document.getElementById('list-medium').insertBefore(div, null);
 	        };
 	      })(f);
 
@@ -660,12 +681,13 @@
 	          var date = new Date();
 	          var file = date.getTime();
 	          
-	          var span = document.createElement('span');
-	          span.innerHTML = ['<div id=',file,'><img class="thumb" src="', e.target.result,
-	                            '" title="', escape(theFile.name), '"/><a href="javascript:del(',file,')">삭제</a></div>'].join('');
+	          var div = document.createElement('div');
+	          div.id = file;
+	          div.innerHTML = ['<img class="thumb" src="', e.target.result,
+	                            '" title="', escape(theFile.name), '"/><br>',escape(theFile.name),
+	                            '&nbsp; <a href="javascript:del(',file,')">삭제</a>'].join('');
 	          
-	          
-	          document.getElementById('list-long').insertBefore(span, null);
+	          document.getElementById('list-long').insertBefore(div, null);
 	        };
 	      })(f);
 

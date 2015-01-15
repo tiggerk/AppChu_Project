@@ -283,43 +283,42 @@
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">이메일</label>
                               <div class="col-sm-10">
-                                  <input type="text" id='email' class="form-control round-form" value="" placeholder="aa@gmail.com">
+                                  <input type="text" id='email' class="form-control round-form" value="" placeholder="User Email">
                               </div>
                           </div>
                           
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">사업자번호</label>
                               <div class="col-sm-10">
-                                  <input type="text" id='licenseeNo' class="form-control round-form" placeholder="118-444-2443">
+                                  <input type="text" id='licenseeNo' class="form-control round-form" placeholder="Licensee Number">
                               </div>
                           </div>
                           
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">샵이름</label>
                               <div class="col-sm-10">
-                                  <input type="text" id='shopName' class="form-control round-form" placeholder="박준 뷰티랩">
+                                  <input type="text" id='shopName' class="form-control round-form" placeholder="Shop Name">
                               </div>
                           </div>
                           
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">샵주소</label>
                               <div class="col-sm-10">
-                                  <input type="text" id='shopAddr' class="form-control round-form" placeholder="서울시 강남구 삼성로 725">
+                                  <input type="text" id='shopAddr' class="form-control round-form" placeholder="Shop Address">
                               </div>
                           </div>
                           
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">샵전화번호</label>
                               <div class="col-sm-10">
-                                  <input type="text" id='shopTel' class="form-control round-form" placeholder="02-511-1414">
+                                  <input type="text" id='shopTel' class="form-control round-form" placeholder="Shop Tel">
                               </div>
                           </div>
                           
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">샵소개</label>
                               <div class="col-sm-10">
-                              	<textarea id='shopIntro' name="shop-intro" rows="2" cols="80" class="form-control round-form">박준뷰티랩은 고객의 아름다움과 즐거움을 위해 다양한 뷰티 서비스를 제공합니다.
-고객의 외모뿐 아니라 아름다운 마음으로 나가실 수 있도록 늘 고객에게 집중하고 있습니다.</textarea>
+                              	<textarea id='shopIntro' name="shop-intro" rows="2" cols="80" class="form-control round-form"></textarea>
 								<div class="remaining text-right">남은 글자수: <span class="info-count">100</span></div>
                               </div>
                           </div>
@@ -387,94 +386,109 @@
 
     </script>
 
-  <!-- shop-info textarea maxlength -->
-  <script type="text/javascript">
+
+<script type="text/javascript">
+var imsiEmail;
   $(function() {
-	    $('.remaining').each(function() {
-	        // count 정보 및 count 정보와 관련된 textarea/input 요소를 찾아내서 변수에 저장한다.
-	        var $count = $('.info-count', this);
-	        var $input = $(this).prev();
-	        // .text()가 문자열을 반환하기에 이 문자를 숫자로 만들기 위해 1을 곱한다.
-	        var maximumCount = $count.text() * 1;
-	        // update 함수는 keyup, paste, input 이벤트에서 호출한다.
-	        var update = function() {
-	            var before = $count.text() * 1;
-	            var now = maximumCount - $input.val().length;
-	            // 사용자가 입력한 값이 제한 값을 초과하는지를 검사한다.
-	            if (now < 0) {
-	                var str = $input.val();
-	                alert('글자 입력수가 초과하였습니다.');
-	                $input.val(str.substr(0, maximumCount));
-	                now = 0;
-	            }
-	            // 필요한 경우 DOM을 수정한다.
-	            if (before != now) {
-	                $count.text(now);
-	            }
-	        };
-	        // input, keyup, paste 이벤트와 update 함수를 바인드한다
-	        $input.bind('input keyup paste', function() {
-	            setTimeout(update, 0)
-	        });
-	        update();
-	    });
-	    
-	    
-	    
+	    /* AJAX로 email 로그인 정보 가져오기 */
 	    $.ajax({
 			type : 'get',
 			dataType : "json",
 			url : '../../json/auth/loginUser.do',
 			success : function(data) {
-				console.log(data.status);
+				console.log("login 정보" + data.status);
 				console.log(data.loginUser);
-				alert("추가완료");
 				$('#email').val(data.loginUser.email);
-				console.log(data.loginUser.email);
+				alert(data.loginUser.email + "정보가져옴");
+				imsiEmail = data.loginUser.email;
 			},
 			error : function() {
 				console.log('ajax 실패');
 			}
-
+		}).done(function(){
+		    /* AJAX로 email로 shop 정보 가져오기 */
+		    $.ajax({
+				type : 'get',
+				dataType : "json",
+				data : {
+					email : imsiEmail
+				},
+				url : '../../json/shop/list.do',
+				success : function(data) {
+					console.log(imsiEmail);
+					console.log(data.listShopInfo);
+					$('#licenseeNo').val(data.listShopInfo[0].licenseeNo);
+					$('#shopName').val(data.listShopInfo[0].shopName);
+					$('#shopAddr').val(data.listShopInfo[0].shopAddr);
+					$('#shopTel').val(data.listShopInfo[0].shopTel);
+					$('#shopIntro').val(data.listShopInfo[0].shopIntro);
+				},
+				error : function() {
+					console.log('ajax shop정보 실패');
+				}
+			});
 		});
 	    
-	    
-	    
-	});
-  </script>
+	    /* AJAX로 서버로 데이터 보내서 update */
+		$('#shop-updateBtn').click(function() {
+			$.ajax({
+				type : 'post',
+				dataType : "json",
+				url : '../../json/shop/update.do',
+				data : {
+					email : $('#email').val(),
+					licenseeNo : $('#licenseeNo').val(),
+					shopName : $('#shopName').val(),
+					shopAddr : $('#shopAddr').val(),
+					shopTel : $('#shopTel').val(),
+					shopIntro : $('#shopIntro').val(),
+					
+				},
+				success : function(data) {
+					console.log(data.status);
+					alert('등록완료');
+				},
+				error : function() {
+					console.log('등록 실패');
+				}
 
-
-<!-- AJAX로 서버에서 불러오기 스크립트 -->
-<script>
-
-	$('#shop-updateBtn').click(function() {
-		$.ajax({
-			type : 'post',
-			dataType : "json",
-			url : '../../json/shop/update.do',
-			data : {
-				email : $('#email').val(),
-				licenseeNo : $('#licenseeNo').val(),
-				shopName : $('#shopName').val(),
-				shopAddr : $('#shopAddr').val(),
-				shopTel : $('#shopTel').val(),
-				shopIntro : $('#shopIntro').val(),
-				
-			},
-			success : function(data) {
-				console.log(data.status);
-				console.log(data.loginUser);
-				alert("추가완료");
-				//$('#email').html(data.loginUser.email);
-				console.log(data.loginUser.email);
-			},
-			error : function() {
-				console.log('ajax 실패');
-			}
+			});
 
 		});
 
+	    
+	    /* 샵정보 maxlength */  
+		  $('.remaining').each(function() {
+		        // count 정보 및 count 정보와 관련된 textarea/input 요소를 찾아내서 변수에 저장한다.
+		        var $count = $('.info-count', this);
+		        var $input = $(this).prev();
+		        // .text()가 문자열을 반환하기에 이 문자를 숫자로 만들기 위해 1을 곱한다.
+		        var maximumCount = $count.text() * 1;
+		        // update 함수는 keyup, paste, input 이벤트에서 호출한다.
+		        var update = function() {
+		            var before = $count.text() * 1;
+		            var now = maximumCount - $input.val().length;
+		            // 사용자가 입력한 값이 제한 값을 초과하는지를 검사한다.
+		            if (now < 0) {
+		                var str = $input.val();
+		                alert('글자 입력수가 초과하였습니다.');
+		                $input.val(str.substr(0, maximumCount));
+		                now = 0;
+		            }
+		            // 필요한 경우 DOM을 수정한다.
+		            if (before != now) {
+		                $count.text(now);
+		            }
+		        };
+		        // input, keyup, paste 이벤트와 update 함수를 바인드한다
+		        $input.bind('input keyup paste', function() {
+		            setTimeout(update, 0)
+		        });
+		        update();
+		    });
+	    
 	});
+  
 </script>
 
 

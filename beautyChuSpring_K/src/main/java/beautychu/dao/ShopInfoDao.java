@@ -6,7 +6,8 @@ import beautychu.domain.ShopInfo;
 
 public interface ShopInfoDao {
 	
-	  List<?> getList();
-	  void insertShopInfo(ShopInfo shopInfo);
+	  List<?> getList(String email);
+	  void updateShopInfo(ShopInfo shopInfo);
+	  void insertPhoto(ShopInfo shopInfo);
 
-	}
+}

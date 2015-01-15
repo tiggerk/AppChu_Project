@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/jquery.form.js"></script>
+<!-- jQuery MultiFile Plugin import -->
+<script src="assets/js/jquery.MultiFile.js"></script>
+</head>
+<body>
+	<!-- 따로따로는 다중으로 올라감.. -->
+	 <form method="post" enctype="multipart/form-data">
+		파일첨부 1 : <input type="file" id="files-short" class="multi with-preview" name="files[]" multiple/>
+		<br /> <div id="list-short"></div>
+		파일첨부 2 : <input type="file" name="file2" />
+		<br />
+		파일첨부 3 : <input type="file" name="file3" />
+		<br />
+		<input type="submit" value="upload" />
+	</form>
+
+	<script>
+	$(document).ready(function() {
+		/* function handleFileSelect(evt) {
+		    var files = evt.target.files; // FileList object
+
+		    // Loop through the FileList and render image files as thumbnails.
+		    for (var i = 0, f; f = files[i]; i++) {
+
+		      // Only process image files.
+		      if (!f.type.match('image.*')) {
+		        continue;
+		      }
+
+		      var reader = new FileReader();
+
+		      // Closure to capture the file information.
+		      reader.onload = (function(theFile) {
+		        return function(e) {
+		          // Render thumbnail.
+		          var date = new Date();
+		          var file = date.getTime();
+		          
+		          var div = document.createElement('div');
+		          div.id = file;
+		          div.innerHTML = ['<img class="thumb" src="', e.target.result,
+		                            '" title="', escape(theFile.name), '"/><br>',escape(theFile.name),
+		                            '&nbsp; <a href="javascript:del(',file,')">삭제</a>'].join('');
+		          
+		          document.getElementById('list-short').insertBefore(div, null);
+		        };
+		      })(f);
+
+		      // Read in the image file as a data URL.
+		      reader.readAsDataURL(f);
+		    }
+		  }
+		  
+		  	function del(value) {
+				document.getElementById(value).remove();
+			}
+
+		  document.getElementById('files-short').addEventListener('change', handleFileSelect, false);
+		  */ 
+		$("input[type=submit]").bind("click", function() {
+			$("form").ajaxSubmit({
+				dataType : "json",
+				url : '../../json/shop/fileUploadAjax.do',
+				success : function(data) {
+					console.log(data);
+					console.log(data.result);
+				},
+				error : function(error) {
+					alert("요청 처리 중 오류가 발생하였습니다.");
+				}
+			});
+			return false;
+		});
+	});
+	</script> 
+	<script>
+  
+</script>
+	
+</body>
+</html>

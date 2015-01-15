@@ -16,7 +16,7 @@
   
   <select id="getList" parameterType="map" resultMap="shopInfoMap">
     SELECT EMAIL, LICENSEENO, SHOPNAME, SHOPADDR, SHOPTEL, SHOPINTRO 
-    FROM SHOP WHERE EMAIL = #{email}
+    FROM SHOP WHERE EMAIL = #{email};
   </select>
   
   <update id="insertShopInfo" parameterType="ShopInfo" >

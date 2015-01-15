@@ -10,6 +10,7 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+	<!-- Component(Controller / Service / Repository) auto scan -->
 	<context:component-scan base-package="beautychu.control" />
 
 	<!-- @RequestMapping과 @ExceptionHandler 등의 애노테이션을 처리할 객체를 등록한다. 이 선언이 있어야만 
@@ -19,6 +20,7 @@
 	<!-- 멀티파트 형식의 데이터를 처리하고 싶다면, 다음 객체를 선언해야 한다. -->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- maximum file size in bytes 10000000 -->
 		<property name="maxUploadSize" value="10000000" />
 	</bean>
 

@@ -3,7 +3,6 @@ package beautychu.service;
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
-import java.util.List;
 
 import javax.servlet.ServletContext;
 
@@ -12,23 +11,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import beautychu.dao.ShopInfoDao;
-import beautychu.domain.ShopInfo;
-
 @Service
-public class ShopInfoService {
-  @Autowired ShopInfoDao shopInfoDao;
-  
-  public List<?> getList(String email) {
-	  /*System.out.println(email);*/
-    return shopInfoDao.getList(email); 
-  }
-  
-	public void updateShopInfo(ShopInfo shopInfo) {
-		shopInfoDao.updateShopInfo(shopInfo);
-	}
+public class FileUploadService {
 	
 	@Autowired ServletContext servletContext;
+
 	public boolean fileUpload(MultipartHttpServletRequest mRequest) {
 
 		boolean isSuccess = false;
@@ -37,6 +24,7 @@ public class ShopInfoService {
 		/*String uploadPath = "/file/";*/
 		
 		File dir = new File(uploadPath);
+		/*File dir = new File(uploadPath);*/
 
 		if (!dir.isDirectory()) {
 			dir.mkdirs();
@@ -73,19 +61,4 @@ public class ShopInfoService {
 		return isSuccess;
 	} // fileUpload end
 
-	/*@Transactional(rollbackFor=Exception.class, propagation=Propagation.REQUIRED)
-	  public void insertPhoto(ShopInfo shopInfo) {
-	    shopInfoDao.insertPhoto(shopInfo);
-	    
-	    if (shopInfo.getPhoto() != null) {
-	    	shopInfoDao.insertPhoto(shopInfo);
-	    }
-	  }*/
 }
-
-
-
-
-
-
-
