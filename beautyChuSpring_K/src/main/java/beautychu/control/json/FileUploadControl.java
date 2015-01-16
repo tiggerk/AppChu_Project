@@ -79,7 +79,7 @@ public class FileUploadControl {
 		return mav;
 	}*/
 	
-	@RequestMapping(value="/fileUploadAjax", method=RequestMethod.POST)
+	/*@RequestMapping(value="/fileUploadAjax", method=RequestMethod.POST)
 	  public Object add(ShopInfo shopInfo) throws Exception {  
 	    
 	    if (shopInfo.getPhotofile() != null
@@ -100,7 +100,7 @@ public class FileUploadControl {
 	    resultMap.put("status", "success");
 	    
 	    return resultMap;
-	  }
+	  }*/
 	
 	
 }

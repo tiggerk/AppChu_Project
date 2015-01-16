@@ -25,19 +25,49 @@ public class ShopInfoControl {
 	
 	@Autowired
 	ServletContext servletContext;
+	
+	/*AJAX post방식*/
+	@RequestMapping(value="/fileUpload", method=RequestMethod.POST)
+	public ModelAndView fileUpload(MultipartHttpServletRequest mRequest, String email) {
+		
+		System.out.println("나나나"+email);
+		ModelAndView mav = new ModelAndView();
+		
+		if(shopInfoService.fileUpload(mRequest, email)) {
+			mav.addObject("result", "SUCCESS");
+		} else {
+			mav.addObject("result", "FAIL");
+		}
+		
+		mav.setViewName("JSON");
+		
+		return mav;
+	}
 
+	/* ajax get방식
+	@RequestMapping(value="/fileUploadAjax", method=RequestMethod.GET)
+	public ModelAndView fileUploadAjaxForm() {
+		
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("board/fileUpload_ajax");
+		
+		return mav;
+	}*/
+	
 	@RequestMapping("/update")
-	public Object update(String email, String licenseeNo, String shopName, String shopAddr,
+	public Object update(String shopPhotoUrl, String email, String licenseeNo, String shopName, String shopAddr,
 			String shopTel, String shopIntro, HttpSession session) throws Exception {
 		
 		ShopInfo shopInfo = new ShopInfo();
+		shopInfo.setShopPhotoUrl("/"+ shopPhotoUrl);
 		shopInfo.setEmail(email);
 		shopInfo.setLicenseeNo(licenseeNo);
 		shopInfo.setShopName(shopName);
 		shopInfo.setShopAddr(shopAddr);
 		shopInfo.setShopTel(shopTel);
 		shopInfo.setShopIntro(shopIntro);
-	
+		
 		shopInfoService.updateShopInfo(shopInfo);
 		
 		HashMap<String, Object> resultMap = new HashMap<>();
@@ -49,49 +79,18 @@ public class ShopInfoControl {
 	}
 	
 	@RequestMapping("/list")
-	public Object list(String email) throws Exception {
+	public Object list(String email, HttpSession session) throws Exception {
 		
 		HashMap<String, Object> resultMap = new HashMap<>();
 		
 		System.out.println(email);
+		System.out.println(session.getServletContext().getRealPath("/fileupload/"));
 		
 		resultMap.put("listShopInfo", shopInfoService.getList(email));
 		return resultMap;
 	}
 	
-	/*AJAX post방식
-	@RequestMapping(value="/fileUploadAjax", method=RequestMethod.POST)
-	public ModelAndView fileUploadAjax(MultipartHttpServletRequest mRequest) {
-		
-		ModelAndView mav = new ModelAndView();
-		
-		if(fileUploadService.fileUpload(mRequest)) {
-			mav.addObject("result", "SUCCESS");
-		} else {
-			mav.addObject("result", "FAIL");
-		}
-		
-		mav.setViewName("JSON");
-		
-		return mav;
-	}*/
 	
-	/*AJAX post방식*/
-	@RequestMapping(value="/fileUploadAjax", method=RequestMethod.POST)
-	public ModelAndView fileUploadAjax(MultipartHttpServletRequest mRequest) {
-		
-		ModelAndView mav = new ModelAndView();
-		
-		if(shopInfoService.fileUpload(mRequest)) {
-			mav.addObject("result", "SUCCESS");
-		} else {
-			mav.addObject("result", "FAIL");
-		}
-		
-		mav.setViewName("JSON");
-		
-		return mav;
-	}
 	
 	
 	/*@RequestMapping(value="/fileUploadAjax", method=RequestMethod.POST)

@@ -17,8 +17,22 @@
 		<br />
 		파일첨부 3 : <input type="file" name="file3" />
 		<br />
+		<button id="aaa">파일 속성</button>
 		<input type="submit" value="upload" />
 	</form>
+	
+	<script type="text/javascript">
+	$("#aaa").click(function() {
+		var files = document.getElementById( "files-short" ).files;
+		for (var i = 0; i < files.length; i++) {
+			var file = files[ i ];
+			alert( file.name ); //파일명
+			console.log( file.size ); //파일크기
+			console.log( file.type ); //파일마임타입
+			console.log( file.lastModifyDate ); //최종수정시간
+		}
+	});
+	</script>
 
 	<script>
 	$(document).ready(function() {
@@ -63,10 +77,13 @@
 
 		  document.getElementById('files-short').addEventListener('change', handleFileSelect, false);
 		  */ 
+		  
+		  
+		  
 		$("input[type=submit]").bind("click", function() {
 			$("form").ajaxSubmit({
 				dataType : "json",
-				url : '../../json/shop/fileUploadAjax.do',
+				url : '../../json/shop/fileUpload.do',
 				success : function(data) {
 					console.log(data);
 					console.log(data.result);

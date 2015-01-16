@@ -269,13 +269,14 @@
                   <div class="form-panel">
                   	  <h4 class="mb"><i class="fa fa-angle-right"></i> Shop Info</h4>
                   	  
-                      <form class="form-horizontal style-form" method="get">
+                      <form class="form-horizontal style-form" method="post" enctype="multipart/form-data">
                       
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">샵프로필사진</label>
                               <div class="col-sm-10">
-                              	<img class="thumb" width="100" src="assets/img/ui-zac.jpg" alt="shop-profile-img">
-                              	<input type="file" id="files-short" name="filesS[]" multiple />
+                              <!-- <img class="thumb" width="100" src="assets/img/ui-zac.jpg" alt="shop-profile-img"> -->
+                              <img id="shopProfile" class="thumb" width="100" alt="shop-profile-img">
+                              	<input type="file" id="profileInput" name="filesS[]" multiple />
 								<output id="list-short"></output>	
                               </div>
                           </div>
@@ -283,7 +284,7 @@
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">이메일</label>
                               <div class="col-sm-10">
-                                  <input type="text" id='email' class="form-control round-form" value="" placeholder="User Email">
+                                  <input type="text" id='email' class="form-control round-form" value="" placeholder="User Email" readonly="readonly">
                               </div>
                           </div>
                           
@@ -361,11 +362,14 @@
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/jquery.form.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="assets/js/jquery.scrollTo.min.js"></script>
     <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
 
+	<!-- jQuery MultiFile Plugin import -->
+	<script src="assets/js/jquery.MultiFile.js"></script>
 
     <!--common script for all pages-->
     <script src="assets/js/common-scripts.js"></script>
@@ -417,6 +421,9 @@ var imsiEmail;
 				success : function(data) {
 					console.log(imsiEmail);
 					console.log(data.listShopInfo);
+					console.log(data.listShopInfo[0].shopPhotoUrl);
+					
+					$('#shopProfile').attr('src','/beautyChuSpring_K/fileupload' + data.listShopInfo[0].shopPhotoUrl);
 					$('#licenseeNo').val(data.listShopInfo[0].licenseeNo);
 					$('#shopName').val(data.listShopInfo[0].shopName);
 					$('#shopAddr').val(data.listShopInfo[0].shopAddr);
@@ -431,6 +438,24 @@ var imsiEmail;
 	    
 	    /* AJAX로 서버로 데이터 보내서 update */
 		$('#shop-updateBtn').click(function() {
+			/* var profileInput = document.getElementById("profileInput").files[0].name;
+			var photo1 = profileInput[0];
+			var shopPhotoName = profileInput[0].name; */
+			console.log(profileInput);
+
+			$("form").ajaxSubmit({
+				dataType : "json",
+				url : '../../json/shop/fileUpload.do',
+				data : {email : imsiEmail},
+				success : function(data) {
+					console.log(data);
+					console.log(data.result);
+				},
+				error : function(error) {
+					alert("요청 처리 중 오류가 발생하였습니다.");
+				}
+			});
+			
 			$.ajax({
 				type : 'post',
 				dataType : "json",
@@ -454,6 +479,9 @@ var imsiEmail;
 
 			});
 
+			
+
+			
 		});
 
 	    

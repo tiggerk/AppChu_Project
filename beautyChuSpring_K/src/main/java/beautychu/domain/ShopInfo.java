@@ -15,10 +15,10 @@ public class ShopInfo implements Serializable {
 	String shopAddr;
 	String shopTel;
 	String shopIntro;
-	String photo;
+	String shopPhotoNo;
+	String shopPhotoUrl;
 	MultipartFile photofile;
 	List<?> photoList;
-	
 	
 	public String getEmail() {
 		return email;
@@ -56,11 +56,17 @@ public class ShopInfo implements Serializable {
 	public void setShopIntro(String shopIntro) {
 		this.shopIntro = shopIntro;
 	}
-	public String getPhoto() {
-		return photo;
+	public String getShopPhotoNo() {
+		return shopPhotoNo;
 	}
-	public void setPhoto(String photo) {
-		this.photo = photo;
+	public void setShopPhotoNo(String shopPhotoNo) {
+		this.shopPhotoNo = shopPhotoNo;
+	}
+	public String getShopPhotoUrl() {
+		return shopPhotoUrl;
+	}
+	public void setShopPhotoUrl(String shopPhotoUrl) {
+		this.shopPhotoUrl = shopPhotoUrl;
 	}
 	public MultipartFile getPhotofile() {
 		return photofile;
@@ -74,13 +80,15 @@ public class ShopInfo implements Serializable {
 	public void setPhotoList(List<?> photoList) {
 		this.photoList = photoList;
 	}
+	
 	@Override
 	public String toString() {
 		return "ShopInfo [email=" + email + ", licenseeNo=" + licenseeNo
 				+ ", shopName=" + shopName + ", shopAddr=" + shopAddr
 				+ ", shopTel=" + shopTel + ", shopIntro=" + shopIntro
-				+ ", photo=" + photo + ", photofile=" + photofile
-				+ ", photoList=" + photoList + "]";
+				+ ", shopPhotoNo=" + shopPhotoNo + ", shopPhotoUrl="
+				+ shopPhotoUrl + ", photofile=" + photofile + ", photoList="
+				+ photoList + "]";
 	}
 	
 }

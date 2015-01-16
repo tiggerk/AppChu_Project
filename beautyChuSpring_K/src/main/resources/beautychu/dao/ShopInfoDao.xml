@@ -11,23 +11,36 @@
     <result column="SHOPNAME" property="shopName"/>
     <result column="SHOPADDR" property="shopAddr"/>
     <result column="SHOPTEL" property="shopTel"/>
-    <result column="SHOPINTRO" property="shopIntro"/>    
+    <result column="SHOPINTRO" property="shopIntro"/>
+    <result column="SHOPPHOTONO" property="shopPhotoNo"/>
+    <result column="SHOPPHOTOURL" property="shopPhotoUrl"/>    
   </resultMap>
   
   <select id="getList" parameterType="map" resultMap="shopInfoMap">
-    SELECT EMAIL, LICENSEENO, SHOPNAME, SHOPADDR, SHOPTEL, SHOPINTRO 
-    FROM SHOP WHERE EMAIL = #{email};
+    SELECT T1.EMAIL, SHOPPHOTOURL, LICENSEENO, SHOPNAME, SHOPADDR, SHOPTEL, SHOPINTRO
+    FROM SHOP T1 LEFT JOIN SHOPPHOTO T2 
+    ON T1.EMAIL = T2.EMAIL
+    WHERE T1.EMAIL = #{email};
   </select>
   
-  <update id="insertShopInfo" parameterType="ShopInfo" >
-  UPDATE SHOP SET 
+  <update id="updateShopInfo" parameterType="ShopInfo" >
+	UPDATE SHOP T1 LEFT JOIN SHOPPHOTO T2 
+	ON T1.EMAIL = T2.EMAIL
+	SET
+	SHOPPHOTOURL=#{shopPhotoUrl},
   	LICENSEENO=#{licenseeNo},
   	SHOPNAME=#{shopName},
   	SHOPADDR=#{shopAddr},
  	SHOPTEL=#{shopTel},
  	SHOPINTRO=#{shopIntro}
- WHERE EMAIL = #{email};
+ 	
+ 	WHERE T1.EMAIL = #{email};
   </update>
+  
+  <insert id="insertPhoto" parameterType="ShopInfoPhoto">
+  	INSERT INTO SHOPPHOTO (SHOPPHOTOURL, EMAIL)
+	VALUES (#{shopPhotoUrl}, #{email});
+  </insert>
  
   
 </mapper>
