@@ -6,8 +6,10 @@ import beautychu.domain.Member;
 
 public interface MemberDao {
 	
-	Member existUser(Map<String, String> params);
-	void insertUser(Member member);
+	  Member existUser(Map<String,String> params);
+	  void insertUser(Member member);
+	  void updateUser(Member member);
+    void deleteUser(Member member);
 	
 	/* Member selectOne(int no); */
 	
@@ -20,5 +22,4 @@ public interface MemberDao {
 	  List<?> selectPhoto(int productNo);
 	  void deletePhoto(int productNo);
 	  int totalSize();*/
-
-}
+	}

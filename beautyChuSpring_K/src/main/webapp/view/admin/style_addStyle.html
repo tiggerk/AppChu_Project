@@ -33,16 +33,14 @@
 	margin: 10px 5px 0 0;
 }
 
-#list-short div, #list-medium div, #list-long div {
+#list-output div {
 	display: inline-block;
 }
-#list-short div a, #list-medium div a, #list-long div a{
+#list-output div a {
 	color: #555;
 	font-size: 0.8em;
 }
-#list-short div a:focus, #list-short div a:hover,
-#list-medium div a:focus, #list-medium div a:hover,
-#list-long div a:focus, #list-long div a:hover {
+#list-output div a:focus, #list-output div a:hover {
 	color: red;
 	font-size: 0.8em;
 }
@@ -241,15 +239,15 @@
                   <li class="sub-menu">
                       <a class="active"  href="javascript:;" >
                           <i class="fa fa-edit"></i>
-                          <span>Style</span>
+                          <span>Woman Style</span>
                       </a>
                       <ul class="sub">
-                          <li class="active"><a href="style_addStyle.html">Add Style</a></li>
-                          <li><a  href="style_cut.html#">Cut</a></li>
-                          <li><a  href="style_perm.html#">Perm</a></li>
-                          <li><a  href="style_color.html#">Color</a></li>
-                          <li><a  href="style_care.html#">Care</a></li>
-                          <li><a  href="style_etc.html#">ETC</a></li>
+                          <li class="active"><a href="style_addStyle.html">Add Woman Style</a></li>
+                          <li><a  href="style_cut.html#">Woman Cut</a></li>
+                          <li><a  href="style_perm.html#">Woman Perm</a></li>
+                          <li><a  href="style_color.html#">Woman Color</a></li>
+                          <li><a  href="style_care.html#">Woman Care</a></li>
+                          <li><a  href="style_etc.html#">Woman ETC</a></li>
                       </ul>
                   </li>
 
@@ -286,20 +284,20 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-          	<h3><i class="fa fa-angle-right"></i> Style</h3>
+          	<h3><i class="fa fa-angle-right"></i> Woman Style</h3>
           	
           	<!-- BASIC FORM ELELEMNTS -->
           	<div class="row mt">
           		<div class="col-lg-12">
                   <div class="form-panel">
-                  	  <h4 class="mb"><i class="fa fa-angle-right"></i> Add Style</h4>
+                  	  <h4 class="mb"><i class="fa fa-angle-right"></i> Add Woman Style</h4>
                   	  
                       <form class="form-horizontal style-form" method="post" enctype="multipart/formdata">
                       
                       	  <div class="form-group">
                           	<label class="col-lg-1 col-sm-1 control-label"><b>분 류</b></label>
                           	<div class="col-sm-3">
-	                            <select class="form-control round-form">
+	                            <select id="styleSort" class="form-control round-form">
 								  <option>Cut</option>
 								  <option>Perm</option>
 								  <option>Color</option>
@@ -308,215 +306,60 @@
 								</select>
 							</div>
                           </div>
+                          
+                          <div class="form-group">
+                          	<label class="col-lg-1 col-sm-1 control-label"><b>기 장</b></label>
+                          	<div class="col-sm-3">
+	                            <select id="styleLength" class="form-control round-form">
+								  <option>Short</option>
+								  <option>Medium</option>
+								  <option>Long</option>
+								</select>
+							</div>
+                          </div>
 						
                           <div class="form-group">
                               <label class="col-lg-1 col-sm-1 control-label"><b>제 목</b></label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control round-form">
+                                  <input type="text" id="styleName" class="form-control round-form">
                               </div>
                           </div>
                           
-                          <!-- Short form ------------------------------------------------------------------------>
-                          <div class="form-group" style="border-bottom: 0px;">
-                              <label class="col-lg-1 col-sm-1 control-label"><b>Short</b></label>
-                              <div class="col-sm-1">
-                                  <p class="form-control-static">가격 &nbsp;&nbsp;:</p>
-                              </div>
-                              <div class="col-sm-9">
-                                  <input type="text" class="form-control round-form">
-                              </div>
-                          </div>
                           <div class="form-group">
-                              <label class="col-lg-1 col-sm-1 control-label"></label>
-                              <div class="col-sm-1">
-                              	  <p class="form-control-static">사진 &nbsp;&nbsp;:</p>
+                              <label class="col-lg-1 col-sm-1 control-label"><b>가 격</b></label>
+                              <div class="col-sm-10">
+                                  <input type="text" id="price" class="form-control round-form" maxlength="14">
                               </div>
-                              <div class="col-sm-9">
-                              	<input type="file" id="files-short" name="filesS[]" multiple />
-								<output id="list-short"><br></output>
-								</div>
-                              	<!-- <button type="submit" class="btn btn-theme">Upload new picture</button> -->
                           </div>
                           
-                          <!-- Medium form  ------------------------------------------------------------------------>
-                          <div class="form-group" style="border-bottom: 0px;">
-                              <label class="col-lg-1 col-sm-1 control-label"><b>Medium</b></label>
-                              <div class="col-sm-1">
-                                  <p class="form-control-static">가격 &nbsp;&nbsp;:</p>
-                              </div>
-                              <div class="col-sm-9">
-                                  <input type="text" class="form-control round-form">
-                              </div>
-                          </div>
                           <div class="form-group">
-                              <label class="col-lg-1 col-sm-1 control-label"></label>
-                              <div class="col-sm-1">
-                              	  <p class="form-control-static">사진 &nbsp;&nbsp;:</p>
+                              <label class="col-lg-1 col-sm-1 control-label"><b>소 개</b></label>
+                              <div class="col-sm-10">
+                              	<textarea id='styleIntro' name="style-intro" rows="2" cols="80" class="form-control round-form"></textarea>
+								<div class="remaining text-right">남은 글자수: <span class="info-count">100</span></div>
                               </div>
-                              <div class="col-sm-9">	
-                              	<input type="file" id="files-medium" name="filesM[]" multiple />
-								<output id="list-medium"><br></output>
-								</div>
-                              	<!-- <button type="submit" class="btn btn-theme">Upload new picture</button> -->
                           </div>
                           
-                          <!-- Long form  ------------------------------------------------------------------------>
-                          <div class="form-group" style="border-bottom: 0px;">
-                              <label class="col-lg-1 col-sm-1 control-label"><b>Long</b></label>
-                              <div class="col-sm-1">
-                                  <p class="form-control-static">가격 &nbsp;&nbsp;:</p>
-                              </div>
-                              <div class="col-sm-9">
-                                  <input type="text" class="form-control round-form">
-                              </div>
-                          </div>
                           <div class="form-group">
-                              <label class="col-lg-1 col-sm-1 control-label"></label>
-                              <div class="col-sm-1">
-                              	  <p class="form-control-static">사진 &nbsp;&nbsp;:</p>
+                              <label class="col-lg-1 col-sm-1 control-label"><b>사 진</b></label>
+                              <div class="col-sm-10">
+                              	<input type="file" id="photofile" name="files[]" multiple/>
+								<output id="list-output"><br></output>
                               </div>
-                              <div class="col-xs-9">	
-                              	<input type="file" id="files-long" name="filesL[]" multiple />
-								<output id="list-long"><br></output>
-								</div>
-                              	<!-- <button type="submit" class="btn btn-theme">Upload new picture</button> -->
                           </div>
                           
                           <!-- Add Style Button -->
                           <div class="form-group">
                           	<div class="col-lg-12">
-                          		<button type="button" class="btn btn-theme btn-block btn-lg">Add Style</button>
+                          		<button type="button" id="style-addBtn" class="btn btn-theme btn-block btn-lg">Add Style</button>
                           	</div>
                        	  </div>
                           	
                       </form>
                   </div>
-                  
           		</div><!-- col-lg-12-->      	
           	</div><!-- /row -->
 
-          	
-          	
-          	
-          	<!-- STYLE UPDATE FORM ELELEMNTS -->
-          	<div class="row mt">
-          		<div class="col-lg-12">
-                  <div class="form-panel">
-                  	  <h4 class="mb"><i class="fa fa-angle-right"></i> Baby Perm</h4>
-                  	  <form class="form-horizontal style-form" role="form">
-                      
-                      	  <div class="form-group">
-                          	<label class="col-lg-1 col-sm-1 control-label"><b>분 류</b></label>
-                          	<div class="col-sm-3">
-	                            <select class="form-control round-form">
-								  <option>Cut</option>
-								  <option selected="selected">Perm</option>
-								  <option>Color</option>
-								  <option>Care</option>
-								  <option>ETC</option>
-								</select>
-							</div>
-                          </div>
-                          
-                          <div class="form-group">
-                              <label class="col-lg-1 col-sm-1 control-label"><b>제 목</b></label>
-                              <div class="col-sm-10">
-                                  <input type="text" class="form-control round-form" placeholder="Baby Perm">
-                              </div>
-                          </div>
-                          
-                          <!-- Update Short form ------------------------------------------------------------------------>
-                          <div class="form-group" style="border-bottom: 0px;">
-                              <label class="col-lg-1 col-sm-1 control-label"><b>Short</b></label>
-                              <div class="col-sm-1">
-                                  <p class="form-control-static">가격 &nbsp;&nbsp;:</p>
-                              </div>
-                              <div class="col-sm-9">
-                                  <input type="text" class="form-control round-form text-center" placeholder="15,000원">
-                              </div>
-                          </div>
-                          <div class="form-group">
-                              <label class="col-lg-1 col-sm-1 control-label"></label>
-                              <div class="col-sm-1">
-                              	  <p class="form-control-static">사진 &nbsp;&nbsp;:</p>
-                              </div>
-                              <div class="col-sm-9">
-                              	<input type="file" id="files-short" name="filesS[]" multiple />
-								<output id="list-short"><br></output>	
-                              	<img class="thumb" src="assets/img/s3.jpg" alt>
-                              	<img class="thumb" src="assets/img/s3.jpg" alt>
-                              	<img class="thumb" src="assets/img/s3.jpg" alt>
-                              	<img class="thumb" src="assets/img/s3.jpg" alt>
-                              	<img class="thumb" src="assets/img/s3.jpg" alt>
-                              	<img class="thumb" src="assets/img/s3.jpg" alt>
-                              	<img class="thumb" src="assets/img/s3.jpg" alt>
-                              	<img class="thumb" src="assets/img/s3.jpg" alt>
-							  </div>
-                          </div>
-                          
-                          <!-- Update Medium form ------------------------------------------------------------------------>
-                          <div class="form-group" style="border-bottom: 0px;">
-                              <label class="col-lg-1 col-sm-1 control-label"><b>Medium</b></label>
-                              <div class="col-sm-1">
-                                  <p class="form-control-static">가격 &nbsp;&nbsp;:</p>
-                              </div>
-                              <div class="col-sm-9">
-                                  <input type="text" class="form-control round-form text-center" placeholder="20,000원">
-                              </div>
-                          </div>
-                          <div class="form-group">
-                              <label class="col-lg-1 col-sm-1 control-label"></label>
-                              <div class="col-sm-1">
-                              	  <p class="form-control-static">사진 &nbsp;&nbsp;:</p>
-                              </div>
-                              <div class="col-sm-9">	
-                              	<input type="file" id="files-medium" name="filesM[]" multiple />
-								<output id="list-medium"><br></output>
-                              	<img class="thumb" src="assets/img/s2.png" alt>
-                              	<img class="thumb" src="assets/img/s2.png" alt>
-                              	<img class="thumb" src="assets/img/s2.png" alt>
-                              	<img class="thumb" src="assets/img/s2.png" alt>
-							  </div>
-                          </div>
-                          
-                          <!-- Update Long form  ------------------------------------------------------------------------>
-                          <div class="form-group" style="border-bottom: 0px;">
-                              <label class="col-lg-1 col-sm-1 control-label"><b>Long</b></label>
-                              <div class="col-sm-1">
-                                  <p class="form-control-static">가격 &nbsp;&nbsp;:</p>
-                              </div>
-                              <div class="col-sm-9">
-                                  <input type="text" class="form-control round-form text-center" placeholder="30,000원">
-                              </div>
-                          </div>
-                          <div class="form-group">
-                              <label class="col-lg-1 col-sm-1 control-label"></label>
-                              <div class="col-sm-1">
-                              	  <p class="form-control-static">사진 &nbsp;&nbsp;:</p>
-                              </div>
-                              <div class="col-sm-9">	
-                              	<input type="file" id="files-long" name="filesL[]" multiple />
-								<output id="list-long"><br></output>
-								<img class="thumb" src="assets/img/s1.png" alt>
-								<img class="thumb" src="assets/img/s1.png" alt>
-								<img class="thumb" src="assets/img/s1.png" alt>
-							  </div>
-                              	<!-- <button type="submit" class="btn btn-theme">Upload new picture</button> -->
-                          </div>
-                          
-                          <!-- Add Style Button -->
-                          <div class="form-group">
-                          	<div class="col-lg-12">
-                          		<button type="submit" class="btn btn-theme"><i class="fa fa-cog"></i> Update</button>
-                          		<button type="button" class="btn">Cancel</button>
-                          	</div>
-                       	  </div>
-                          	
-                      </form>
-                  </div>
-                  
-          		</div><!-- col-lg-12-->      	
-          	</div><!-- /row -->
 		</section><!--/wrapper -->
       </section><!-- /MAIN CONTENT -->
 
@@ -535,11 +378,12 @@
       <!--footer end-->
   </section>
 
-    <!-- ajax fileupload
-    <script src="assets/js/jquery.form.js"></script> -->
-    
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="assets/js/jquery.js"></script>
+    <!-- ajax fileupload -->
+	<script src="assets/js/jquery.form.js"></script>
+	<!-- jQuery MultiFile Plugin import -->
+	<script src="assets/js/jquery.MultiFile.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="assets/js/jquery.scrollTo.min.js"></script>
@@ -559,16 +403,76 @@
 	<script src="assets/js/jquery.tagsinput.js"></script>
 	
 	<!--custom checkbox & radio-->
-	
-	<!-- <script type="text/javascript" src="assets/js/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-	<script type="text/javascript" src="assets/js/bootstrap-daterangepicker/date.js"></script>
-	<script type="text/javascript" src="assets/js/bootstrap-daterangepicker/daterangepicker.js"></script> -->
-	
 	<script type="text/javascript" src="assets/js/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
 	
-	
-	<!-- <script src="assets/js/form-component.js"></script> -->    
     
+<script type="text/javascript">
+var imsiEmail;
+
+$(function() {
+	    /* AJAX로 email 로그인 정보 가져오기 */
+	    $.ajax({
+			type : 'get',
+			dataType : "json",
+			url : '../../json/auth/loginUser.do',
+			success : function(data) {
+				console.log("login 정보" + data.status);
+				console.log(data.loginUser);
+				$('#email').val(data.loginUser.email);
+				alert(data.loginUser.email + "정보가져옴");
+				imsiEmail = data.loginUser.email;
+			},
+			error : function() {
+				console.log('ajax 실패');
+			}
+		});
+	    
+	    /* AJAX로 서버로 데이터 보내서 Add */
+		$('#style-addBtn').click(function() {
+
+			$("form").ajaxSubmit({
+				dataType : "json",
+				url : '../../json/shop/fileUpload.do',
+				data : {email : imsiEmail},
+				success : function(data) {
+					console.log(data);
+					console.log(data.result);
+				},
+				error : function(error) {
+					alert("요청 처리 중 오류가 발생하였습니다.");
+				}
+			});
+			
+			$.ajax({
+				type : 'post',
+				dataType : "json",
+				url : '../../json/style/add.do',
+				data : {
+					email : imsiEmail,
+					people : 'normal',
+					gender : 'woman',
+					styleSort : $('#styleSort option:selected').val(),
+					styleLength : $('#styleLength option:selected').val(),
+					styleName : $('#styleName').val(),
+					price : $('#price').val(),
+					styleIntro : $('#styleIntro').val(),
+					stylePhotoUrl : $('#photofile').val()
+				},
+				success : function(data) {
+					console.log(data.status);
+					alert('등록완료');
+				},
+				error : function() {
+					console.log('등록 실패');
+				}
+
+			});
+			
+		});
+});
+
+</script>  
+  
   
   <!-- Browse Short... image preview ------------------------------------------------------------------------>
   <script>
@@ -599,7 +503,7 @@
                             '" title="', escape(theFile.name), '"/><br>',escape(theFile.name),
                             '&nbsp; <a href="javascript:del(',file,')">삭제</a>'].join('');
           
-          document.getElementById('list-short').insertBefore(div, null);
+          document.getElementById('list-output').insertBefore(div, null);
         };
       })(f);
 
@@ -612,96 +516,40 @@
 		document.getElementById(value).remove();
 	}
 
-  document.getElementById('files-short').addEventListener('change', handleFileSelect, false);
+  document.getElementById('photofile').addEventListener('change', handleFileSelect, false);
 </script>
 
-<!-- Browse Medium... image preview ------------------------------------------------------------------------>
-  <script>
-  function handleFileSelect(evt) {
-	    var files = evt.target.files; // FileList object
-
-	    // Loop through the FileList and render image files as thumbnails.
-	    for (var i = 0, f; f = files[i]; i++) {
-
-	      // Only process image files.
-	      if (!f.type.match('image.*')) {
-	        continue;
-	      }
-
-	      var reader = new FileReader();
-
-	      // Closure to capture the file information.
-	      reader.onload = (function(theFile) {
-	        return function(e) {
-	          // Render thumbnail.
-	          var date = new Date();
-	          var file = date.getTime();
-	          
-	          var div = document.createElement('div');
-	          div.id = file;
-	          div.innerHTML = ['<img class="thumb" src="', e.target.result,
-	                            '" title="', escape(theFile.name), '"/><br>',escape(theFile.name),
-	                            '&nbsp; <a href="javascript:del(',file,')">삭제</a>'].join('');
-	          
-	          document.getElementById('list-medium').insertBefore(div, null);
-	        };
-	      })(f);
-
-	      // Read in the image file as a data URL.
-	      reader.readAsDataURL(f);
-	    }
-	  }
-	  
-	  	function del(value) {
-			document.getElementById(value).remove();
-		}
-
-	  document.getElementById('files-medium').addEventListener('change', handleFileSelect, false);
+/* 스타일정보 maxlength */
+<script>  
+$('.remaining').each(function() {
+      // count 정보 및 count 정보와 관련된 textarea/input 요소를 찾아내서 변수에 저장한다.
+      var $count = $('.info-count', this);
+      var $input = $(this).prev();
+      // .text()가 문자열을 반환하기에 이 문자를 숫자로 만들기 위해 1을 곱한다.
+      var maximumCount = $count.text() * 1;
+      // update 함수는 keyup, paste, input 이벤트에서 호출한다.
+      var update = function() {
+          var before = $count.text() * 1;
+          var now = maximumCount - $input.val().length;
+          // 사용자가 입력한 값이 제한 값을 초과하는지를 검사한다.
+          if (now < 0) {
+              var str = $input.val();
+              alert('글자 입력수가 초과하였습니다.');
+              $input.val(str.substr(0, maximumCount));
+              now = 0;
+          }
+          // 필요한 경우 DOM을 수정한다.
+          if (before != now) {
+              $count.text(now);
+          }
+      };
+      // input, keyup, paste 이벤트와 update 함수를 바인드한다
+      $input.bind('input keyup paste', function() {
+          setTimeout(update, 0)
+      });
+      update();
+  });
 </script>
 
-<!-- Browse Long... image preview ------------------------------------------------------------------------>
-  <script>
-  function handleFileSelect(evt) {
-	    var files = evt.target.files; // FileList object
-
-	    // Loop through the FileList and render image files as thumbnails.
-	    for (var i = 0, f; f = files[i]; i++) {
-
-	      // Only process image files.
-	      if (!f.type.match('image.*')) {
-	        continue;
-	      }
-
-	      var reader = new FileReader();
-
-	      // Closure to capture the file information.
-	      reader.onload = (function(theFile) {
-	        return function(e) {
-	          // Render thumbnail.
-	          var date = new Date();
-	          var file = date.getTime();
-	          
-	          var div = document.createElement('div');
-	          div.id = file;
-	          div.innerHTML = ['<img class="thumb" src="', e.target.result,
-	                            '" title="', escape(theFile.name), '"/><br>',escape(theFile.name),
-	                            '&nbsp; <a href="javascript:del(',file,')">삭제</a>'].join('');
-	          
-	          document.getElementById('list-long').insertBefore(div, null);
-	        };
-	      })(f);
-
-	      // Read in the image file as a data URL.
-	      reader.readAsDataURL(f);
-	    }
-	  }
-	  
-	  	function del(value) {
-			document.getElementById(value).remove();
-		}
-
-	  document.getElementById('files-long').addEventListener('change', handleFileSelect, false);
-</script>
-
-  </body>
+</body>
 </html>

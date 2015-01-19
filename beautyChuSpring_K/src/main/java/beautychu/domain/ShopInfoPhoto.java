@@ -32,4 +32,10 @@ public class ShopInfoPhoto implements Serializable {
 		this.shopPhotoUrl = shopPhotoUrl;
 	}
 	
+	@Override
+	public String toString() {
+		return "ShopInfoPhoto [shopPhotoNo=" + shopPhotoNo + ", email=" + email
+				+ ", shopPhotoUrl=" + shopPhotoUrl + "]";
+	}
+	
 }

@@ -33,8 +33,13 @@
   	SHOPADDR=#{shopAddr},
  	SHOPTEL=#{shopTel},
  	SHOPINTRO=#{shopIntro}
- 	
  	WHERE T1.EMAIL = #{email};
+  </update>
+  
+  <update id="updatePhoto" parameterType="ShopInfoPhoto">
+  	UPDATE SHOPPHOTO (SHOPPHOTOURL)
+  	VALUES (#{shopPhotoUrl})
+  	WHERE EMAIL = #{email};
   </update>
   
   <insert id="insertPhoto" parameterType="ShopInfoPhoto">

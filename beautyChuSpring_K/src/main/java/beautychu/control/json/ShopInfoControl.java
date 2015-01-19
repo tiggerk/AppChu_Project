@@ -61,6 +61,7 @@ public class ShopInfoControl {
 		
 		ShopInfo shopInfo = new ShopInfo();
 		shopInfo.setShopPhotoUrl("/"+ shopPhotoUrl);
+		System.out.println("update에 shopPhotoUrl" + shopPhotoUrl);
 		shopInfo.setEmail(email);
 		shopInfo.setLicenseeNo(licenseeNo);
 		shopInfo.setShopName(shopName);
@@ -89,8 +90,6 @@ public class ShopInfoControl {
 		resultMap.put("listShopInfo", shopInfoService.getList(email));
 		return resultMap;
 	}
-	
-	
 	
 	
 	/*@RequestMapping(value="/fileUploadAjax", method=RequestMethod.POST)

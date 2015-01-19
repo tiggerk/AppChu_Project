@@ -27,7 +27,6 @@ public class ShopInfoService {
 	}
 
 	public void updateShopInfo(ShopInfo shopInfo) {
-		
 		/*shopInfoDao.insertPhoto(shopInfo.getShopPhotoUrl());*/
 		shopInfoDao.updateShopInfo(shopInfo);
 	}

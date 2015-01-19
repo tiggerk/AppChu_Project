@@ -1,27 +1,39 @@
 package beautychu.domain;
 
 import java.io.Serializable;
+import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
 
 public class Style implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	int styleNumber;
+	int styleNo;
+	String email;
 	String people;
 	String gender;
+	String styleSort;
 	String styleLength;
 	String styleName;
-	String styleIntro;
-	int SkillTime;
 	int price;
-	String email;
+	String styleIntro;
+	String stylePhotoNo;
+	String stylePhotoUrl;
+	MultipartFile photofile;
+	List<?> photoList;
 	
-	
-	public int getStyleNumber() {
-		return styleNumber;
+	public int getStyleNo() {
+		return styleNo;
 	}
-	public void setStyleNumber(int styleNumber) {
-		this.styleNumber = styleNumber;
+	public void setStyleNo(int styleNo) {
+		this.styleNo = styleNo;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getPeople() {
 		return people;
@@ -35,6 +47,12 @@ public class Style implements Serializable {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+	public String getStyleSort() {
+		return styleSort;
+	}
+	public void setStyleSort(String styleSort) {
+		this.styleSort = styleSort;
+	}
 	public String getStyleLength() {
 		return styleLength;
 	}
@@ -47,41 +65,52 @@ public class Style implements Serializable {
 	public void setStyleName(String styleName) {
 		this.styleName = styleName;
 	}
-	public String getStyleIntro() {
-		return styleIntro;
-	}
-	public void setStyleIntro(String styleIntro) {
-		this.styleIntro = styleIntro;
-	}
-	public int getSkillTime() {
-		return SkillTime;
-	}
-	public void setSkillTime(int skillTime) {
-		SkillTime = skillTime;
-	}
 	public int getPrice() {
 		return price;
 	}
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	public String getEmail() {
-		return email;
+	public String getStyleIntro() {
+		return styleIntro;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setStyleIntro(String styleIntro) {
+		this.styleIntro = styleIntro;
 	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public String getStylePhotoNo() {
+		return stylePhotoNo;
+	}
+	public void setStylePhotoNo(String stylePhotoNo) {
+		this.stylePhotoNo = stylePhotoNo;
+	}
+	public String getStylePhotoUrl() {
+		return stylePhotoUrl;
+	}
+	public void setStylePhotoUrl(String stylePhotoUrl) {
+		this.stylePhotoUrl = stylePhotoUrl;
+	}
+	public MultipartFile getPhotofile() {
+		return photofile;
+	}
+	public void setPhotofile(MultipartFile photofile) {
+		this.photofile = photofile;
+	}
+	public List<?> getPhotoList() {
+		return photoList;
+	}
+	public void setPhotoList(List<?> photoList) {
+		this.photoList = photoList;
 	}
 	
 	@Override
 	public String toString() {
-		return "Style [styleNumber=" + styleNumber + ", people=" + people
-				+ ", gender=" + gender + ", styleLength=" + styleLength
-				+ ", styleName=" + styleName + ", styleIntro=" + styleIntro
-				+ ", SkillTime=" + SkillTime + ", price=" + price + ", email="
-				+ email + "]";
+		return "Style [styleNo=" + styleNo + ", email=" + email + ", people="
+				+ people + ", gender=" + gender + ", styleSort=" + styleSort
+				+ ", styleLength=" + styleLength + ", styleName=" + styleName
+				+ ", price=" + price + ", styleIntro=" + styleIntro
+				+ ", stylePhotoNo=" + stylePhotoNo + ", stylePhotoUrl="
+				+ stylePhotoUrl + ", photofile=" + photofile + ", photoList="
+				+ photoList + "]";
 	}
 	
 }

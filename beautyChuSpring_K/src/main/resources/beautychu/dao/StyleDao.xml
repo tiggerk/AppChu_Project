@@ -3,39 +3,50 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- 	int styleNumber;
+<!-- 	
+	int styleNo;
+	String email;
 	String people;
 	String gender;
+	String styleSort;
 	String styleLength;
 	String styleName;
-	String styleIntro;
-	int SkillTime;
 	int price;
-	String email; -->
+	String styleIntro;
+	String stylePhotoNo;
+	String stylePhotoUrl;
+	MultipartFile photofile;
+	List<?> photoList; -->
 
 <mapper namespace="beautychu.dao.StyleDao">
 
   <resultMap type="Style" id="styleMap">
-    <id column="STYLENO" property="styleNumber"/>
+    <id column="STYLENO" property="styleNo"/>
+    <result column="EMAIL" property="email"/>
     <result column="PEOPLE" property="people"/>
     <result column="GENDER" property="gender"/>
+    <result column="STYLESORT" property="styleSort"/>
     <result column="STYLELENGTH" property="styleLength"/>
     <result column="STYLENAME" property="styleName"/>
-    <result column="STYLEINTRO" property="styleIntro"/>    
-    <result column="SKILLTIME" property="SkillTime"/>
     <result column="PRICE" property="price"/>
-    <result column="EMAIL" property="email"/>
-
+    <result column="STYLEINTRO" property="styleIntro"/>
+    <result column="STYLEPHOTONO" property="stylePhotoNo"/>
+    <result column="STYLEPHOTOURL" property="stylePhotoUrl"/>
+    <!-- <result column="PHOTOFILE" property="photofile"/>
+    <result column="PHOTOLIST" property="photoList"/>     -->
   </resultMap>
   
   <select id="getList" parameterType="map" resultMap="styleMap">
     SELECT STYLENO,PEOPLE,GENDER,STYLELENGTH,STYLENAME,STYLEINTRO,SKILLTIME,PRICE,EMAIL 
     FROM STYLE
   </select>
-   <select id="insertStyle" parameterType="Style" >
-    INSERT INTO STYLE (PEOPLE,GENDER,STYLELENGTH,STYLENAME,STYLEINTRO,SKILLTIME,PRICE,EMAIL)
-    VALUES (#{people},#{gender},#{styleLength},#{styleName},#{styleIntro},#{skillTime},#{price},#{email})
-  </select>
+  
+   <!-- <select id="insertStyle" parameterType="Style" >
+    INSERT INTO STYLE (EMAIL,PEOPLE,GENDER,STYLESORT,STYLELENGTH,STYLENAME,PRICE,STYLEINTRO,STYLEPHOTOURL)
+    VALUES (#{email},#{people},#{gender},#{styleSort},#{styleLength},#{styleNme},#{price},#{styleIntro},#{stylePhotoUrl});
+    FROM STYLE T1, STYLEPHOTO T2
+    WHERE T1.STYLENO = T2.STYLENO;
+  </select> -->
   
 </mapper>
 

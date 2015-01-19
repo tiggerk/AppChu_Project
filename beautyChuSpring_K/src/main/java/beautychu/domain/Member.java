@@ -4,14 +4,16 @@ import java.io.Serializable;
 
 public class Member implements Serializable {
 
-	private static final long serialVersionUID = 1L;
 
-	protected String    email;
-	protected int		 memberNumber;
-	protected String    phone;
-	protected String    address;
-	protected String    name;
-	protected String    password;
+	private static final long serialVersionUID = 1L;
+	String email;
+	int memberNumber;
+	String phone;
+	String address;
+	String name;
+	String password;
+	
+	
 	public String getEmail() {
 		return email;
 	}
@@ -48,23 +50,15 @@ public class Member implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	
+	
 	@Override
 	public String toString() {
 		return "Member [email=" + email + ", memberNumber=" + memberNumber
-				+ ", phone=" + phone + ", address=" + address + ", name=" + name
-				+ ", password=" + password + "]";
+				+ ", phone=" + phone + ", address=" + address + ", name="
+				+ name + ", password=" + password + "]";
 	}
-
-
+	
+	
 }
-
-
-
-
-
-
-
-
-
-
-

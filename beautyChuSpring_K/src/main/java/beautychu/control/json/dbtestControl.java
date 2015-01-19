@@ -30,7 +30,6 @@ public class dbtestControl {
 		style.setStyleLength(stylelength);
 		style.setStyleName(stylename);
 		style.setStyleIntro(styleintro);
-		style.setSkillTime(skillTime);
 		style.setPrice(price);
 		style.setEmail(email);
 		styleService.insertStyle(style);
