@@ -20,7 +20,9 @@
 
 <mapper namespace="beautychu.dao.StyleDao">
 
+  <!-- 객체의 컬럼과 프로퍼티를 연결한다. -->
   <resultMap type="Style" id="styleMap">
+  	<!-- PK 컬럼은 id 태그를 사용하여 지정한다. -->
     <id column="STYLENO" property="styleNo"/>
     <result column="EMAIL" property="email"/>
     <result column="PEOPLE" property="people"/>
@@ -30,23 +32,43 @@
     <result column="STYLENAME" property="styleName"/>
     <result column="PRICE" property="price"/>
     <result column="STYLEINTRO" property="styleIntro"/>
-    <result column="STYLEPHOTONO" property="stylePhotoNo"/>
-    <result column="STYLEPHOTOURL" property="stylePhotoUrl"/>
     <!-- <result column="PHOTOFILE" property="photofile"/>
     <result column="PHOTOLIST" property="photoList"/>     -->
   </resultMap>
   
+  <!-- 객체의 컬럼과 프로퍼티를 연결한다. -->
+  <resultMap type="StylePhoto" id="stylePhotoMap">
+  	<!-- PK 컬럼은 id 태그를 사용하여 지정한다. -->
+    <id column="STYLEPHOTONO" property="stylePhotoNo"/>
+    <result column="STYLENO" property="styleNo"/>
+    <result column="STYLEPHOTOURL" property="stylePhotoUrl"/>
+  </resultMap>
+  
   <select id="getList" parameterType="map" resultMap="styleMap">
-    SELECT STYLENO,PEOPLE,GENDER,STYLELENGTH,STYLENAME,STYLEINTRO,SKILLTIME,PRICE,EMAIL 
-    FROM STYLE
+    SELECT STYLENO,PEOPLE,GENDER,STYLESORT,STYLELENGTH,STYLENAME,STYLEINTRO,PRICE,EMAIL 
+	FROM STYLE
   </select>
   
-   <!-- <select id="insertStyle" parameterType="Style" >
-    INSERT INTO STYLE (EMAIL,PEOPLE,GENDER,STYLESORT,STYLELENGTH,STYLENAME,PRICE,STYLEINTRO,STYLEPHOTOURL)
-    VALUES (#{email},#{people},#{gender},#{styleSort},#{styleLength},#{styleNme},#{price},#{styleIntro},#{stylePhotoUrl});
+  <insert id="insertStyle" parameterType="Style" useGeneratedKeys="true" keyColumn="STYLENO" keyProperty="styleNo">
+    INSERT INTO STYLE (EMAIL,PEOPLE,GENDER,STYLESORT,STYLELENGTH,STYLENAME,PRICE,STYLEINTRO)
+    VALUES (#{email},#{people},#{gender},#{styleSort},#{styleLength},#{styleNme},#{price},#{styleIntro});
+  </insert>
+  
+  <insert id="insertStylePhoto" parameterType="Style">
+  	INSERT INTO STYLEPHOTO (STYLENO, STYLEPHOTOURL)
+    VALUES (#{styleNo}, #{stylePhotoUrl});
+  </insert>
+  
+  <!-- <update id="updateStyle" parameterType="Style" >
+    UPDATE STYLE A 
+    LEFT JOIN STYLEPHOTO B
+    ON A.STYLENO = B.STYLENO
+    SET STYLESORT,STYLELENGTH,STYLENAME,PRICE,STYLEINTRO, STYLEPHOTO
+    VALUES (#{stylePhotoUrl});
     FROM STYLE T1, STYLEPHOTO T2
     WHERE T1.STYLENO = T2.STYLENO;
-  </select> -->
+  </update> -->
+  
   
 </mapper>
 
