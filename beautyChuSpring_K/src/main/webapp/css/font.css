@@ -1,8 +1,5 @@
 @charset 'utf-8';
 
-/* Nanumgothic */
-@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-
 /* MyriadPro-Regular */
 @font-face {
 font-family: 'MyriadPro-Regular';
@@ -43,15 +40,18 @@ url('font/MyriadPro-Semibold.svg#MyriadPro-Semibold') format('svg');}
   font-style: normal;
   font-weight: normal;
   src: url('font/NanumGothic.eot'); 
-  src: local('☺'), url('font/NanumGothic.woff') format('woff'); 
+  src: url('font/NanumGothic.eot?#iefix') format('embedded-opentype'),
+  url('font/NanumGothic.woff') format('woff');
+  ; 
 }
 
 @font-face{
   font-family: 'Nanum Gothic Bold';
   font-style: normal;
   font-weight: bold;
-  src: url('font/NanumGothicBold.eot'); 	
-  src: local('☺'), url('font/NanumGothicBold.woff') format('woff'); 
+  src: url('font/NanumGothicBold.eot'); 
+  src: url('font/NanumGothicBold.eot?#iefix') format('embedded-opentype'),
+  url('font/NanumGothicBold.woff') format('woff');
 }
 
 

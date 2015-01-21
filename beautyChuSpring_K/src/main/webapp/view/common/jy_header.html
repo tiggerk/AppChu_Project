@@ -41,7 +41,8 @@
 							<li class="m6"><a href="#" target="_blank" title="다른 지점보기">이대/신촌</a></li>
 							<li class="m7"><a href="#" title="갤러리아 면세점">홍대</a></li>
 						</ul>
-					</div></li>
+					</div>
+				</li>
 				<!-- end of li.m1 -->
 
 				<li class="m2"><a href="kh-styleman.html"><span class="over"></span><span
@@ -58,7 +59,8 @@
 					</div> <!-- Fashion &amp; Style Content -->
 					<div class="good-list-container">
 						<h2 class="title">Fashion &amp; Style Content</h2>
-					</div> <!-- Fashion &amp; Style Content --></li>
+					</div> <!-- Fashion &amp; Style Content -->
+				</li>
 
 				<!-- end of li.m2 -->
 
@@ -72,7 +74,8 @@
 							<li class="m3"><a href="#">Woman Care</a></li>
 							<li class="m4"><a href="#">Woman ETC</a></li>
 						</ul>
-					</div></li>
+					</div>
+				</li>
 				<!-- end of li.m3 -->
 
 				<li class="m4"><a href="kh-celebritylist.html"><span
@@ -82,18 +85,26 @@
 							<li class="m1"><a href="#">Celebrity Man</a></li>
 							<li class="m2"><a href="#">Celebrity Woman</a></li>
 						</ul>
-					</div></li>
+					</div>
+				</li>
+				
+				<li>
+					<form method="get" action="/search" id="search">
+						<input name="q" id="search-bar" type="text" placeholder="Search..." />
+					</form>
+				</li>
 				<!-- end of li.m4 -->
 
 			</ul>
 			<!-- gnb -->
-
+<!-- 
 			<ul>
-				<li><form method="get" action="/search" id="search">
-						<input name="q" id="search-bar" type="text"
-							placeholder="Search..." />
-					</form></li>
-			</ul>
+				<li>
+					<form method="get" action="/search" id="search">
+						<input name="q" id="search-bar" type="text" placeholder="Search..." />
+					</form>
+				</li>
+			</ul> -->
 			<!-- search area -->
 
 		</nav>
@@ -105,18 +116,21 @@
 		<ul class="util-menu" id="util-menu">
 			<!-- 로그아웃 시 노출 -->
 
-			<li class="login"><a data-dialog1="logindialog" title="로그인">login</a></li>
-			<li class="join"><a data-dialog2="joindialog" title="회원가입">Join</a></li>
-			<li class='user toggle-menu js-control'><a href='#more'
-				class="usermenu" title="사용자 메뉴"> icon + nickname ▼ </a>
-				<ul class="user-list toggle-list">
-					<li class="jy-mychu"><a href='#'>My Chu</a></li>
-					<li class="jy-logout"><a href='#'>Logout</a></li>
-					<li class='jy-setting'><a href='#'>Setting</a></li>
-					<li class='jy-mleave'><a href='#'>member leave</a></li>
-				</ul></li>
+			<!-- 로그인 전 -->
+			<li class="join" id="join"><a data-dialog2="joindialog" title="회원가입">Join</a></li>
+			<li class="login" id="login"><a data-dialog1="logindialog" title="로그인">login</a></li>
 
-			<!-- <li class="search"><a href="#" title="검색하기">Search</a></li>  -->
+			<!-- 로그인 후 -->
+			<li class="jy-mypage" id="jy-mypage">
+			<a href="jy_personalinfo.html"title="마이페이지" 
+				 style="text-indent: 0; padding: 0; text-align: center;">
+			<img src="../img/logo_appchu.jpg" width="20" height="20"
+								class="img-circle img-responsive" id="user-mypage" alt="" 
+								style="border-radius:5px; margin: 25px 5px;"/>
+								<input class="user-nickname" id="user-mypage" value="" disabled>
+			</a></li>
+			<li class="logout" id="logout">
+			<a title="로그아웃">logout</a></li>
 
 		</ul>
 		<!--sub-menu-->
@@ -285,20 +299,60 @@
 </div>
 
 <script>
+//alert("beautyChu에 방문해 주셔서 감사합니다^^");
+
+
+/* 사이트 열자마자 ajax로 로긴 여부 체크하여 page open */
+$.ajax({
+	type : 'get',
+	dataType : "json",
+	url : '../json/auth/loginUser.do',
+	success : function(data) {
+			
+			if(data.status != 'fail') {
+				console.log("login"+data.status);
+				$('.user-nickname').val(data.loginUser.name);
+				/* 다만 main 전체가 떴다가 아래가 사라짐.. */
+				$('.join').hide();
+				$('.login').hide();
+				
+			/* } else if (data.status == 'fail') { */
+				} else {
+				console.log("login"+data.status);
+				/* 다만 main 전체가 떴다가 아래가 사라짐.. */
+				$('.jy-mypage').hide();
+				$('.logout').hide();
+			}
+			
+	},
+	error : function() {
+		console.log('로그인 ajax 실패');
+		
+	}
+
+});
+
+/* -------------------  */
+
+
+</script>
+
+<script>
+
 	/* 로그인 & 회원가입 dialog slide page */
 	(function() {
 
-		var logindlgtrigger = document.querySelector('[data-dialog1]'), logindialog = document
-				.getElementById(logindlgtrigger.getAttribute('data-dialog1')), logindlg = new DialogFx(
-				logindialog);
+		var logindlgtrigger = document.querySelector('[data-dialog1]'), 
+		logindialog = document.getElementById(logindlgtrigger.getAttribute('data-dialog1')), 
+		logindlg = new DialogFx(logindialog);
 
-		var joindlgtrigger = document.querySelector('[data-dialog2]'), joindialog = document
-				.getElementById(joindlgtrigger.getAttribute('data-dialog2')), joindlg = new DialogFx(
-				joindialog);
+		var joindlgtrigger = document.querySelector('[data-dialog2]'), 
+		joindialog = document.getElementById(joindlgtrigger.getAttribute('data-dialog2')), 
+		joindlg = new DialogFx(joindialog);
 
-		logindlgtrigger.addEventListener('click', logindlg.toggle
-				.bind(logindlg));
+		logindlgtrigger.addEventListener('click', logindlg.toggle.bind(logindlg));
 		joindlgtrigger.addEventListener('click', joindlg.toggle.bind(joindlg));
+
 
 		/* ajax node 연결 - 이메일 유효성 검사 */
 
@@ -345,7 +399,7 @@
 				$('#jy-pw-check').html("패스워드가 일치 합니다.^^");
 				passwordpass = 1;
 			} else {
-				$('#jy-pw-check').html("패스워드가 일치하지 않습니다.T.T");
+				$('#jy-pw-check').html("패스워드가 일치하지 않습니다..");
 				passwordpass = 0;
 			}
 		}
@@ -386,9 +440,9 @@
 						password : $('#jy-confirm_pw').val()
 					},
 					success : function(data) {
-						console.log(data.status);
+						console.log("join"+data.status);
 						console.log(data.loginUser);
-						alert("가입이 완료되었습니다.\n로그인 해주세요.");
+						alert("가입이 완료되었습니다.\n 환영합니다^^");
 						location.href = 'jy_main.html';
 
 					},
@@ -400,49 +454,113 @@
 
 			}
 
-		})
+		});
 
 		/* -------------------  */
 
 		/* 로그인 자바스크립트  */
 
- 		$('#jy-btn-login').click(function() {
-			
-			var email=$('#jy-inputEmail').val();
-			var password=$('#jy-inputPassword').val();
-	
-			if(email===''){
+		$('#jy-btn-login').click(function() {
+
+			var email = $('#jy-inputEmail').val();
+			var password = $('#jy-inputPassword').val();
+
+			if (email === '') {
 				$('#jy-login-check').html('이메일을 입력 해주세요.');
-			}else if(password===''){
+			} else if (password === '') {
 				$('#jy-login-check').html('비밀번호를 입력 해주세요.');
-			}else{
-				
-		 		$.ajax({
-				type : 'post',
-				dataType : "json",
-				url : '../json/auth/login.do',
-				data : {
-					'email' : email,
-					'password' : password
-				},
-				success : function(data) {
-					if(data.loginUser){
- 					alert(data.loginUser.name+"님 로그인 되었습니다.");
-					location.href = 'jy_main.html'; 
-					}else{
-						$('#jy-login-check').html('아이디 혹은 비밀번호가 맞지 않습니다.');
+			} else {
 
+				$.ajax({
+					type : 'post',
+					dataType : "json",
+					url : '../json/auth/login.do',
+					data : {
+						'email' : email,
+						'password' : password
+					},
+					success : function(data) {
+						if (data.loginUser) {
+							console.log("login"+data.status);
+							alert(data.loginUser.name + " 님 로그인 되었습니다.");
+							location.href = 'jy_main.html';
+							
+						} else {
+							$('#jy-login-check').html('아이디 혹은 비밀번호가 맞지 않습니다.');
+
+						}
+					},
+					error : function() {
+						console.log('로그인 ajax 실패');
 					}
-				},
-				error : function() {
-					console.log('로그인 ajax 실패');
-				}
 
-			});
+				});
 			}
 
-		}) 
+		});
+		/* -------------------  */
+		
+
+		/* 사업자 메시지 보이기 */
+		$('.jy-register-alert').hide();
+		
+		$('#jy-chk-user1').click(function(){
+			//$('#jy-chk-user1').attr("checked") == "checked";
+			$('.jy-register-alert').hide();
+		});
+		
+		$('#jy-chk-user2').click(function(){
+			//$('#jy-chk-user1').attr("checked") == "checked";
+			$('.jy-register-alert').show();
+		});
+
+		/* 로그인 페이지에서 회원가입 버튼 누르면 회원가입 페이지로 넘어가기 */
+		
+ 		$('#jy-btn-gojoin').click(function(){
+			alert("join click!"); 			
+			//$('.join').
+			
+		})
+		
+		
+	})();
+	
+
+	 
+</script>
+<script type="text/javascript">
+
+	(function() {
+		/* click to mypage account */
+		$('.jy-mypage').click(function() {
+			alert("마이페이지 입니다!");
+			console.log("마이페이지 입니다!");
+		});
+
 		/* -------------------  */
 
-	})();
+		/* 로그아웃 자바스크립트  */
+		$('.logout').click(function() {
+			
+			$.ajax({
+				dataType : "json",
+				url : '../json/auth/logout.do',
+				success : function() {
+					console.log('로그아웃 되었습니다.');
+				  alert("로그아웃 되었습니다.");
+				  location.href = 'jy_main.html';
+				},
+				error : function() {
+					console.log('로그아웃 ajax 실패 ');
+				}
+			});
+
+		});
+		/* -------------------  */
+
+
+
+
+})();
+
 </script>

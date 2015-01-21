@@ -28,13 +28,33 @@
 	<script type="text/javascript" src="../js/jquery.event.drag.live-2.2.js"></script>
 	<script type="text/javascript" src="../js/home.js"></script>
 	<script type="text/javascript" src="../js/home.show-window.js"></script>
+	<!-- dotdotdot 스크립트 -->
+	<script type="text/javascript" src="http://www.gncostyle.com/gncoCom/js/jquery.dotdotdot.js"></script>
 
 <style type="text/css">
 /* best shop */
+/* proicon */
+/*
+.proicon {display:inline-block;height:18px;}
+.proicon:after {content:" ";display:block;clear:both;}
+.proicon .picon {display:inline-block;margin:0 0 3px 0;padding:0 3px;border:1px solid #888;font-family:'Verdana', 'Nanum Gothic';font-size:10px;}
+.proicon .picon.picon_limited,
+.proicon .picon.picon_time,
+.proicon .picon.picon_coupon{border:1px solid #252626; background:#252626; color:#fff;}
+.proicon .picon.picon_new,
+.proicon .picon.picon_best,
+.proicon .picon.picon_set,
+.proicon .picon.picon_only,
+.proicon .picon.picon_mobile,
+.proicon .picon.picon_reserve{border:1px solid #888; background:#fff;}
+.proicon .picon.picon_soldout{border:1px solid #a5a5a5; background:#a5a5a5; color:#fff;}
+.proicon .picon.picon_user{position:absolute; left:5px; top:5px; padding:0px; margin:0px; border:0px;}
+ */
+
 /* prolisttype1 */
 .prolisttype1 {position:relative;}
 .prolisttype1:after {content:" ";display:block;clear:both;}
-.prolisttype1>ul {margin:24px 0 0 1px;}
+.prolisttype1>ul {margin:90px 0 0 1px;}
 .prolisttype1>ul>li {position:relative;float:left;}
 .prolisttype1 .chktypea{position:absolute; left:8px; top:8px; z-index:1;}
 .prolisttype1 .prolink {display:block;margin-top:-1px;margin-left:-1px;padding:5px 5px 27px 5px;border:1px solid #eceef1;background-color:#fff;}
@@ -43,8 +63,8 @@
 .prolisttype1 .prolink .propic .picon_user{position:absolute; left:0px; bottom:0px;}
 .prolisttype1 .prolink .proicon {margin:0 10px;}
 .prolisttype1 .prolink .txt_brand {display:block;padding:0 10px;height:16px;color:#252626;font-family:'Verdana', 'Nanum Gothic';font-size:10px;overflow:hidden;}
-.prolisttype1 .prolink .txt_ti {display:block;padding:3px 10px 0;height:16px;line-height:16px;color:#767676;font-size:11px;overflow:hidden;}
-.prolisttype1 .prolink .txt_price {display:block;padding:0 10px;height:12px;color:#000;font-family:'Verdana';font-size:11px;letter-spacing:-0.5px;}
+.prolisttype1 .prolink .txt_ti {display:block;padding:3px 10px 0;height:17px;line-height:16px;color:#767676;font-size:11px;overflow:hidden;}
+.prolisttype1 .prolink .txt_price {display:block;padding:0 10px;height:15px;color:#000;font-family:'Verdana';font-size:11px;letter-spacing:-0.5px;}
 .prolisttype1 .prolink .txt_price del {display:inline-block;margin:0 4px 0 0;color:#767676;font-size:10px;}
 .prolisttype1 .prolink .txt_price em {display:inline-block;margin:0 4px 0 0;color:#000;font-size:11px;font-weight:bold;}
 .prolisttype1 .btn_wish {position:absolute;top:8px;right:8px;display:inline-block;width:14px;height:12px;background:url('http://img.gncostyle.com/gncoCom/images/common/bl_common.png') no-repeat 0 -233px;text-indent:-9999px;}
@@ -121,13 +141,28 @@ position: relative;
 margin: 0 auto;
 width: 1080px;
 height: 600px;
+padding-top: 50px;
 }
 
 .best-shop-wrap {
 	background-color: #161616;
-	padding-top: 50px;
+	margin-top: -1px;
 }
 
+.best-shop-wrap .bg { background: url(../img/main/show-window-center.png) no-repeat 50% 0; height: 100%; position:absolute; width: 100%; }
+
+.best-shop-wrap h2 {
+background: url(../img/main/title-show-window.png) no-repeat;
+width: 101px;
+height: 51px;
+text-indent: -9999em;
+overflow: hidden;
+position: absolute;
+left: 50%;
+margin-left: -50px;
+z-index: 100;
+top: 54px;
+}
 </style>
 
 </head>
@@ -208,6 +243,8 @@ height: 600px;
 								<div class="img-container">
 									<a href='#'><img src="../images/main/man (1).png" alt="Boots"><span class="over"><i></i></span></a>
 								</div>
+								<!-- <a href='#' class="good-name">투블럭 컷</a>
+								<a href='#' class="good-brand">토니앤가이</a> -->
 								<a href='#' class="good-name"><img src="http://dept.galleria.co.kr/upload/main_fashion_style/d93ecd4d-a34f-4f2a-b8b4-494ada49ff91.png" alt=""></a>
 							</div>
 							
@@ -345,28 +382,66 @@ height: 600px;
 				</div>
 
 
-
+				<!-- GRID LIST -->
 				<div class="grid-by-list hide">
 					<ul class="good-list">
 					
 						<li>
 							<div class="good">
 								<div class="img-container">
-
-									<a href='#'><img src="../images/main/man (1).png" alt="Dress"><span class="over"><i></i></span></a>
+									<a href='#'><img src="../images/main-grid/a01.jpg" alt=""><span class="over"><i></i></span></a>
 								</div>
-								<a href='#' class="good-brand">MARC BY MARC JACOBS</a>
-								<a href='#' class="good-name">Minaudiere</a>
+								<a href='#' class="good-brand">이연희의 미디움 글램펌</a>
+								<a href='#' class="good-name">[드라마] 미스코리아</a>
 							</div>
 						</li>
 						<li>
 							<div class="good">
 								<div class="img-container">
 
-									<a href='#'><img src="../images/main/man (1).png" alt="Dress"><span class="over"><i></i></span></a>
+									<a href='#'><img src="../images/main-grid/a02.jpg" alt=""><span class="over"><i></i></span></a>
 								</div>
-								<a href='#' class="good-brand">STYLE CUT</a>
-								<a href='#' class="good-name">Cut</a>
+								<a href='#' class="good-brand">이다희의 A라인 보브 단발컷</a>
+								<a href='#' class="good-name">[드라마] 비밀</a>
+							</div>
+						</li>
+					
+						<li>
+							<div class="good">
+								<div class="img-container">
+									<a href='#'><img src="../images/main-grid/a03.jpg" alt=""><span class="over"><i></i></span></a>
+								</div>
+								<a href='#' class="good-brand">이보영의 발롱펌</a>
+								<a href='#' class="good-name">[드라마] 너의 목소리가 들려</a>
+							</div>
+						</li>
+						
+						<li>
+							<div class="good">
+								<div class="img-container">
+									<a href='#'><img src="../images/main-grid/a04.jpg" alt=""><span class="over"><i></i></span></a>
+								</div>
+								<a href='#' class="good-brand">이민정의 세디웨이브 펌</a>
+								<a href='#' class="good-name">[드라마]앙큼한 돌싱녀</a>
+							</div>
+						</li>
+						
+						<li>
+							<div class="good">
+								<div class="img-container">
+									<a href='#'><img src="../images/main-grid/a05.jpg" alt="Dress"><span class="over"><i></i></span></a>
+								</div>
+								<a href='#' class="good-brand">이종석의 스핀스왈로 투블럭 펌</a>
+								<a href='#' class="good-name">[드라마] 닥터이방인</a>
+							</div>
+						</li>
+						<li>
+							<div class="good">
+								<div class="img-container">
+									<a href='#'><img src="../images/main-grid/a06.jpg" alt="Dress"><span class="over"><i></i></span></a>
+								</div>
+								<a href='#' class="good-brand">이규한의 언발란스 컷</a>
+								<a href='#' class="good-name">[드라마] 사랑만할래</a>
 							</div>
 						</li>
 					
@@ -374,10 +449,10 @@ height: 600px;
 							<div class="good">
 								<div class="img-container">
 
-									<a href='#'><img src="../images/main/man (1).png" alt="Dress"><span class="over"><i></i></span></a>
+									<a href='#'><img src="../images/main-grid/a07.jpg" alt="Dress"><span class="over"><i></i></span></a>
 								</div>
-								<a href='#' class="good-brand">STYLE PERM</a>
-								<a href='#' class="good-name">Perm</a>
+								<a href='#' class="good-brand">임시완의 댄디펌</a>
+								<a href='#' class="good-name">[드라마] 미생</a>
 							</div>
 						</li>
 						
@@ -385,31 +460,10 @@ height: 600px;
 							<div class="good">
 								<div class="img-container">
 
-									<a href='#'><img src="../images/main/man (1).png" alt="Dress"><span class="over"><i></i></span></a>
+									<a href='#'><img src="../images/main-grid/a08.jpg" alt="Dress"><span class="over"><i></i></span></a>
 								</div>
-								<a href='#' class="good-brand">DARK BROWN</a>
-								<a href='#' class="good-name">Color</a>
-							</div>
-						</li>
-						
-						<li>
-							<div class="good">
-								<div class="img-container">
-
-									<a href='#'><img src="../images/main/man (1).png" alt="Dress"><span class="over"><i></i></span></a>
-								</div>
-								<a href='#' class="good-brand">MARC BY MARC JACOBS</a>
-								<a href='#' class="good-name">Dress</a>
-							</div>
-						</li>
-						<li>
-							<div class="good">
-								<div class="img-container">
-
-									<a href='#'><img src="../images/main/man (1).png" alt="Dress"><span class="over"><i></i></span></a>
-								</div>
-								<a href='#' class="good-brand">STYLE CUT</a>
-								<a href='#' class="good-name">Cut</a>
+								<a href='#' class="good-brand">박해진의 포마드 웨이브펌</a>
+								<a href='#' class="good-name">[드라마] 닥터이방인</a>
 							</div>
 						</li>
 					
@@ -417,21 +471,69 @@ height: 600px;
 							<div class="good">
 								<div class="img-container">
 
-									<a href='#'><img src="../images/main/man (1).png" alt="Dress"><span class="over"><i></i></span></a>
+									<a href='#'><img src="../images/main-grid/a09.jpg" alt="Dress"><span class="over"><i></i></span></a>
 								</div>
-								<a href='#' class="good-brand">STYLE PERM</a>
-								<a href='#' class="good-name">Perm</a>
+								<a href='#' class="good-brand">조인성의 가르마 펌</a>
+								<a href='#' class="good-name">[드라마] 괜찮아 사랑이야</a>
 							</div>
 						</li>
 						
 						<li>
 							<div class="good">
 								<div class="img-container">
-
-									<a href='#'><img src="../images/main/man (1).png" alt="Dress"><span class="over"><i></i></span></a>
+									<a href='#'><img src="../images/main-grid/a01.jpg" alt=""><span class="over"><i></i></span></a>
 								</div>
-								<a href='#' class="good-brand">DARK BROWN</a>
-								<a href='#' class="good-name">Color</a>
+								<a href='#' class="good-brand">이연희의 미디움 글램펌</a>
+								<a href='#' class="good-name">[드라마] 미스코리아</a>
+							</div>
+						</li>
+						<li>
+							<div class="good">
+								<div class="img-container">
+
+									<a href='#'><img src="../images/main-grid/a02.jpg" alt=""><span class="over"><i></i></span></a>
+								</div>
+								<a href='#' class="good-brand">이다희의 A라인 보브 단발컷</a>
+								<a href='#' class="good-name">[드라마] 비밀</a>
+							</div>
+						</li>
+					
+						<li>
+							<div class="good">
+								<div class="img-container">
+									<a href='#'><img src="../images/main-grid/a03.jpg" alt=""><span class="over"><i></i></span></a>
+								</div>
+								<a href='#' class="good-brand">이보영의 발롱펌</a>
+								<a href='#' class="good-name">[드라마] 너의 목소리가 들려</a>
+							</div>
+						</li>
+						
+						<li>
+							<div class="good">
+								<div class="img-container">
+									<a href='#'><img src="../images/main-grid/a04.jpg" alt=""><span class="over"><i></i></span></a>
+								</div>
+								<a href='#' class="good-brand">이민정의 세디웨이브 펌</a>
+								<a href='#' class="good-name">[드라마]앙큼한 돌싱녀</a>
+							</div>
+						</li>
+						
+						<li>
+							<div class="good">
+								<div class="img-container">
+									<a href='#'><img src="../images/main-grid/a05.jpg" alt=""><span class="over"><i></i></span></a>
+								</div>
+								<a href='#' class="good-brand">이종석의 스핀스왈로 투블럭 펌</a>
+								<a href='#' class="good-name">[드라마] 닥터이방인</a>
+							</div>
+						</li>
+						<li>
+							<div class="good">
+								<div class="img-container">
+									<a href='#'><img src="../images/main-grid/a06.jpg" alt=""><span class="over"><i></i></span></a>
+								</div>
+								<a href='#' class="good-brand">이규한의 언발란스 컷</a>
+								<a href='#' class="good-name">[드라마] 사랑만할래</a>
 							</div>
 						</li>
 					
@@ -439,31 +541,10 @@ height: 600px;
 							<div class="good">
 								<div class="img-container">
 
-									<a href='#'><img src="../images/main/man (4).png" alt="Dress"><span class="over"><i></i></span></a>
+									<a href='#'><img src="../images/main-grid/a07.jpg" alt=""><span class="over"><i></i></span></a>
 								</div>
-								<a href='#' class="good-brand">MARC BY MARC JACOBS</a>
-								<a href='#' class="good-name">Pumps</a>
-							</div>
-						</li>
-						<li>
-							<div class="good">
-								<div class="img-container">
-
-									<a href='#'><img src="../images/main/man (4).png" alt="Dress"><span class="over"><i></i></span></a>
-								</div>
-								<a href='#' class="good-brand">STYLE CUT</a>
-								<a href='#' class="good-name">Cut</a>
-							</div>
-						</li>
-					
-						<li>
-							<div class="good">
-								<div class="img-container">
-
-									<a href='#'><img src="../images/main/man (4).png" alt="Dress"><span class="over"><i></i></span></a>
-								</div>
-								<a href='#' class="good-brand">STYLE PERM</a>
-								<a href='#' class="good-name">Perm</a>
+								<a href='#' class="good-brand">임시완의 댄디펌</a>
+								<a href='#' class="good-name">[드라마] 미생</a>
 							</div>
 						</li>
 						
@@ -471,10 +552,10 @@ height: 600px;
 							<div class="good">
 								<div class="img-container">
 
-									<a href='#'><img src="../images/main/man (4).png" alt="Dress"><span class="over"><i></i></span></a>
+									<a href='#'><img src="../images/main-grid/a08.jpg" alt=""><span class="over"><i></i></span></a>
 								</div>
-								<a href='#' class="good-brand">DARK BROWN</a>
-								<a href='#' class="good-name">Color</a>
+								<a href='#' class="good-brand">박해진의 포마드 웨이브펌</a>
+								<a href='#' class="good-name">[드라마] 닥터이방인</a>
 							</div>
 						</li>
 					
@@ -482,67 +563,78 @@ height: 600px;
 							<div class="good">
 								<div class="img-container">
 
-									<a href='#'><img src="../images/main/man (1).png" alt="Dress"><span class="over"><i></i></span></a>
+									<a href='#'><img src="../images/main-grid/a09.jpg" alt=""><span class="over"><i></i></span></a>
 								</div>
-								<a href='#' class="good-brand">MARC BY MARC JACOBS</a>
-								<a href='#' class="good-name">Modern Muse</a>
+								<a href='#' class="good-brand">조인성의 가르마 펌</a>
+								<a href='#' class="good-name">[드라마] 괜찮아 사랑이야</a>
 							</div>
-						</li>
+						</li>	
+						
 						<li>
 							<div class="good">
 								<div class="img-container">
 
-									<a href='#'><img src="../images/main/man (1).png" alt="Dress"><span class="over"><i></i></span></a>
+									<a href='#'><img src="../images/main/111.jpg" alt=""><span class="over"><i></i></span></a>
 								</div>
-								<a href='#' class="good-brand">STYLE CUT</a>
-								<a href='#' class="good-name">Cut</a>
+								<a href='#' class="good-brand">남주혁</a>
+								<a href='#' class="good-name">[드라마] 괜찮아 사랑이야</a>
+							</div>
+						</li>	
+						
+						<li>
+							<div class="good">
+								<div class="img-container">
+
+									<a href='#'><img src="../images/main/man (1).png" alt=""><span class="over"><i></i></span></a>
+								</div>
+								<a href='#' class="good-brand">조인성의 가르마 펌</a>
+								<a href='#' class="good-name">[드라마] 괜찮아 사랑이야</a>
+							</div>
+						</li>
+						
+						<li>
+							<div class="good">
+								<div class="img-container">
+
+									<a href='#'><img src="../images/main/man (4).png" alt=""><span class="over"><i></i></span></a>
+								</div>
+								<a href='#' class="good-brand">조인성의 가르마 펌</a>
+								<a href='#' class="good-name">[드라마] 괜찮아 사랑이야</a>
+							</div>
+						</li>
+						
+						<li>
+							<div class="good">
+								<div class="img-container">
+
+									<a href='#'><img src="../images/main/man (5).png" alt=""><span class="over"><i></i></span></a>
+								</div>
+								<a href='#' class="good-brand">조인성의 가르마 펌</a>
+								<a href='#' class="good-name">[드라마] 괜찮아 사랑이야</a>
+							</div>
+						</li>
+						
+						<li>
+							<div class="good">
+								<div class="img-container">
+
+									<a href='#'><img src="../images/main/woman (11).png" alt=""><span class="over"><i></i></span></a>
+								</div>
+								<a href='#' class="good-brand">신세경</a>
+								<a href='#' class="good-name">[드라마] 괜찮아 사랑이야</a>
 							</div>
 						</li>
 					
 						<li>
 							<div class="good">
 								<div class="img-container">
-
-									<a href='#'><img src="../images/main/man (1).png" alt="Dress"><span class="over"><i></i></span></a>
+									<a href='#'><img src="../images/main/woman (16).png" alt=""><span class="over"><i></i></span></a>
 								</div>
-								<a href='#' class="good-brand">STYLE PERM</a>
-								<a href='#' class="good-name">Perm</a>
+								<a href='#' class="good-brand">박수진</a>
+								<a href='#' class="good-name">[드라마] 괜찮아 사랑이야</a>
 							</div>
 						</li>
-						
-						<li>
-							<div class="good">
-								<div class="img-container">
-
-									<a href='#'><img src="../images/main/man (1).png" alt="Dress"><span class="over"><i></i></span></a>
-								</div>
-								<a href='#' class="good-brand">DARK BROWN</a>
-								<a href='#' class="good-name">Color</a>
-							</div>
-						</li>
-						
-						<li>
-							<div class="good">
-								<div class="img-container">
-
-									<a href='#'><img src="../images/main/man (6).png" alt="Dress"><span class="over"><i></i></span></a>
-								</div>
-								<a href='#' class="good-brand">STYLE PERM</a>
-								<a href='#' class="good-name">Perm</a>
-							</div>
-						</li>
-						
-						<li>
-							<div class="good">
-								<div class="img-container">
-
-									<a href='#'><img src="../images/main/man (7).png" alt="Dress"><span class="over"><i></i></span></a>
-								</div>
-								<a href='#' class="good-brand">DARK BROWN</a>
-								<a href='#' class="good-name">Color</a>
-							</div>
-						</li>
-					
+						<!-- 23개 까지만 가능 -->
 					
 						<!-- 
  						<li>
@@ -771,92 +863,96 @@ height: 600px;
 				</div>
 
 			</div><!-- show-window -->
-			
-			<!-- best shop -->
-			<div class="best-shop-wrap">
-				<div class="cont1080 prolisttype1 prolist5 best">
+
+				<!-- best shop -->
+				<div class="best-shop-wrap">
+					<div class="bg" style="display: block;"></div>
+					<div class="cont1080 prolisttype1 prolist5 best">
+						<h2>Show Best Shop</h2>
 						<ul>
-							 <li>
-									<span class="icon_best icon_best1">BEST 01</span>
-									<a href="#" class="prolink">
-	                	<span class="propic">
-											<img src="../images/shop/shop1.jpg" alt="" onmouseout="this.src=&quot;../images/shop/shop1.jpg&quot;" onerror="this.onerror=null;this.src='../images/shop1.jpg'"></span>
-	                  <span class="proicon">
-						        </span>
-	                  <span class="txt_price"><em>Fabien.H</em></span>
-	                  <span class="txt_ti txt_overflow_dot">서울시 강남구 삼성로 725</span>
-	                  <span class="txt_brand">02-333-5555</span>
-	                </a>
-	                <a onclick="javascript:confirmLogin();" class="btn_wish">WISH</a>
-								  <a onclick="javascript:getGoodsInfo('17322','0');" class="btn_preview">미리보기</a>
-								</li>
-				
-	              <li>
-								   	<span class="icon_best icon_best2">BEST 02</span>
-										<a href="/product/0/18276" class="prolink">
-	                    <span class="propic">
-												<img src="../images/shop/shop2.jpg" alt="" onmouseout="this.src=&quot;../images/shop/shop2.jpg&quot;" onerror="this.onerror=null;this.src='../images/shop/shop2.jpg'"></span>
-	                    <span class="proicon">
-						          </span>
-	                	  <span class="txt_price"><em>Fabien.H</em></span>
-	                 		<span class="txt_ti txt_overflow_dot">서울시 강남구 삼성로 725</span>
-	               		  <span class="txt_brand">02-333-5555</span>
-	                   </a>
-	                   <a onclick="javascript:confirmLogin();" class="btn_wish">WISH</a>
-								     <a onclick="javascript:getGoodsInfo('18276','0');" class="btn_preview">미리보기</a>
-								</li>
-                <li>
-                    <span class="icon_best icon_best3">BEST 03</span>
-                    <a href="#" class="prolink">
-                       <span class="propic">
-	 									   		<img src="../images/shop/shop3.jpg" alt=""></span>
-	                     <span class="proicon">
-						           </span>
-	                     <span class="txt_price"><em>Fabien.H</em></span>
-	                 		 <span class="txt_ti txt_overflow_dot">서울시 강남구 삼성로 725</span>
-	               		   <span class="txt_brand">02-333-5555</span>
-	                            </a>
-	                            <a onclick="javascript:confirmLogin();" class="btn_wish">WISH</a>
-								                            <a onclick="javascript:getGoodsInfo('18332','0');" class="btn_preview">미리보기</a>
-														                        </li>
-				
-	                         <li>
-								                            <span class="icon_best icon_best4">BEST 04</span>
-															                            <a href="/product/0/18165" class="prolink">
-	                                <span class="propic">
-										<img src="../images/shop/shop4.jpg" alt="" ></span>
-	                                <span class="proicon">
-						                                </span>
-	                                <span class="txt_price"><em>Fabien.H</em></span>
-	                							  <span class="txt_ti txt_overflow_dot">서울시 강남구 삼성로 725</span>
-	              							    <span class="txt_brand">02-333-5555</span>
-	                            </a>
-	                            <a onclick="javascript:confirmLogin();" class="btn_wish">WISH</a>
-								                            <a onclick="javascript:getGoodsInfo('18165','0');" class="btn_preview">미리보기</a>
-														                        </li>
-				
-	                         <li>
-								                            <span class="icon_best icon_best5">BEST 05</span>
-															                            <a href="/product/0/17006" class="prolink">
-	                            <!--a href="#" class="prolink"-->
-	                                <span class="propic">
-										<img src="../images/shop/shop5.jpg" alt=""></span>
-	                                <span class="proicon">
-						                                </span>
-	                                <span class="txt_price"><em>Fabien.H</em></span>
-	                							  <span class="txt_ti txt_overflow_dot">서울시 강남구 삼성로 725</span>
-	              							    <span class="txt_brand">02-333-5555</span>
-	                            </a>
-	                            <a onclick="javascript:confirmLogin();" class="btn_wish">WISH</a>
-												                            <!--a onClick="javascript:getGoodsInfo('17006');" class="btn_preview">미리보기</a-->
-								                            <a onclick="javascript:getGoodsInfo('17006','0');" class="btn_preview">미리보기</a>
-														                        </li>
+							<li>
+								<span class="icon_best icon_best1">BEST 01</span>
+								<a	href="#" class="prolink">
+									<span class="propic">
+										<img src="../images/shop/shop1.jpg" alt="" onmouseover="this.src=&quot;../images/shop/shopinner8.jpg&quot;" onmouseout="this.src=&quot;../images/shop/shop1.jpg&quot;" onerror="this.onerror=null;this.src='../images/shop1.jpg'">
+									</span>
+									<span class="proicon">
+										<span class="picon picon_new"></span>
+									</span>
+									<span class="txt_price"><em>Fabien.H</em></span>
+									<span class="txt_ti txt_overflow_dot">서울시 강남구 삼성로 725</span>
+									<span class="txt_brand">02-333-5555</span>
+								</a>
+								<a onclick="javascript:confirmLogin();" class="btn_wish">WISH</a>
+								<a onclick="javascript:getGoodsInfo('17322','0');" class="btn_preview">미리보기</a>
+							</li>
+							
+							<li>
+								<span class="icon_best icon_best2">BEST 02</span>
+								<a	href="#" class="prolink">
+									<span class="propic">
+										<img src="../images/shop/shopinner.jpg" alt="" onmouseover="this.src=&quot;../images/shop/shop8.jpg&quot;" onmouseout="this.src=&quot;../images/shop/shopinner7.jpg&quot;">
+									</span>
+									<span class="proicon"> </span>
+									<span class="txt_price"><em>박승철헤어스투디오</em></span>
+									<span class="txt_ti txt_overflow_dot">서울특별시 강남구 도곡동 953-1</span>
+									<span class="txt_brand">02-579-3920</span>
+								</a>
+								<a onclick="javascript:confirmLogin();" class="btn_wish">WISH</a>
+								<a onclick="javascript:getGoodsInfo('17322','0');" class="btn_preview">미리보기</a>
+							</li>
+							
+							<li>
+								<span class="icon_best icon_best3">BEST 03</span>
+								<a	href="#" class="prolink">
+									<span class="propic">
+										<img src="../images/shop/shopinner1.jpg" alt="" onmouseover="this.src=&quot;../images/shop/shop9.jpg&quot;" onmouseout="this.src=&quot;../images/shop/shopinner1.jpg&quot;">
+									</span>
+									<span class="proicon"> </span>
+									<span class="txt_price"><em>토니앤가이</em></span>
+									<span class="txt_ti txt_overflow_dot">인천광역시 부평구 부평동 738-21</span>
+									<span class="txt_brand">032-505-4589</span>
+								</a>
+								<a onclick="javascript:confirmLogin();" class="btn_wish">WISH</a>
+								<a onclick="javascript:getGoodsInfo('17322','0');" class="btn_preview">미리보기</a>
+							</li>
+							
+							<li>
+								<span class="icon_best icon_best4">BEST 04</span>
+								<a	href="#" class="prolink">
+									<span class="propic">
+										<img src="../images/shop/shopinner2.jpg" alt="" onmouseover="this.src=&quot;../images/shop/shop3.jpg&quot;" onmouseout="this.src=&quot;../images/shop/shopinner2.jpg&quot;">
+									</span>
+									<span class="proicon"> </span>
+									<span class="txt_price"><em>Style by K</em></span>
+									<span class="txt_ti txt_overflow_dot">서울특별시 동대문구 장안동 334-7</span>
+									<span class="txt_brand">02-6120-7771</span>
+								</a>
+								<a onclick="javascript:confirmLogin();" class="btn_wish">WISH</a>
+								<a onclick="javascript:getGoodsInfo('17322','0');" class="btn_preview">미리보기</a>
+							</li>
+							
+							<li>
+								<span class="icon_best icon_best5">BEST 05</span>
+								<a	href="#" class="prolink">
+									<span class="propic">
+										<img src="../images/shop/shopinner7.jpg" alt="" onmouseover="this.src=&quot;../images/shop/shop12.jpg&quot;" onmouseout="this.src=&quot;../images/shop/shopinner7.jpg&quot;">
+									</span>
+									<span class="proicon"> </span>
+									<span class="txt_price"><em>라브리지헤어살롱</em></span>
+									<span class="txt_ti txt_overflow_dot">서울특별시 중구 명동1가 59-25 5층</span>
+									<span class="txt_brand">02-778-1734</span>
+								</a>
+								<a onclick="javascript:confirmLogin();" class="btn_wish">WISH</a>
+								<a onclick="javascript:getGoodsInfo('17322','0');" class="btn_preview">미리보기</a>
+							</li>
 						</ul>
 					</div>
-				</div><!-- end of wrap best shop -->
-			
-			
-		</div> <!-- #content -->
+				</div>
+				<!-- end of wrap best shop -->
+
+
+			</div> <!-- #content -->
 		</div> <!-- .wrapper -->
 	</div> <!-- .wrap-chu -->
 
