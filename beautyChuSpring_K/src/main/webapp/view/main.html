@@ -14,7 +14,8 @@
 <script type="text/javascript" src="../js/jquery.easing.js"></script>
 <script type="text/javascript" src="../js/jquery-scrolltofixed-min.js"></script>
 <script type="text/javascript" src="../js/common.js"></script>
-<script type="text/javascript" src="../js/motion.js"></script> 
+<!-- drag 아이콘 모션 스크립트 
+<script type="text/javascript" src="../js/motion.js"></script>  -->
 <script type="text/javascript" src="../js/jquery.motio.min.js"></script>
 
 	<script>
@@ -29,7 +30,104 @@
 	<script type="text/javascript" src="../js/home.show-window.js"></script>
 
 <style type="text/css">
-	/* 스타일 적용 공간! */
+/* best shop */
+/* prolisttype1 */
+.prolisttype1 {position:relative;}
+.prolisttype1:after {content:" ";display:block;clear:both;}
+.prolisttype1>ul {margin:24px 0 0 1px;}
+.prolisttype1>ul>li {position:relative;float:left;}
+.prolisttype1 .chktypea{position:absolute; left:8px; top:8px; z-index:1;}
+.prolisttype1 .prolink {display:block;margin-top:-1px;margin-left:-1px;padding:5px 5px 27px 5px;border:1px solid #eceef1;background-color:#fff;}
+.prolisttype1 .prolink .propic {position:relative; margin:0 0 5px 0;display:block;}
+.prolisttype1 .prolink .propic img {width:100%;height:100%;}
+.prolisttype1 .prolink .propic .picon_user{position:absolute; left:0px; bottom:0px;}
+.prolisttype1 .prolink .proicon {margin:0 10px;}
+.prolisttype1 .prolink .txt_brand {display:block;padding:0 10px;height:16px;color:#252626;font-family:'Verdana', 'Nanum Gothic';font-size:10px;overflow:hidden;}
+.prolisttype1 .prolink .txt_ti {display:block;padding:3px 10px 0;height:16px;line-height:16px;color:#767676;font-size:11px;overflow:hidden;}
+.prolisttype1 .prolink .txt_price {display:block;padding:0 10px;height:12px;color:#000;font-family:'Verdana';font-size:11px;letter-spacing:-0.5px;}
+.prolisttype1 .prolink .txt_price del {display:inline-block;margin:0 4px 0 0;color:#767676;font-size:10px;}
+.prolisttype1 .prolink .txt_price em {display:inline-block;margin:0 4px 0 0;color:#000;font-size:11px;font-weight:bold;}
+.prolisttype1 .btn_wish {position:absolute;top:8px;right:8px;display:inline-block;width:14px;height:12px;background:url('http://img.gncostyle.com/gncoCom/images/common/bl_common.png') no-repeat 0 -233px;text-indent:-9999px;}
+.prolisttype1 .btn_wish.cnt {background-position:-14px -233px;}
+.prolisttype1 .btn_preview {position:absolute;bottom:12px;right:8px;display:inline-block;width:15px;height:15px;background:url('http://img.gncostyle.com/gncoCom/images/common/bl_common.png') no-repeat 0 -245px;text-indent:-9999px;}
+.prolisttype1 .btn_preview:hover {position:absolute;bottom:12px;right:8px;display:inline-block;width:15px;height:15px;background:url('http://img.gncostyle.com/gncoCom/images/common/bl_common.png') no-repeat -15px -245px;text-indent:-9999px;}
+.prolisttype1.prolist3>ul>li {width:33.33%;}
+.prolisttype1.prolist3>ul>li .prolink .propic img {width:349px;height:349px;}
+.prolisttype1.prolist4>ul>li {width:25%;}
+.prolisttype1.prolist4>ul>li .prolink .propic img {width:259px;height:259px;}
+.prolisttype1.prolist5>ul>li {width:20%;}
+.prolisttype1.prolist5>ul>li .prolink .propic {width:206px;height:160px;}
+#wrap.short .prolisttype1.prolist5>ul>li .prolink .propic {width:162px;height:162px;}
+.prolisttype1.prolist7>ul>li {width:20%;}
+.prolisttype1.prolist7>ul>li.big {width:40%;}
+.prolisttype1.prolist7>ul>li.big .prolink .propic {margin:20px 0 22px 0;width:421px;height:480px;overflow:hidden;}
+.prolisttype1.prolist7>ul>li.big .prolink .propic img {margin-left:-30px;width:480px;height:480px;}
+.prolisttype1.best .icon_best {position:absolute;top:11px;left:11px; z-index:1; display:inline-block;width:31px;height:36px;background:url('http://img.gncostyle.com/gncoCom/images/common/icon_best.png') no-repeat 0 0;text-indent:-9999px;}
+.prolisttype1.best .icon_best1 {background-position:0 0;}
+.prolisttype1.best .icon_best2 {background-position:-31px 0;}
+.prolisttype1.best .icon_best3 {background-position:-62px 0;}
+.prolisttype1.best .icon_best4 {background-position:-93px 0;}
+.prolisttype1.best .icon_best5 {background-position:-124px 0;}
+.prolisttype1 .prolstab {position:relative;margin-top:32px;height:47px;border-top:2px solid #585858;border-left:1px solid #dce0e5;border-right:1px solid #dce0e5;border-bottom:1px solid #dce0e5;}
+.prolisttype1 .prolstab:after {content:" ";display:block;clear:both;}
+.prolisttype1 .prolstab .protxt {float:left;padding:15px 0 15px 24px;font-size:13px;color:#252626;}
+.prolisttype1 .prolstab .protxt strong {color:#0f54a2;font-size:13px;font-weight:bold;border-bottom:1px solid #0f54a2;}
+.prolisttype1 .prolstab .protxt strong em {display:inline-block;margin:0 2px 1px 0;color:#0f54a2;font-family:'Verdana';font-size:15px;font-weight:bold;vertical-align:bottom;}
+.prolisttype1 .prolstab>ul {float:right;margin:0;}
+.prolisttype1 .prolstab>ul>li {float:left;}
+.prolisttype1 .prolstab>ul>li:first-child {padding:8px 9px 0 0;}
+.prolisttype1 .prolstab>ul>li .outSelB {width:123px;}
+.prolisttype1 .prolstab>ul>li .outSelB .tag_options {height:92px;}
+.prolisttype1 .prolstab>ul>li>a {display:block;width:80px;height:47px;line-height:47px;text-align:center;border-left:1px solid #dce0e5;border-bottom:1px solid #dce0e5;background-color:#f8f8f8;color:#767676;font-size:12px;}
+.prolisttype1 .prolstab>ul>li>a.cnt {border-bottom:1px solid #fff;background-color:#fff;color:#252525;font-weight:bold;}
+/*prolisttype1:wish*/
+.wishlist .prolisttype1 .prolink {padding:5px 5px 100px 5px;}
+.wishlist .prolisttype1 .btn_preview {bottom:80px;}
+.wishlist .prolisttype1 .btnshoppingbag {position:absolute;bottom:0;left:0;width:100%;border-top:1px solid #eceef1;text-align:center;}
+.wishlist .prolisttype1 .btnshoppingbag .bl_shoppingbag {margin:15px 0;width:152px;}
+
+
+/* prolisttype2 */
+.prolisttype2 {position:relative;width:100%;}
+.prolisttype2:after {content:" ";display:block;clear:both;}
+.prolisttype2 ul {}
+.prolisttype2 ul li {clear:both;padding:0 0 0 0;background:url('http://img.gncostyle.com/gncoCom/images/common/dot_gray2_3x1.gif') repeat-x 0 0;}
+.prolisttype2 ul li:first-child {background-image:none;}
+.prolisttype2 .prolink {position:relative;display:block;padding:15px 0 15px 108px;min-height:96px;}
+.prolisttype2 .prolink .pic {position:absolute;top:15px;left:0;}
+.prolisttype2 .prolink .txt_brand {display:block;padding:12px 0 0 0;height:17px;color:#252626;font-family:'Verdana', 'Nanum Gothic';font-size:10px;overflow:hidden;}
+.prolisttype2 .prolink .txt_ti {display:block;padding:3px 0 0 0;height:26px;line-height:13px;color:#252626;font-size:11px;overflow:hidden;}
+.prolisttype2 .prolink .txt_price {display:block;padding:5px 0 0 0;color:#000;font-family:'Verdana';font-size:11px;letter-spacing:-0.5px;}
+.prolisttype2 .prolink .txt_price del {color:#767676;font-size:10px;}
+.prolisttype2 .prolink .txt_price em {display:block;margin:0;line-height:12px;color:#000;font-size:11px;font-weight:bold;}
+.prolisttype2 .prolink .txt_price em .won {display:inline-block;margin:0 2px 0 0;font-family:'Nanum Gothic';}
+
+/* prolisttype3 */
+.prolisttype3 {position:relative;width:100%;}
+.prolisttype3 .grid {}
+.prolisttype3 .grid img {width:100%;}
+
+/* pajinate */
+.pajinate {}
+.pajinate:after {content:" ";display:block;clear:both;}
+.pajinate .pajinatels {}
+.pajinate .pajinatels:after {content:" ";display:block;clear:both;}
+.pajinate .pajinatels li {float:left;}
+.pajinate .pajinatenav {}
+.pajinate .pajinatenav .page_link {display:none;}
+
+.cont1080 {
+position: relative;
+margin: 0 auto;
+width: 1080px;
+height: 600px;
+}
+
+.best-shop-wrap {
+	background-color: #161616;
+	padding-top: 50px;
+}
+
 </style>
 
 </head>
@@ -673,6 +771,91 @@
 				</div>
 
 			</div><!-- show-window -->
+			
+			<!-- best shop -->
+			<div class="best-shop-wrap">
+				<div class="cont1080 prolisttype1 prolist5 best">
+						<ul>
+							 <li>
+									<span class="icon_best icon_best1">BEST 01</span>
+									<a href="#" class="prolink">
+	                	<span class="propic">
+											<img src="../images/shop/shop1.jpg" alt="" onmouseout="this.src=&quot;../images/shop/shop1.jpg&quot;" onerror="this.onerror=null;this.src='../images/shop1.jpg'"></span>
+	                  <span class="proicon">
+						        </span>
+	                  <span class="txt_price"><em>Fabien.H</em></span>
+	                  <span class="txt_ti txt_overflow_dot">서울시 강남구 삼성로 725</span>
+	                  <span class="txt_brand">02-333-5555</span>
+	                </a>
+	                <a onclick="javascript:confirmLogin();" class="btn_wish">WISH</a>
+								  <a onclick="javascript:getGoodsInfo('17322','0');" class="btn_preview">미리보기</a>
+								</li>
+				
+	              <li>
+								   	<span class="icon_best icon_best2">BEST 02</span>
+										<a href="/product/0/18276" class="prolink">
+	                    <span class="propic">
+												<img src="../images/shop/shop2.jpg" alt="" onmouseout="this.src=&quot;../images/shop/shop2.jpg&quot;" onerror="this.onerror=null;this.src='../images/shop/shop2.jpg'"></span>
+	                    <span class="proicon">
+						          </span>
+	                	  <span class="txt_price"><em>Fabien.H</em></span>
+	                 		<span class="txt_ti txt_overflow_dot">서울시 강남구 삼성로 725</span>
+	               		  <span class="txt_brand">02-333-5555</span>
+	                   </a>
+	                   <a onclick="javascript:confirmLogin();" class="btn_wish">WISH</a>
+								     <a onclick="javascript:getGoodsInfo('18276','0');" class="btn_preview">미리보기</a>
+								</li>
+                <li>
+                    <span class="icon_best icon_best3">BEST 03</span>
+                    <a href="#" class="prolink">
+                       <span class="propic">
+	 									   		<img src="../images/shop/shop3.jpg" alt=""></span>
+	                     <span class="proicon">
+						           </span>
+	                     <span class="txt_price"><em>Fabien.H</em></span>
+	                 		 <span class="txt_ti txt_overflow_dot">서울시 강남구 삼성로 725</span>
+	               		   <span class="txt_brand">02-333-5555</span>
+	                            </a>
+	                            <a onclick="javascript:confirmLogin();" class="btn_wish">WISH</a>
+								                            <a onclick="javascript:getGoodsInfo('18332','0');" class="btn_preview">미리보기</a>
+														                        </li>
+				
+	                         <li>
+								                            <span class="icon_best icon_best4">BEST 04</span>
+															                            <a href="/product/0/18165" class="prolink">
+	                                <span class="propic">
+										<img src="../images/shop/shop4.jpg" alt="" ></span>
+	                                <span class="proicon">
+						                                </span>
+	                                <span class="txt_price"><em>Fabien.H</em></span>
+	                							  <span class="txt_ti txt_overflow_dot">서울시 강남구 삼성로 725</span>
+	              							    <span class="txt_brand">02-333-5555</span>
+	                            </a>
+	                            <a onclick="javascript:confirmLogin();" class="btn_wish">WISH</a>
+								                            <a onclick="javascript:getGoodsInfo('18165','0');" class="btn_preview">미리보기</a>
+														                        </li>
+				
+	                         <li>
+								                            <span class="icon_best icon_best5">BEST 05</span>
+															                            <a href="/product/0/17006" class="prolink">
+	                            <!--a href="#" class="prolink"-->
+	                                <span class="propic">
+										<img src="../images/shop/shop5.jpg" alt=""></span>
+	                                <span class="proicon">
+						                                </span>
+	                                <span class="txt_price"><em>Fabien.H</em></span>
+	                							  <span class="txt_ti txt_overflow_dot">서울시 강남구 삼성로 725</span>
+	              							    <span class="txt_brand">02-333-5555</span>
+	                            </a>
+	                            <a onclick="javascript:confirmLogin();" class="btn_wish">WISH</a>
+												                            <!--a onClick="javascript:getGoodsInfo('17006');" class="btn_preview">미리보기</a-->
+								                            <a onclick="javascript:getGoodsInfo('17006','0');" class="btn_preview">미리보기</a>
+														                        </li>
+						</ul>
+					</div>
+				</div><!-- end of wrap best shop -->
+			
+			
 		</div> <!-- #content -->
 		</div> <!-- .wrapper -->
 	</div> <!-- .wrap-chu -->
