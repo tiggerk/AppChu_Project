@@ -18,6 +18,7 @@ public class Style implements Serializable {
 	String styleName;
 	int price;
 	String styleIntro;
+	
 	String stylePhotoNo;
 	String stylePhotoUrl;
 	MultipartFile photofile;

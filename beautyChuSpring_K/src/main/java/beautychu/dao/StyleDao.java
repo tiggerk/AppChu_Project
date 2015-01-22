@@ -5,6 +5,7 @@ import java.util.Map;
 
 import beautychu.domain.Member;
 import beautychu.domain.Style;
+import beautychu.domain.StylePhoto;
 
 public interface StyleDao {
 	
@@ -15,4 +16,6 @@ public interface StyleDao {
 	  void insertStyle(Style style);
 	  void insertStylePhoto(Style style);
 	  
+	  List<?> getPhotoList(int styleNo);
+	  void insertStylePhotoList(Style style);
 	}

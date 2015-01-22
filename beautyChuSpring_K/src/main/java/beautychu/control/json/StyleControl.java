@@ -9,8 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
 
 import beautychu.domain.Style;
+import beautychu.service.StylePhotoService;
 import beautychu.service.StyleService;
 
 @Controller("json.StyleControl")
@@ -18,11 +21,9 @@ import beautychu.service.StyleService;
 public class StyleControl {
 //	static Logger log = Logger.getLogger(ProductControl.class);
 
-	@Autowired
-	StyleService styleServie;
-	
-	@Autowired
-	ServletContext servletContext;
+	@Autowired StyleService styleServie;
+	@Autowired StylePhotoService stylePhotoService;
+	@Autowired ServletContext servletContext;
 
 	@RequestMapping("/list")
 	public Object list() throws Exception {
@@ -37,6 +38,14 @@ public class StyleControl {
 
 		HashMap<String, Object> resultMap = new HashMap<>();
 		resultMap.put("styleDetail", styleServie.getStyleDetail());
+		return resultMap;
+	}
+	
+	@RequestMapping("/photoList")
+	public Object list(int no) throws Exception {
+
+		HashMap<String, Object> resultMap = new HashMap<>();
+		resultMap.put("stylePhotoList", stylePhotoService.getList(no));
 		return resultMap;
 	}
 	
@@ -62,5 +71,23 @@ public class StyleControl {
 	    
 	    return resultMap;
 	  }
-
+	
+	/*AJAX post방식*/
+	@RequestMapping(value="/fileUpload", method=RequestMethod.POST)
+	public ModelAndView fileUpload(MultipartHttpServletRequest mRequest, int styleNo) {
+		
+		System.out.println("나나나"+ styleNo);
+		ModelAndView mav = new ModelAndView();
+		
+		if(stylePhotoService.fileUpload(mRequest, styleNo)) {
+			mav.addObject("result", "SUCCESS");
+		} else {
+			mav.addObject("result", "FAIL");
+		}
+		
+		mav.setViewName("JSON");
+		
+		return mav;
+	}
+	
 }
