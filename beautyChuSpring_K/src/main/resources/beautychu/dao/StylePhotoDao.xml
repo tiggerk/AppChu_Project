@@ -6,8 +6,8 @@
 <mapper namespace="beautychu.dao.StylePhotoDao">
 
   <resultMap type="StylePhoto" id="stylePhotoMap">
-    <id column="STYLEPHOTONO" property="stylePhotoNumber"/>
-    <result column="STYLENO" property="styleNumber"/>
+    <id column="STYLEPHOTONO" property="stylePhotoNo"/>
+    <result column="STYLENO" property="styleNo"/>
     <result column="STYLEPHOTO" property="stylePhoto"/>
 
   </resultMap>
@@ -15,7 +15,7 @@
   <select id="getList" parameterType="map" resultMap="stylePhotoMap">
     SELECT STYLEPHOTONO,STYLENO,STYLEPHOTO
     FROM STYLEPHOTO
-    WHERE STYLENO=#{styleNumber}
+    WHERE STYLENO=#{styleNo}
   </select>
  
   

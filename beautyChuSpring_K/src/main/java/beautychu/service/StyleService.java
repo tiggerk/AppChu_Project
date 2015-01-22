@@ -37,7 +37,7 @@ public class StyleService {
 		    styleDao.insertStyle(style);
 		    
 		    if (style.getStylePhotoUrl() != null){
-		      styleDao.insertPhoto(style);
+		      styleDao.insertStylePhoto(style);
 		    }
 		  }
 	

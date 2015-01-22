@@ -13,6 +13,6 @@ public interface StyleDao {
 	  List<?> getStyleDetail();
 	  /*Style existUser(Map<String,String> params);*/
 	  void insertStyle(Style style);
-	  void insertPhoto(Style style);
+	  void insertStylePhoto(Style style);
 	  
 	}

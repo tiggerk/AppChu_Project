@@ -199,9 +199,9 @@
               <ul class="sidebar-menu" id="nav-accordion">
               
               	  <p class="centered"><a href="shop_info.html#"><img src="assets/img/ui-zac.jpg" class="img-circle" width="60"></a></p>
-              	  <h5 class="centered">박준 뷰티랩</h5>
-              	  <h6 class="centered">서울시 강남구 삼성로 725</h6>
-              	  <h6 class="centered">02-511-1414</h6>
+              	  <h5 id="sidebar-shopName" class="centered"></h5>
+              	  <h6 id="sidebar-shopAddr" class="centered"></h6>
+              	  <h6 id="sidebar-shopTel" class="centered"></h6>
               	  	
                   <li class="mt sub-menu">
                       <a href="javascript:;" >
@@ -408,6 +408,10 @@ var imsiEmail;
 					console.log(data.listShopInfo);
 					console.log(data.listShopInfo[0].shopPhotoUrl);
 					
+					$('#sidebar-shopName').text(data.listShopInfo[0].shopName);
+					$('#sidebar-shopAddr').text(data.listShopInfo[0].shopAddr);
+					$('#sidebar-shopTel').text(data.listShopInfo[0].shopTel);
+					
 					$('#shopProfile').attr('src','/beautyChuSpring_K/fileupload' + data.listShopInfo[0].shopPhotoUrl);
 					$('#licenseeNo').val(data.listShopInfo[0].licenseeNo);
 					$('#shopName').val(data.listShopInfo[0].shopName);
@@ -423,9 +427,9 @@ var imsiEmail;
 	    
 	    /* AJAX 서버로 데이터 보내서 update */
 		$('#shop-updateBtn').click(function() {
-			/* var profileInput = document.getElementById("profileInput").files[0].name;
+			var profileInput = document.getElementById("profileInput").files[0].name;
 			var photo1 = profileInput[0];
-			var shopPhotoName = profileInput[0].name; */
+			var shopPhotoName = profileInput[0].name;
 			console.log(profileInput);
 
 			$("form").ajaxSubmit({
@@ -446,7 +450,7 @@ var imsiEmail;
 				dataType : "json",
 				url : '../../json/shop/update.do',
 				data : {
-					/* shopPhotoUrl : $ */ 
+					shopPhotoUrl : $('#shopProfile').attr('src'),
 					email : $('#email').val(),
 					licenseeNo : $('#licenseeNo').val(),
 					shopName : $('#shopName').val(),
