@@ -1,0 +1,68 @@
+
+<div id=yun-shopdetailcontainer>
+
+	<!--*****************************************************************************************-->
+	<!--**************************** 샵사진 슬라이드가 들어가는 div *****************************-->
+	<div id='yun-shopphotolist' class=yun-shopcontainerdiv>
+
+
+
+
+
+
+
+	</div>
+
+	<!--*****************************************************************************************-->
+	<!--**************************** 버튼 div  **************************************************-->
+	<div id=yun-shopcontent class=yun-shopcontainerdiv>
+		<div id=yun-buttondiv>
+			<img class=yun-back src="../images/yun-shopdetail/back-icon.png">
+			<!-- <img class=yun-exit src="../images/yun-shopdetail/exit-icon.png"> -->
+		</div>
+		<!--*****************************************************************************************-->
+		<!--**************************** 샵 제목 div  ***********************************************-->
+
+		<div id=yun-styletitle>
+			<h1 id=kh-styleName></h1>
+		</div>
+		<!--*****************************************************************************************-->
+		<!--**************************** 샵 내용 div **************************************-->
+
+		<div id='yun-stylecontentdetail'>
+			<div>
+				<p id='kh-intro'></p>
+			</div>
+
+
+		</div>
+		
+		<div>
+			 <h3>가격:{{styleDetail.price}}</h3>
+		</div>
+
+
+		<div class=buttondiv>
+			<div class="ui black basic button yun-shop-button" data-email="{{styleDetail.email}}">Shop ></div>
+			<div class="ui black basic button get-coupon">Get Coupon ></div>
+		</div>
+
+		<div id=yun-stylecomment class=yun-stylecomment>
+
+		</div>
+	</div>
+</div>
+    <script type="text/javascript" src="../js/resources/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../js/resources/kh/jssor.js"></script>
+    <script type="text/javascript" src="../js/resources/kh/jssor.slider.js"></script> 
+
+<script type="text/javascript">
+	 /* $('#yun-shopphotolist').load('templates/kh-styleimage-gallery.html');  */
+	
+/*     $('#template1').load('templates/kh-styleimage-gallery.html', function(source){
+	    	  var template = Handlebars.compile(source);
+	    	  var html = template(data);
+	    	  $('#yun-shopphotolist').html(html);
+	    	});   */
+
+</script>
