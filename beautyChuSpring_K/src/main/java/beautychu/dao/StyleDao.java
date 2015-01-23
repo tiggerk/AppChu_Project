@@ -12,10 +12,16 @@ public interface StyleDao {
 	  List<?> getList();
 	  List<?> getGridList();
 	  List<?> getStyleDetail();
+	  List<?> getMainStyleList();
 	  /*Style existUser(Map<String,String> params);*/
 	  void insertStyle(Style style);
-	  void insertStylePhoto(Style style);
+	  void insertStylePhotoUrl(Style style);
 	  
 	  List<?> getPhotoList(int styleNo);
-	  void insertStylePhotoList(Style style);
+	  /*void insertStylePhotoList(Style style);*/
+	  
+	  /*List<?> getPhotoList(int styleNo);*/
+	  void insertStylePhoto(StylePhoto stylePhoto);
+	  void insertStylePhotoList(StylePhoto stylePhoto);
+	
 	}

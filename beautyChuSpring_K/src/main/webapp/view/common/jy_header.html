@@ -366,7 +366,7 @@ $.ajax({
 							var yunemail = $('#jy-user_email').val();
 							var yunregex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
 							if (yunregex.test(yunemail)) {
-								$.get("http://192.168.0.36:55555/id", {
+								$.get("http://192.168.0.130:55555/id", {
 									id : $('#jy-user_email').val()
 								}, function(data) {
 									if (data.result === 'yes') {

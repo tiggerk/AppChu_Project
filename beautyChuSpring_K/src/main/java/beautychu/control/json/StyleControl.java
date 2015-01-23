@@ -21,37 +21,42 @@ import beautychu.service.StyleService;
 public class StyleControl {
 //	static Logger log = Logger.getLogger(ProductControl.class);
 
-	@Autowired StyleService styleServie;
+	@Autowired StyleService styleService;
 	@Autowired StylePhotoService stylePhotoService;
 	@Autowired ServletContext servletContext;
 
 	@RequestMapping("/list")
 	public Object list() throws Exception {
-
 		HashMap<String, Object> resultMap = new HashMap<>();
-		resultMap.put("styleList", styleServie.getList());
+		resultMap.put("styleList", styleService.getList());
 		return resultMap;
 	}
 	
+	
 	@RequestMapping("/detail")
 	public Object detail() throws Exception {
-
 		HashMap<String, Object> resultMap = new HashMap<>();
-		resultMap.put("styleDetail", styleServie.getStyleDetail());
+		resultMap.put("styleDetail", styleService.getStyleDetail());
+		return resultMap;
+	}
+	
+	@RequestMapping("/mainStyleList")
+	public Object mainStyleList() throws Exception {
+		HashMap<String, Object> resultMap = new HashMap<>();
+		resultMap.put("mainStyleList", styleService.getMainStyleList());
 		return resultMap;
 	}
 	
 	@RequestMapping("/photoList")
 	public Object list(int no) throws Exception {
-
 		HashMap<String, Object> resultMap = new HashMap<>();
 		resultMap.put("stylePhotoList", stylePhotoService.getList(no));
 		return resultMap;
 	}
 	
+	
 	@RequestMapping(value="/add", method=RequestMethod.POST)
 	  public Object add(Style style) throws Exception {  
-	    
 	    if (style.getPhotofile() != null
 	        && !style.getPhotofile().isEmpty()) {
 
@@ -64,13 +69,14 @@ public class StyleControl {
 	      style.setStylePhotoUrl(filename);
 	    }
 	    
-	    styleServie.add(style);
+	    styleService.add(style);
 	    
 	    HashMap<String,Object> resultMap = new HashMap<>();
 	    resultMap.put("status", "success");
 	    
 	    return resultMap;
 	  }
+	
 	
 	/*AJAX post방식*/
 	@RequestMapping(value="/fileUpload", method=RequestMethod.POST)

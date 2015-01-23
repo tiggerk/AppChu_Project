@@ -12,16 +12,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import beautychu.dao.StylePhotoDao;
+import beautychu.dao.StyleDao;
 import beautychu.domain.StylePhoto;
 
 @Service
 public class StylePhotoService {
-  @Autowired StylePhotoDao stylePhotoDao;
+  @Autowired StyleDao styleDao;
   @Autowired ServletContext servletContext;
   
   public List<?> getList(int no) {
-    return stylePhotoDao.getList(no); 
+    return styleDao.getPhotoList(no); 
   }
   
   /*서버에 파일(이미지) 올리기*/
@@ -58,7 +58,7 @@ public class StylePhotoService {
 					stylePhoto.setStyleNo(styleNo);
 					stylePhoto.setUrl( "/" + saveFileName);
 					mFile.transferTo(new File(uploadPath + "/" + saveFileName));
-					stylePhotoDao.insertStylePhoto(stylePhoto);
+					styleDao.insertStylePhoto(stylePhoto);
 					isSuccess = true;				
 				} catch (IllegalStateException e) {
 					e.printStackTrace();

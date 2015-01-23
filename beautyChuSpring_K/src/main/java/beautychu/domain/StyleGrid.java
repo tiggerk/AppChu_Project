@@ -6,17 +6,14 @@ public class StyleGrid implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	int styleNumber;
+	int styleNo;
 	String styleName;
-	String url;
-	
-	
-	
-	public int getStyleNumber() {
-		return styleNumber;
+	String stylePhotoUrl;
+	public int getStyleNo() {
+		return styleNo;
 	}
-	public void setStyleNumber(int styleNumber) {
-		this.styleNumber = styleNumber;
+	public void setStyleNo(int styleNo) {
+		this.styleNo = styleNo;
 	}
 	public String getStyleName() {
 		return styleName;
@@ -24,18 +21,20 @@ public class StyleGrid implements Serializable {
 	public void setStyleName(String styleName) {
 		this.styleName = styleName;
 	}
-	public String getUrl() {
-		return url;
+	public String getStylePhotoUrl() {
+		return stylePhotoUrl;
 	}
-	public void setUrl(String url) {
-		this.url = url;
-	}
-	@Override
-	public String toString() {
-		return "StyleGrid [styleNumber=" + styleNumber + ", styleName="
-				+ styleName + ", url=" + url + "]";
+	public void setStylePhotoUrl(String stylePhotoUrl) {
+		this.stylePhotoUrl = stylePhotoUrl;
 	}
 	
+	
+	@Override
+	public String toString() {
+		return "StyleGrid [styleNo=" + styleNo + ", styleName=" + styleName
+				+ ", stylePhotoUrl=" + stylePhotoUrl + "]";
+	}
+
 	
 
 

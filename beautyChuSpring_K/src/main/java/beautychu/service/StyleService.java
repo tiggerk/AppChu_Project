@@ -16,9 +16,13 @@ import beautychu.domain.Style;
 public class StyleService {
   @Autowired StyleDao styleDao;
   
+  public List<?> getMainStyleList() {
+	    return styleDao.getMainStyleList(); 
+  }
+  
   public List<?> getList() {
 	    return styleDao.getList(); 
-	  }
+  }
   
   public List<?> getGridList() {
 	    return styleDao.getGridList(); 
@@ -37,7 +41,7 @@ public class StyleService {
 		    styleDao.insertStyle(style);
 		    
 		    if (style.getStylePhotoUrl() != null){
-		      styleDao.insertStylePhoto(style);
+		      styleDao.insertStylePhotoUrl(style);
 		    }
 		  }
 	
