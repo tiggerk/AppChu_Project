@@ -10,6 +10,8 @@
  *
  */
 
+
+/*fancybox function 수정*/
 (function (window, document, $, undefined) {
 	"use strict";
 
