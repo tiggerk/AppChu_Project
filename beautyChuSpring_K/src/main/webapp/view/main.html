@@ -862,24 +862,14 @@
 			}
 		});
 		
-	    /* AJAX로 shop 정보 가져오기 */
-	    /* $.getJSON('../json/style/list.do', function(data) {
-	    	$.each(data, function(styleNo, url) {
-	    		var div = document.createElement('div');
-	    		div.id = good;
-	    		div.innerHTML = ['<div class="img-container"><a href="#"><img src="',stylePhotoUrl ,'"><span class="over"><i></i></span></a>',
-	    		'</div> <a href="#" class="good-name"><img src=""></a> '].join('');
-	    		document.getElementById('main-style-div').insertBefore(div, null);
-	    	});
-	    });
-	    
-	    main-style-div
-	    <div class="good">
-		<div class="img-container">
-			<a href='#'><img src="../images/main/111.jpg" alt="Crew Neck Sweater "><span class="over"><i></i></span></a>
-		</div>
-		<a href='#' class="good-name"><img src="http://dept.galleria.co.kr/upload/main_fashion_style/e1b15616-eeb0-418f-a93b-907da55b8f88.png" alt=""></a>
-	</div> */
+		$.getJSON('../json/style/mainStyleList.do', 
+			    function(data){
+			      $.get('templates/main-style-list.html', function(source){
+				    	  var template = Handlebars.compile(source);
+				    	  var html = template(data);
+				    	  $('#main-style-div').html(html);
+				    	});  
+			    });
 		    
 		    
 	    
