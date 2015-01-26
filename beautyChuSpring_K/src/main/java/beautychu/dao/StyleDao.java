@@ -13,6 +13,7 @@ public interface StyleDao {
 	  List<?> getGridList();
 	  List<?> getStyleDetail();
 	  List<?> getMainStyleList();
+	  List<?> getMainCelebrityList();
 	  /*Style existUser(Map<String,String> params);*/
 	  void insertStyle(Style style);
 	  void insertStylePhotoUrl(Style style);

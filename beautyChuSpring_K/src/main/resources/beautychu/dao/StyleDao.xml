@@ -57,6 +57,14 @@
     <result column="STYLENO" property="styleNo"/>
   </resultMap>
   
+  <resultMap type="MainCelebrity" id="mainCelebrityMap">
+    <result column="STYLEPHOTOURL" property="stylePhotoUrl"/>
+    <result column="STYLENAME" property="styleName"/>
+    <result column="GENRE" property="genre"/>
+    <result column="GENRETITLE" property="genreTitle"/>
+    <result column="STYLENO" property="styleNo"/>
+  </resultMap>
+  
   <!-- <select id="getList" parameterType="map" resultMap="styleMap">
     SELECT STYLENO,PEOPLE,GENDER,STYLESORT,STYLELENGTH,STYLENAME,STYLEINTRO,PRICE,EMAIL 
 	FROM STYLE
@@ -77,15 +85,28 @@
   </select>
   
   <select id="getMainStyleList" parameterType="map" resultMap="mainStyleMap">
-    SELECT S3.STYLEPHOTOURL, S1.STYLENAME, S2.SHOPNAME, S1.STYLENO
+   	SELECT S3.STYLEPHOTOURL, S1.STYLENAME, S2.SHOPNAME, S1.STYLENO
     FROM STYLE S1
     LEFT JOIN SHOP S2
     ON S1.EMAIL = S2.EMAIL
     LEFT JOIN STYLEPHOTO S3
     ON S1.STYLENO = S3.STYLENO
+    WHERE PEOPLE = 'normal'
 	GROUP BY S1.STYLENO
 	ORDER BY S1.STYLENO DESC
-	LIMIT 20
+	LIMIT 15
+	<!-- LIMIT 20 -->
+  </select>
+  
+  <select id="getMainCelebrityList" parameterType="map" resultMap="mainCelebrityMap">
+   	SELECT S2.STYLEPHOTOURL, S1.STYLENAME, S1.GENRE, S1.GENRETITLE, S1.STYLENO
+    FROM STYLE S1
+    LEFT JOIN STYLEPHOTO S2
+    ON S1.STYLENO = S2.STYLENO
+    WHERE PEOPLE = 'celebrity'
+	GROUP BY S1.STYLENO
+	ORDER BY S1.STYLENO DESC
+	LIMIT 23
   </select>
   
   <!-- <select id="getMainShopList" parameterType="map" resultMap="mainShopMap">

@@ -9,11 +9,14 @@
 <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
 
 <link rel="stylesheet" type="text/css" href="../css/basic.css"/>
+
+
 <script type="text/javascript" src="../js/modernizr.min.js"></script>
 <script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="../js/jquery.easing.js"></script>
 <script type="text/javascript" src="../js/jquery-scrolltofixed-min.js"></script>
 <script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src='../js/handlebars-v2.0.0.js'></script>
 <!-- drag 아이콘 모션 스크립트 
 <script type="text/javascript" src="../js/motion.js"></script>  -->
 <script type="text/javascript" src="../js/jquery.motio.min.js"></script>
@@ -31,6 +34,12 @@
 	<!-- dotdotdot 스크립트 -->
 	<script type="text/javascript" src="http://www.gncostyle.com/gncoCom/js/jquery.dotdotdot.js"></script>
 
+<style type="text/css">
+footer {
+	background-color: #161616;
+	color: #333;
+}
+</style>
 </head>
 
 <body class="home">
@@ -248,7 +257,7 @@
 
 				<!-- GRID LIST -->
 				<div class="grid-by-list hide">
-					<ul class="good-list">
+					<ul id="main-celebrity" class="good-list">
 					
 						<li>
 							<div class="good">
@@ -716,7 +725,6 @@
 						<li ><a href="#">2</a></li>
 					
 						<li ><a href="#">3</a></li>
-						
 		 
 					</ul>
 				</div>
@@ -812,19 +820,19 @@
 							</li>
 						</ul>
 					</div>
-				</div>
-				<!-- end of wrap best shop -->
+				</div> <!-- end of wrap best shop -->
 
-
+			<footer id="footer">
+				<!-- footer 건들지 말긔! -->
+			</footer>
+			
 			</div> <!-- #content -->
 		</div> <!-- .wrapper -->
 	</div> <!-- .wrap-chu -->
 
 
 	
-	<footer>
-		<!-- footer 건들지 말긔! -->
-	</footer>
+	
 	
 	
 
@@ -842,6 +850,7 @@
 	<!-- ajax 서버 통신 -->
 	<script>
 	$(function() {
+		/* main style list */
 		$.ajax({
 			type : 'get',
 			dataType : "json",
@@ -862,17 +871,39 @@
 			}
 		});
 		
-		$.getJSON('../json/style/mainStyleList.do', 
-			    function(data){
-			      $.get('templates/main-style-list.html', function(source){
-				    	  var template = Handlebars.compile(source);
-				    	  var html = template(data);
-				    	  $('#main-style-div').html(html);
-				    	});  
-			    });
-		    
+		$.getJSON('../json/style/mainStyleList.do', function(data){
+			$.get('templates/main-style-list.html', function(source){
+				var template = Handlebars.compile(source);
+				var html = template(data);
+				$('#main-style-div').html(html);
+			});  
+	    }); /* end of main style list */
 		    
 	    
+		/* main celebrity list */
+			$.ajax({
+				type : 'get',
+				dataType : "json",
+				data : {
+					/* email : imsiEmail */
+				},
+				url : '../json/style/mainCelebrityList.do',
+				success : function(data) {
+					console.log(data);
+					console.log(data.mainCelebrityList[0]);
+				},
+				error : function() {
+					console.log('ajax shop정보 실패');
+				}
+			});
+	    
+			$.getJSON('../json/style/mainCelebrityList.do', function(data){
+				$.get('templates/main-celebrity-list.html', function(source){
+					var template = Handlebars.compile(source);
+					var html = template(data);
+					$('#main-celebrity').html(html);
+				});  
+		    }); /* end of main celebrity list */
 		 
 	 });
 	

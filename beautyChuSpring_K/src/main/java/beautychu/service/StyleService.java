@@ -20,6 +20,10 @@ public class StyleService {
 	    return styleDao.getMainStyleList(); 
   }
   
+  public List<?> getMainCelebrityList() {
+	    return styleDao.getMainCelebrityList(); 
+}
+  
   public List<?> getList() {
 	    return styleDao.getList(); 
   }

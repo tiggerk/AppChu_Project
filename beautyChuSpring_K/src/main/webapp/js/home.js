@@ -37,7 +37,7 @@ var HomeApp = {
 			ShowWindow.play();
 		}
 
-		/* 안쓰는거임 메인 밑에 버튼 동작안하는거. */
+		/* 안쓰는거임 메인 밑에 버튼 동작안하는거. 
 		   $(window).on('scroll', function(){
 			if ( $('.motion-scroll').hasClass('stopped')) return;
 			if ( parseInt($(window).scrollTop()) > 10 ) {
@@ -45,7 +45,7 @@ var HomeApp = {
 				stopMotion($('.motion-scroll'));
 				console.log('motion-scroll stopped');
 			}
-		});
+		});*/
 	},
 
 	showIntro : function() {
