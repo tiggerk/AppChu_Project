@@ -60,7 +60,7 @@ body.home .wrapper{background: #000;}  /* mod 20140304 */
 #nav .gnb > li { width: 160px; height: 70px; border-right:1px solid #363636; float:left; position: relative; }
 #nav .gnb > li > a { width: 100%; height: 100%; font-size: 15px; color: #fff; font-family: 'MyriadPro-Semibold', Helvetica, sans-serif; text-decoration: none; line-height: 70px; text-align: center; display: block; text-transform: uppercase; position: relative;}
 
-#nav .gnb > li > a .label { background:url(/web/img/common/gnb.png) no-repeat; /* text-indent: -9999em; */ overflow: hidden; display: block; width: 160px; height: 70px; position: absolute; top:0; left:-1px; right: 0; bottom: 0; border-left: 1px solid #363636; border-right: 1px solid #363636; z-index: 1004;	}
+#nav .gnb > li > a .label { /* background:url(/web/img/common/gnb.png) no-repeat; text-indent: -9999em; */ overflow: hidden; display: block; width: 160px; height: 70px; position: absolute; top:0; left:-1px; right: 0; bottom: 0; border-left: 1px solid #363636; border-right: 1px solid #363636; z-index: 1004;	}
 
 #nav .gnb > li:hover > a .label,
 #nav .gnb > li:active > a .label {border-left: 1px solid #e7e7e7; border-right: 1px solid #e7e7e7; color:#111;	}

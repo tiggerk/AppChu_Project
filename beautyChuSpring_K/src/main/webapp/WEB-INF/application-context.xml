@@ -21,7 +21,7 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url"
-			value="jdbc:mysql://192.168.0.148:3306/beautychudb?useUnicode=true&amp;characterEncoding=utf8" />
+			value="jdbc:mysql://192.168.0.133:3306/beautychudb?useUnicode=true&amp;characterEncoding=utf8" />
 		<property name="username" value="beautychu" />
 		<property name="password" value="beautychu" />
 	</bean>
@@ -46,6 +46,19 @@
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 	  <!-- DAO를 위한 인터페이스가 선언된 패키지 지정 -->
 	  <property name="basePackage" value="beautychu.dao" />
+	</bean>
+	
+	<!-- 메일 보내기 객체 -->
+	<bean id="mailSender" class ="org.springframework.mail.javamail.JavaMailSenderImpl" >
+    <property name="host" value="smtp.gmail.com" />
+    <property name="port" value="587" />
+    <property name="username" value="나의아이디@gmail.com" />
+    <property name="password" value="암호" />
+    <property name="javaMailProperties">
+	    <props> <!-- 보안관련 -->
+	        <prop key="mail.smtp.starttls.enable">true</prop>
+	    </props>
+    </property>
 	</bean>
 </beans>
 

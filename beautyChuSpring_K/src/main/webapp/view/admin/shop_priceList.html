@@ -278,21 +278,28 @@
                               <div class="task-content">
                               <table class="table table-bordered table-striped table-condensed" style="margin-bottom: 0">
 	                        	<thead>
-	                        	<tr>
-	                        	<th style="width: 31%">분류</th>
-	                        	<th style="width: 22%">스타일</th>
-	                        	<th>기본 가격 (기장 및 옵션에 따라 가격추가)</th>
-	                        	</tr>
+		                        	<tr>
+			                        	<th style="width: 17%">성별</th>
+			                        	<th style="width: 24%">분류</th>
+			                        	<th style="width: 25%">스타일</th>
+			                        	<th>기본 가격</th>
+		                        	</tr>
 	                        	</thead>
-	                        </table>
-                                  <ul id="sortable" class="task-list">
+	                           </table>
+	                           
+                                  <ul class="task-list">
                                   
                                       <li class="list-info">
-                                          <i class=" fa fa-ellipsis-v"></i>
                                           <div class="task-title">
                                               <div class="form-group">
+                                              	   <div class="col-sm-2">
+					                                  <select class="select-read form-control round-form">
+														  <option>Man</option>
+														  <option>Woman</option>
+														</select>
+					                              </div>
 					                              <div class="col-sm-3">
-					                                  <select class="form-control round-form">
+					                                  <select class="select-read form-control round-form">
 														  <option>Cut</option>
 														  <option selected="selected">Perm</option>
 														  <option>Color</option>
@@ -301,137 +308,24 @@
 														</select>
 					                              </div>
 					                              <div class="col-sm-3">
-					                                  <input type="text" class="form-control round-form text-center" placeholder="스타일 컷">
+					                                  <input type="text" class="input-read form-control round-form text-center" placeholder="스타일 컷">
 					                              </div>
 					                              <div class="col-sm-3">
 					                                  <input type="text" class="form-control round-form text-center" placeholder="10,000">
 					                              </div>
-	                                              <div class="col-sm-3">
-	                                                  <button class="btn btn-success fa fa-check"></button>
-	                                                  <button class="btn btn-primary fa fa-pencil"></button>
+	                                              <div class="col-sm-1">
 	                                                  <button class="btn btn-danger fa fa-trash-o"></button>
 	                                              </div>
                                               </div>
                                           </div>
                                       </li>
-                                      
-                                      <li class="list-primary">
-                                          <i class=" fa fa-ellipsis-v"></i>
-                                          <div class="task-title">
-	                                          <div class="form-group">
-					                              <div class="col-xs-3">
-				                                  	<select class="form-control round-form">
-													  <option>Cut</option>
-													  <option selected="selected">Perm</option>
-													  <option>Color</option>
-													  <option>Care</option>
-													  <option>ETC</option>
-												  	</select>
-					                              </div>
-					                              <div class="col-xs-3">
-					                                  <input type="text" class="form-control round-form text-center" placeholder="스타일 컷">
-					                              </div>
-					                              <div class="col-xs-3">
-					                                  <input type="text" class="form-control round-form text-center" placeholder="10,000">
-					                              </div>
-					                              <div class="col-sm-3">
-	                                                  <button class="btn btn-success fa fa-check"></button>
-	                                                  <button class="btn btn-primary fa fa-pencil"></button>
-	                                                  <button class="btn btn-danger fa fa-trash-o"></button>
-                                              	  </div>
-					                          </div>
-                                          </div>
-                                      </li>
-                                      
-                                      <li class="list-danger">
-                                          <i class=" fa fa-ellipsis-v"></i>
-                                          <div class="task-title">
-	                                          <div class="form-group">
-					                              <div class="col-sm-3">
-				                                  	<select class="form-control round-form">
-													  <option>Cut</option>
-													  <option selected="selected">Perm</option>
-													  <option>Color</option>
-													  <option>Care</option>
-													  <option>ETC</option>
-												  	</select>
-					                              </div>
-					                              <div class="col-sm-3">
-					                                  <input type="text" class="form-control round-form text-center" placeholder="스타일 펌">
-					                              </div>
-					                              <div class="col-sm-3">
-					                                  <input type="text" class="form-control round-form text-center" placeholder="100,000">
-					                              </div>
-	                                              <div class="col-sm-3">
-	                                                  <button class="btn btn-success fa fa-check"></button>
-	                                                  <button class="btn btn-primary fa fa-pencil"></button>
-	                                                  <button class="btn btn-danger fa fa-trash-o"></button>
-                                              	  </div>
-					                          </div>
-                                          </div>
-                                      </li>
-
-                                      <li class="list-success">
-                                          <i class=" fa fa-ellipsis-v"></i>
-                                          <div class="task-title">
-	                                          <div class="form-group">
-					                              <div class="col-sm-3">
-				                                  	<select class="form-control round-form">
-													  <option>Cut</option>
-													  <option selected="selected">Perm</option>
-													  <option>Color</option>
-													  <option>Care</option>
-													  <option>ETC</option>
-												  	</select>
-					                              </div>
-					                              <div class="col-sm-3">
-					                                  <input type="text" class="form-control round-form text-center" placeholder="브라운 컬러">
-					                              </div>
-					                              <div class="col-sm-3">
-					                                  <input type="text" class="form-control round-form text-center" placeholder="40,000">
-					                              </div>
-					                              <div class="col-sm-3">
-	                                                  <button class="btn btn-success fa fa-check"></button>
-	                                                  <button class="btn btn-primary fa fa-pencil"></button>
-	                                                  <button class="btn btn-danger fa fa-trash-o"></button>
-                                              	  </div>
-					                          </div>
-                                          </div>
-                                      </li>
-                                      
-                                      <li class="list-warning">
-                                          <i class=" fa fa-ellipsis-v"></i>
-                                          <div class="task-title">
-	                                          <div class="form-group">
-					                              <div class="col-xs-3">
-				                                  	<select class="form-control round-form">
-													  <option>Cut</option>
-													  <option>Perm</option>
-													  <option>Color</option>
-													  <option selected="selected">Care</option>
-													  <option>ETC</option>
-												  	</select>
-					                              </div>
-					                              <div class="col-xs-3">
-					                                  <input type="text" class="form-control round-form text-center" placeholder="무코타 케어">
-					                              </div>
-					                              <div class="col-xs-3">
-					                                  <input type="text" class="form-control round-form text-center" placeholder="40,000">
-					                              </div>
-					                              <div class="col-sm-3">
-	                                                  <button class="btn btn-success fa fa-check"></button>
-	                                                  <button class="btn btn-primary fa fa-pencil"></button>
-	                                                  <button class="btn btn-danger fa fa-trash-o"></button>
-                                              	  </div>
-					                          </div>
-                                          </div>
-                                      </li>
-
 
                                   </ul>
                               </div>
                               <div class=" add-task-row">
-                                  <a  id='addBtn' class="btn btn-success btn-sm pull-left">Add New Price List</a>
+                                  <a id='addBtn' class="btn btn-success btn-sm pull-left"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                                  <button type="button" class="btn btn-default btn-sm pull-right" style="margin-left:5px;">Cancel</button>
+                                  <button type="button" class="btn btn-theme btn-sm pull-right">Save changes</button>
                               </div>
                           </div>
                       </section>
@@ -474,18 +368,27 @@
           TaskList.initTaskWidget();
       });
 
-      $(function() {
+     /*  $(function() {
           $( "#sortable" ).sortable();
           $( "#sortable" ).disableSelection();
-      });
+      }); */
+      
 
     </script>
+    
+<!--     $('.input-read').prop('readonly', true);
+    $('.select-read').attr('disabled', true); -->
     
     
 <!-- add버튼 -->
 <script>
 $(function(){
 	$('#addBtn').click(function(){
+		var fields = $(':input').serializeArray();
+		$.each( fields, function (i, field) {
+			$('.input-read').append( fileld.value + " ");
+		});
+		console.log(fields);
 		addRow();
 	});
 });
@@ -495,20 +398,41 @@ $(function(){
 	});
 });
 function addRow(){
-	var html = "<li class='list-warning'><i class='fa fa-ellipsis-v'></i><div class='task-title'><div class='form-group'>"
-					+ "<div class='col-xs-3'><select class='form-control round-form'><option>Cut</option><option>Perm</option>"
+	var html = "<li class='list-info'><div class='task-title'><div class='form-group'><div class='col-sm-2'><select class='select-read form-control round-form'>"
+	  				+ "<option>Man</option><option>Woman</option></select></div>"
+					+ "<div class='col-sm-3'><select class='select-read form-control round-form'><option>Cut</option><option>Perm</option>"
 					+ "<option>Color</option><option>Care</option><option>ETC</option></select></div>"
-					+ "<div class='col-xs-3'><input type='text' class='form-control round-form text-center'></div>"
-					+ "<div class='col-xs-3'><input type='text' class='form-control round-form text-center'></div>"
-					+ "<div class='col-sm-3'><button class='btn btn-success fa fa-check'></button>;"
-            		+ "<button class='btn btn-primary fa fa-pencil'></button><button class='btn btn-danger fa fa-trash-o deleteBtn' name='del_btn' onClick='javascript:delRow(this)'></button>"
+					+ "<div class='col-sm-3'><input type='text' class='input-read form-control round-form text-center'></div>"
+					+ "<div class='col-sm-3'><input type='text' class='input-read form-control round-form text-center'></div>"
+					+ "<div class='col-sm-1'><button class='btn btn-danger fa fa-trash-o deleteBtn' name='del_btn' onClick='javascript:delRow(this)'></button>"
 	                + "</div></div></div></li>";
-	$('#sortable').append(html);
+	                
+	                /* <button class='btn btn-success fa fa-check' name='check_btn' onClick='javascript:check(this)'></button>"
+            		+ "<button class='btn btn-primary fa fa-pencil' name='pencil_btn' onClick='javascript:pencil(this)'></button> */
+	                
+	$('.task-list').append(html);
 }
 function delRow(object){						
-	var index = $(".list-warning [name=del_btn]").index(object);			
-	$(".list-warning").eq(index).remove();			
+	var index = $(".list-info [name=del_btn]").index(object);			
+	$(".list-info").eq(index).remove();			
 }
+/* function pencil(object){						
+	var index = $(".list-info [name=pencil_btn]").index(object);			
+	if ($(this).eq(index)) {
+		$(this).attr('disabled',false);
+		$('.input-read').prop('readonly',false);
+	}
+}
+function check(object){
+	var index = $(this).find("[name=check_btn]").index(object);			
+	 var data = $(this).find('data-no');
+	
+	if ($(data).eq(index)) {
+		$('.select-read').attr('disabled',true);
+		$('.input-read').prop('readonly',true);
+	}
+} */
+
 </script>
 
 </body>

@@ -24,6 +24,10 @@ dependencies {
   /* providedCompile => 컴파일에서만 사용. 배치에서 제외*/
   providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
   
+  //메일 관련 라이브러리
+  compile 'javax.mail:mail:1.4.7'
+  compile 'org.springframework:spring-context-support:4.1.4.RELEASE'
+  
   // Apache commons codec
   compile 'commons-codec:commons-codec:1.10'
   

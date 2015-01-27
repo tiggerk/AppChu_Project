@@ -44,7 +44,8 @@ a, a:hover, a:focus {
 
 /* Bootstrap Modifications */
 .modal-header {
-	background: #68dff0;
+	/* background: #68dff0; */
+	background: #424a5d;
 }
 
 .modal-title {
@@ -1324,7 +1325,7 @@ PANELS CONFIGURATIONS
 	margin-top: -15px;
 	background-attachment: relative;
 	background-position: center center;
-	min-height: 220px;
+	/* min-height: 220px; */
 	width: 100%;
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
