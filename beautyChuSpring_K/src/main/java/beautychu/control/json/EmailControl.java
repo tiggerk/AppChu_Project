@@ -6,7 +6,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller("json.StyleControl")
+@Controller("json.EmailControl")
 public class EmailControl {
 
 	@Autowired

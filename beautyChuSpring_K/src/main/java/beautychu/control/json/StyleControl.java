@@ -4,15 +4,21 @@ import java.io.File;
 import java.util.HashMap;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import beautychu.domain.Member;
+import beautychu.domain.Review;
 import beautychu.domain.Style;
+import beautychu.domain.StyleDetail;
+import beautychu.domain.StyleGrid;
 import beautychu.service.StylePhotoService;
 import beautychu.service.StyleService;
 
@@ -26,17 +32,28 @@ public class StyleControl {
 	@Autowired ServletContext servletContext;
 
 	@RequestMapping("/list")
-	public Object list() throws Exception {
+	public Object list(StyleGrid styleList) throws Exception {
+
 		HashMap<String, Object> resultMap = new HashMap<>();
-		resultMap.put("styleList", styleService.getList());
+		resultMap.put("styleList", styleService.getList(styleList));
 		return resultMap;
 	}
 	
 	
 	@RequestMapping("/detail")
-	public Object detail() throws Exception {
+	public Object detail(Review review,Model model,HttpSession session) throws Exception {
+		
+		Member member =  (Member) session.getAttribute("loginUser");
+		if (session.getAttribute("loginUser") != null) {
+			review.setEmail(member.getEmail());
+		}
+		StyleDetail styleDetail = styleService.get(review);
 		HashMap<String, Object> resultMap = new HashMap<>();
-		resultMap.put("styleDetail", styleService.getStyleDetail());
+		resultMap.put("styleDetail", styleDetail);
+		resultMap.put("photos", styleDetail.getPhotoList());
+		resultMap.put("email", styleDetail.getEmail());
+		resultMap.put("review", styleDetail.getReview());
+		System.out.println("리뷰===========>"+resultMap);
 		return resultMap;
 	}
 	

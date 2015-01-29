@@ -46,6 +46,7 @@
   
   <resultMap type="StyleGrid" id="styleGridMap">
     <id column="STYLENO" property="styleNo"/>
+    <result column="EMAIL" property="email"/>
     <result column="STYLENAME" property="styleName"/>
     <result column="STYLEPHOTOURL" property="stylePhotoUrl"/>
   </resultMap>
@@ -65,25 +66,25 @@
     <result column="STYLENO" property="styleNo"/>
   </resultMap>
   
-  <!-- <select id="getList" parameterType="map" resultMap="styleMap">
-    SELECT STYLENO,PEOPLE,GENDER,STYLESORT,STYLELENGTH,STYLENAME,STYLEINTRO,PRICE,EMAIL 
-	FROM STYLE
-  </select> -->
-  <!-- <select id="getList" parameterType="map" resultMap="styleMap">
-    SELECT S1.STYLENO, S2.STYLENO, STYLEPHOTONO, STYLEPHOTOURL, PEOPLE, GENDER, STYLESORT, STYLELENGTH,STYLENAME,PRICE,STYLEINTRO
-	FROM STYLE S1, STYLEPHOTO S2
-	WHERE S1.STYLENO = S2.STYLENO;
-  </select> -->
+  <resultMap type="StyleDetail" id="styleDetailMap">
+    <id column="STYLENO" property="styleNumber"/>
+    <result column="STYLENAME" property="styleName"/>
+    <result column="STYLEINTRO" property="styleIntro"/> 
+    <result column="SKILLTIME" property="SkillTime"/>
+    <result column="PRICE" property="price"/> 
+    <result column="EMAIL" property="email"/> 
+  </resultMap>
   
-  <select id="getList" parameterType="map" resultMap="styleGridMap">
-    SELECT T1.STYLENO, T1.STYLENAME, T2.STYLEPHOTOURL 
-    FROM STYLE T1
-    JOIN
-    (SELECT STYLENO,STYLEPHOTOURL,STYLEPHOTONO FROM STYLEPHOTO GROUP BY STYLENO) T2
-    USING(STYLENO)
-    ORDER BY STYLENO
-  </select>
-  
+  <resultMap type="Review" id="reviewMap">
+  	<id column="REVIEWNO" property="reviewNo"/>
+  	<result column="STYLENO" property="styleNo"/>
+  	<result column="NAME" property="name"/>
+  	<result column="CONTENT" property="content"/>
+  	<result column="STAR" property="star"/>
+  	<result column="REPORTDATE" property="date"/>
+  	<result column="REVIEWBTN" property="reviewbtn"/>
+  </resultMap>
+
   <select id="getMainStyleList" parameterType="map" resultMap="mainStyleMap">
    	SELECT S3.STYLEPHOTOURL, S1.STYLENAME, S2.SHOPNAME, S1.STYLENO
     FROM STYLE S1
@@ -109,6 +110,30 @@
 	LIMIT 23
   </select>
   
+  <select id="getList" parameterType="StyleGrid" resultMap="styleGridMap">
+    SELECT T1.STYLENO, T1.EMAIL, T1.STYLENAME, T2.STYLEPHOTOURL 
+    FROM STYLE T1 JOIN (SELECT STYLENO,STYLEPHOTOURL,STYLEPHOTONO FROM STYLEPHOTO GROUP BY STYLENO) T2 USING(STYLENO)
+    <if test="styleLength != null">
+		WHERE STYLELENGTH =#{styleLength}    
+    </if>
+     ORDER BY STYLENO
+  </select>
+  <!-- <select id="getList" parameterType="map" resultMap="styleGridMap">
+    SELECT T1.STYLENO, T1.STYLENAME, T2.STYLEPHOTOURL 
+    FROM STYLE T1
+    JOIN
+    (SELECT STYLENO,STYLEPHOTOURL,STYLEPHOTONO FROM STYLEPHOTO GROUP BY STYLENO) T2
+    USING(STYLENO)
+    ORDER BY STYLENO
+  </select> -->
+  
+  <select id="getStyleDetail" parameterType="int" resultMap="styleDetailMap">
+    SELECT STYLENO, STYLENAME, STYLEINTRO, PRICE , EMAIL
+    FROM STYLE 
+    WHERE STYLENO =#{value}
+    <!-- ORDER BY STYLENO -->
+  </select>
+  
   <!-- <select id="getMainShopList" parameterType="map" resultMap="mainShopMap">
     SELECT S2.EMAIL,S2.SHOPNAME,S2.SHOPADDR,S2.SHOPTEL,S3.SHOPPHOTOURL
       FROM STYLE S1
@@ -130,8 +155,6 @@
     VALUES (#{styleNo}, #{stylePhotoUrl});
   </insert>
   
-  
-  
   <!-- <update id="updateStyle" parameterType="Style" >
     UPDATE STYLE A 
     LEFT JOIN STYLEPHOTO B
@@ -142,24 +165,23 @@
     WHERE T1.STYLENO = T2.STYLENO;
   </update> -->
   
+  <select id="selectPhoto" parameterType="int" resultMap="stylePhotoMap">
+    SELECT STYLEPHOTONO, STYLENO, STYLEPHOTOURL
+    FROM STYLEPHOTO
+    <if test="value > 0">
+    WHERE STYLENO = #{value}
+    </if>
+  </select>
   
+  <select id="getReviewList" parameterType="Review" resultMap="reviewMap">
+	SELECT  T2.REVIEWNO, T2.STYLENO, T1.NAME, T2.CONTENT, T2.STAR, T2.REPORTDATE ,
+						CASE WHEN T2.EMAIL = #{email} THEN 'btn' ELSE 'none' END REVIEWBTN
+	FROM MEMBER T1 JOIN REVIEW T2 USING(EMAIL)
+	WHERE STYLENO=#{styleNo}
+	ORDER BY REVIEWNO DESC
+	LIMIT 4
+  </select>
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

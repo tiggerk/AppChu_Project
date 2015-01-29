@@ -4,24 +4,28 @@ import java.util.List;
 import java.util.Map;
 
 import beautychu.domain.Member;
+import beautychu.domain.Review;
 import beautychu.domain.Style;
+import beautychu.domain.StyleDetail;
+import beautychu.domain.StyleGrid;
 import beautychu.domain.StylePhoto;
 
 public interface StyleDao {
 	
-	  List<?> getList();
+	 List<?> getList(StyleGrid styleList);
 	  List<?> getGridList();
-	  List<?> getStyleDetail();
+	  StyleDetail getStyleDetail(int styleNo);
+	  
 	  List<?> getMainStyleList();
 	  List<?> getMainCelebrityList();
-	  /*Style existUser(Map<String,String> params);*/
+
 	  void insertStyle(Style style);
 	  void insertStylePhotoUrl(Style style);
 	  
-	  List<?> getPhotoList(int styleNo);
-	  /*void insertStylePhotoList(Style style);*/
+	  List<?> selectPhoto(int styleNo);
+	  List<?> getReviewList(Review review);
 	  
-	  /*List<?> getPhotoList(int styleNo);*/
+	  List<?> getPhotoList(int styleNo);
 	  void insertStylePhoto(StylePhoto stylePhoto);
 	  void insertStylePhotoList(StylePhoto stylePhoto);
 	
