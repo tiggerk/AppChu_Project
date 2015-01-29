@@ -16,6 +16,20 @@
     <result column="SHOPPHOTOURL" property="shopPhotoUrl"/>    
   </resultMap>
   
+ <!--  int priceListNo;
+	String type;
+	String gender;
+	int price;
+	String email; -->
+	
+  <resultMap type="PriceListShopInfo" id="PriceListShopInfoMap">
+    <id column="PRICELISTNO" property="priceListNo"/>
+    <result column="TYPE" property="type"/>
+    <result column="GENDER" property="gender"/>
+    <result column="PRICE" property="price"/>
+    <result column="EMAIL" property="email"/>
+  </resultMap>
+  
   <select id="getList" parameterType="map" resultMap="shopInfoMap">
     SELECT T1.EMAIL, SHOPPHOTOURL, LICENSEENO, SHOPNAME, SHOPADDR, SHOPTEL, SHOPINTRO
     FROM SHOP T1 LEFT JOIN SHOPPHOTO T2 
@@ -46,6 +60,20 @@
   	INSERT INTO SHOPPHOTO (SHOPPHOTOURL, EMAIL)
 	VALUES (#{shopPhotoUrl}, #{email});
   </insert>
+  
+  <select id="getManPriceList" parameterType="map" resultMap="PriceListShopInfoMap">
+    SELECT PRICELISTNO, TYPE, GENDER, PRICE, EMAIL
+    FROM PRICELIST 
+    WHERE EMAIL = #{email}
+    AND GENDER LIKE 'm%';
+  </select>
+  
+  <select id="getWomanPriceList" parameterType="map" resultMap="PriceListShopInfoMap">
+    SELECT PRICELISTNO, TYPE, GENDER, PRICE, EMAIL
+    FROM PRICELIST 
+    WHERE EMAIL = #{email}
+    AND GENDER LIKE 'w%';
+  </select>
  
   
 </mapper>

@@ -17,7 +17,7 @@ import beautychu.domain.ShopInfo;
 import beautychu.service.ShopInfoService;
 
 @Controller("json.ShopInfoControl")
-@RequestMapping("/json/shop")
+@RequestMapping("/json/shopInfo")
 public class ShopInfoControl {
 	
 	@Autowired
@@ -91,6 +91,17 @@ public class ShopInfoControl {
 		return resultMap;
 	}
 	
+	@RequestMapping("/priceList")
+	public Object priceList(String email, HttpSession session) throws Exception {
+		
+		HashMap<String, Object> resultMap = new HashMap<>();
+		
+		System.out.println(email);
+		
+		resultMap.put("manPriceListShopInfo", shopInfoService.getManPriceList(email));
+		resultMap.put("womanPriceListShopInfo", shopInfoService.getWomanPriceList(email));
+		return resultMap;
+	}
 	
 	/*@RequestMapping(value="/fileUploadAjax", method=RequestMethod.POST)
 	  public Object fileUploadAjax(ShopInfo shopInfo) throws Exception {  

@@ -15,6 +15,8 @@ public interface ShopInfoDao {
 	void updatePhoto(ShopInfoPhoto shopInfoPhoto);
 	void fileUpload(MultipartHttpServletRequest mRequest);
 
+	List<?> getWomanPriceList(String email);
+	List<?> getManPriceList(String email);
 
 
 }

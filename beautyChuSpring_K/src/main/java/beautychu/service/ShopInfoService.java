@@ -30,6 +30,14 @@ public class ShopInfoService {
 		/*shopInfoDao.insertPhoto(shopInfo.getShopPhotoUrl());*/
 		shopInfoDao.updateShopInfo(shopInfo);
 	}
+	
+	public List<?> getManPriceList(String email) {
+		return shopInfoDao.getManPriceList(email); 
+	}
+	
+	public List<?> getWomanPriceList(String email) {
+		return shopInfoDao.getWomanPriceList(email); 
+	}
 
 	/*서버에 파일(이미지) 올리기*/
 	public boolean fileUpload(MultipartHttpServletRequest mRequest, String email) {

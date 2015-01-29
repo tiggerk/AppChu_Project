@@ -5,13 +5,31 @@
 
 <meta charset="UTF-8">
 
-<link rel="shortcut icon" href="../images/favicon.ico"
-	type="image/x-icon">
+<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+
 <link rel="stylesheet" type="text/css" href="../css/basic.css"/>
-<script type='text/javascript'
-	src='http://code.jquery.com/jquery-1.7.2.js'></script>
+
+<script type="text/javascript" src="../js/modernizr.min.js"></script>
 <script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="../js/jquery.easing.js"></script>
+<script type="text/javascript" src="../js/jquery-scrolltofixed-min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src='../js/handlebars-v2.0.0.js'></script>
+
+	<!-- 이거 추가해야함!!!!!! -->
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/jquery.form.js"></script>
+    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="../js/jquery.scrollTo.min.js"></script>
+    <script src="../js/jquery.nicescroll.js" type="text/javascript"></script> 
+
+	<!-- jQuery MultiFile Plugin import -->
+	<script src="../js/jquery.MultiFile.js"></script>
+
+    <!--common script for all pages-->
+    <!-- <script src="../js/common-scripts.js"></script> -->
 
 <style type="text/css">
 /* 스타일 적용 공간! */
@@ -77,8 +95,8 @@ button.trigger { background: black; color: #fff; border: none; }
 
 </head>
 
-<body class="home">
-	<jy_header> <!-- header 건들지 말긔! --> </jy_header>
+<body>
+	<header> <!-- header 건들지 말긔! --> </header>
 
 
 	<div id="wrap-chu" class="wrap-chu">
@@ -247,27 +265,23 @@ button.trigger { background: black; color: #fff; border: none; }
 			</div>
 		</section>
 
+	<footer id="footer">
+		<!-- footer 건들지 말긔! -->
+	</footer>
+	
 	</div>
 	<!-- .wrap-chu -->
 
 
 
-	<footer>
-		<!-- footer 건들지 말긔! -->
-	</footer>
-		<!-- 이거 추가해야함!!!!!! -->
-    <!-- js placed at the end of the document so the pages load faster -->
-    <script src="../js/jquery.js"></script>
-    <script src="../js/jquery.form.js"></script>
-    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="../js/jquery.scrollTo.min.js"></script>
-    <script src="../js/jquery.nicescroll.js" type="text/javascript"></script> 
-
-	<!-- jQuery MultiFile Plugin import -->
-	<script src="../js/jquery.MultiFile.js"></script>
-
-    <!--common script for all pages-->
-    <!-- <script src="../js/common-scripts.js"></script> -->
+	
+	<!-- header, footer 로드 스크립트!! -->
+	<script>
+		$('header').load('common/header.html');
+		$('footer').load('common/footer.html');
+	</script>
+	
+	
 
 	<script type="text/javascript">
 	var imsiEmail;
@@ -331,7 +345,7 @@ button.trigger { background: black; color: #fff; border: none; }
 							/* Login Fail */
 						} else {
 							console.log("login : " + data.status);
-							location.href = 'jy_main.html';
+							location.href = 'main.html';
 							/* 다만 main 전체가 떴다가 아래가 사라짐.. */
 							//$('.jy-mypage').hide();
 							//$('.logout').hide();
@@ -451,7 +465,7 @@ button.trigger { background: black; color: #fff; border: none; }
 						console.log("delete : " + data.status);
 						console.log(data.loginUser);
 						alert("회원 탈퇴 되었습니다.");
-						location.href = 'jy_main.html';
+						location.href = 'main.html';
 					} else {
 						console.log(data.status);
 						console.log(data.loginUser);
@@ -468,15 +482,7 @@ button.trigger { background: black; color: #fff; border: none; }
 	</script>
 
 
-	<!-- header, footer 로드 스크립트!! -->
-	<script>
-		$('jy_header').load('common/jy_header.html');
-		/*$('footer').load('common/footer.html'); */
-
-		/*  
-		window.setTimeout('window.location.reload()', 50000); 
-		 */
-	</script>
+	
 
 
 </body>

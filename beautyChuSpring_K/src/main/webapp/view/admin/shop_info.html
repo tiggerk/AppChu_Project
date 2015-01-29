@@ -401,7 +401,7 @@ var imsiEmail;
 				data : {
 					email : imsiEmail
 				},
-				url : '../../json/shop/list.do',
+				url : '../../json/shopInfo/list.do',
 				success : function(data) {
 					console.log(imsiEmail);
 					console.log(data.listShopInfo);
@@ -433,7 +433,7 @@ var imsiEmail;
 
 			$("form").ajaxSubmit({
 				dataType : "json",
-				url : '../../json/shop/fileUpload.do',
+				url : '../../json/shopInfo/fileUpload.do',
 				data : {email : imsiEmail},
 				success : function(data) {
 					console.log(data);
@@ -447,7 +447,7 @@ var imsiEmail;
 			$.ajax({
 				type : 'post',
 				dataType : "json",
-				url : '../../json/shop/update.do',
+				url : '../../json/shopInfo/update.do',
 				data : {
 					shopPhotoUrl : $('#shopProfile').attr('src'),
 					email : $('#email').val(),

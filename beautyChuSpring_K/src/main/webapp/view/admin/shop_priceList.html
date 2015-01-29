@@ -198,10 +198,10 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-              	  <p class="centered"><a href="shop_info.html"><img src="assets/img/ui-zac.jpg" class="img-circle" width="60"></a></p>
-              	  <h5 class="centered">박준 뷰티랩</h5>
-              	  <h6 class="centered">서울시 강남구 삼성로 725</h6>
-              	  <h6 class="centered">02-511-1414</h6>
+              	  <p class="centered"><a href="shop_info.html#"><img src="assets/img/ui-zac.jpg" class="img-circle" width="60"></a></p>
+              	  <h5 id="sidebar-shopName" class="centered"></h5>
+              	  <h6 id="sidebar-shopAddr" class="centered"></h6>
+              	  <h6 id="sidebar-shopTel" class="centered"></h6>
               	  	
               	  	
                   <li class="mt sub-menu">
@@ -263,15 +263,14 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-          	<h3><i class="fa fa-angle-right"></i> Shop</h3>
-          	
-          	<!-- SORTABLE TO DO LIST -->
-			
+          	<h3><i class="fa fa-angle-right"></i> Price List</h3>
+          	<form class="form-horizontal style-form" method="post" enctype="multipart/form-data">
+			  <!-- man price list -->
               <div class="row mt mb">
                   <div class="col-md-12">
                       <section class="task-panel tasks-widget">
 	                	<div class="panel-heading">
-	                        <div class="pull-left"><h5><i class="fa fa-tasks"></i> Price List</h5></div>
+	                        <div class="pull-left"><h4><i class="fa fa-angle-right"></i> Man</h4></div>
 	                        <br>
 	                 	</div>
                           <div class="panel-body">
@@ -279,58 +278,111 @@
                               <table class="table table-bordered table-striped table-condensed" style="margin-bottom: 0">
 	                        	<thead>
 		                        	<tr>
-			                        	<th style="width: 17%">성별</th>
-			                        	<th style="width: 24%">분류</th>
-			                        	<th style="width: 25%">스타일</th>
-			                        	<th>기본 가격</th>
+			                        	<th class="text-center" style="width: 30%">분류</th>
+			                        	<th class="text-center" style="width: 40%">기본가격</th>
 		                        	</tr>
 	                        	</thead>
+	                        	<tbody>
+	                        	
+	                        		<tr>
+	                        			<td class="text-center"><h5>Cut</h5></td>
+	                        			<td class="text-center">
+	                        				<input id="man-cut" type="text" class="input-read form-control round-form text-center">
+                        				</td>
+	                        		</tr>
+	                        		
+	                        		<tr>
+	                        			<td class="text-center"><h5>Perm</h5></td>
+	                        			<td class="text-center">
+	                        				<input id="man-perm" type="text" class="input-read form-control round-form text-center">
+                        				</td>
+	                        		</tr>
+	                        		
+	                        		<tr>
+	                        			<td class="text-center"><h5>Color</h5></td>
+	                        			<td class="text-center">
+	                        				<input id="man-color" type="text" class="input-read form-control round-form text-center">
+                        				</td>
+	                        		</tr>
+	                        		
+	                        		<tr>
+	                        			<td class="text-center"><h5>Care</h5></td>
+	                        			<td class="text-center">
+	                        				<input id="man-care" type="text" class="input-read form-control round-form text-center">
+                        				</td>
+	                        		</tr>
+	                        		
+	                        	</tbody>
 	                           </table>
-	                           
-                                  <ul class="task-list">
-                                  
-                                      <li class="list-info">
-                                          <div class="task-title">
-                                              <div class="form-group">
-                                              	   <div class="col-sm-2">
-					                                  <select class="select-read form-control round-form">
-														  <option>Man</option>
-														  <option>Woman</option>
-														</select>
-					                              </div>
-					                              <div class="col-sm-3">
-					                                  <select class="select-read form-control round-form">
-														  <option>Cut</option>
-														  <option selected="selected">Perm</option>
-														  <option>Color</option>
-														  <option>Care</option>
-														  <option>ETC</option>
-														</select>
-					                              </div>
-					                              <div class="col-sm-3">
-					                                  <input type="text" class="input-read form-control round-form text-center" placeholder="스타일 컷">
-					                              </div>
-					                              <div class="col-sm-3">
-					                                  <input type="text" class="form-control round-form text-center" placeholder="10,000">
-					                              </div>
-	                                              <div class="col-sm-1">
-	                                                  <button class="btn btn-danger fa fa-trash-o"></button>
-	                                              </div>
-                                              </div>
-                                          </div>
-                                      </li>
-
-                                  </ul>
                               </div>
                               <div class=" add-task-row">
-                                  <a id='addBtn' class="btn btn-success btn-sm pull-left"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
                                   <button type="button" class="btn btn-default btn-sm pull-right" style="margin-left:5px;">Cancel</button>
-                                  <button type="button" class="btn btn-theme btn-sm pull-right">Save changes</button>
+                                  <button id="manBtn" type="button" class="btn btn-theme btn-sm pull-right">Save changes</button>
                               </div>
                           </div>
                       </section>
                   </div><!--/col-md-12 -->
               </div><!-- /row -->
+              
+              <!-- woman price list -->
+              <div class="row mt mb">
+                  <div class="col-md-12">
+                      <section class="task-panel tasks-widget">
+	                	<div class="panel-heading">
+	                        <div class="pull-left"><h4><i class="fa fa-angle-right"></i> Woman</h4></div>
+	                        <br>
+	                 	</div>
+                          <div class="panel-body">
+                              <div class="task-content">
+                              <table class="table table-bordered table-striped table-condensed" style="margin-bottom: 0">
+	                        	<thead>
+		                        	<tr>
+			                        	<th class="text-center" style="width: 30%">분류</th>
+			                        	<th class="text-center" style="width: 40%">기본가격</th>
+		                        	</tr>
+	                        	</thead>
+	                        	<tbody>
+	                        	
+	                        		<tr>
+	                        			<td class="text-center"><h5>Cut</h5></td>
+	                        			<td class="text-center">
+	                        				<input id="woman-cut" type="text" class="input-read form-control round-form text-center">
+                        				</td>
+	                        		</tr>
+	                        		
+	                        		<tr>
+	                        			<td class="text-center"><h5>Perm</h5></td>
+	                        			<td class="text-center">
+	                        				<input id="woman-perm" type="text" class="input-read form-control round-form text-center">
+                        				</td>
+	                        		</tr>
+	                        		
+	                        		<tr>
+	                        			<td class="text-center"><h5>Color</h5></td>
+	                        			<td class="text-center">
+	                        				<input id="woman-color" type="text" class="input-read form-control round-form text-center">
+                        				</td>
+	                        		</tr>
+	                        		
+	                        		<tr>
+	                        			<td class="text-center"><h5>Care</h5></td>
+	                        			<td class="text-center">
+	                        				<input id="woman-care" type="text" class="input-read form-control round-form text-center">
+                        				</td>
+	                        		</tr>
+	                        		
+	                        	</tbody>
+	                           </table>
+                              </div>
+                              <div class=" add-task-row">
+                                  <button type="button" class="btn btn-default btn-sm pull-right" style="margin-left:5px;">Cancel</button>
+                                  <button id="womanBtn" type="button" class="btn btn-theme btn-sm pull-right">Save changes</button>
+                              </div>
+                          </div>
+                      </section>
+                  </div><!--/col-md-12 -->
+              </div><!-- /row -->
+            </form>
 			
 		</section><!--/wrapper -->
       </section><!-- /MAIN CONTENT -->
@@ -359,29 +411,142 @@
     <!--common script for all pages-->
     <script src="assets/js/common-scripts.js"></script>
 
-    <!--script for this page-->
-	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>    
-    <script src="assets/js/tasks.js" type="text/javascript"></script>
 
-    <script>
-      jQuery(document).ready(function() {
-          TaskList.initTaskWidget();
-      });
+<script type="text/javascript">
+var imsiEmail;
+  $(function() {
+	    /* AJAX로 email 로그인 정보 가져오기 */
+	    $.ajax({
+			type : 'get',
+			dataType : "json",
+			url : '../../json/auth/loginUser.do',
+			success : function(data) {
+				console.log(data.status);
+				console.log(data.loginUser);
+				$('#email').val(data.loginUser.email);
+				alert(data.loginUser.email + "정보가져옴");
+				imsiEmail = data.loginUser.email;
+			},
+			error : function() {
+				console.log('ajax 실패');
+			}
+		}).done(function(){
+		    /* AJAX로 email로 shop 정보 가져오기 */
+		    $.ajax({
+				type : 'get',
+				dataType : "json",
+				data : {
+					email : imsiEmail
+				},
+				url : '../../json/shopInfo/list.do',
+				success : function(data) {
+					console.log(imsiEmail);
+					console.log(data.listShopInfo[0].shopPhotoUrl);
+					
+					$('#sidebar-shopName').text(data.listShopInfo[0].shopName);
+					$('#sidebar-shopAddr').text(data.listShopInfo[0].shopAddr);
+					$('#sidebar-shopTel').text(data.listShopInfo[0].shopTel);
+				},
+				error : function() {
+					console.log('ajax shop정보 실패');
+				}
+			});
+		}).done(function(){
+		    /* AJAX로 email로 shop 정보 가져오기 */
+		    $.ajax({
+				type : 'get',
+				dataType : "json",
+				data : {
+					email : imsiEmail
+				},
+				url : '../../json/shopInfo/priceList.do',
+				success : function(data) {
+					console.log(imsiEmail);
+					console.log(data);
+					console.log(data.manPriceListShopInfo[0]);
+					
+					for (var i = 0; i < data.womanPriceListShopInfo.length; i++) {
+						switch (data.womanPriceListShopInfo[i].type) {
+							case "cut" : $('#woman-cut').val(data.womanPriceListShopInfo[i].price); break;
+							case "perm" : $('#woman-perm').val(data.womanPriceListShopInfo[i].price); break;
+							case "color" : $('#woman-color').val(data.womanPriceListShopInfo[i].price); break;
+							case "care" : $('#woman-care').val(data.womanPriceListShopInfo[i].price); break;
+							default : console.log('ㅎㅎ');
+						}
+					}
+					
+					for (var i = 0; i < data.manPriceListShopInfo.length; i++) {
+						switch (data.manPriceListShopInfo[i].type) {
+							case "cut" : $('#man-cut').val(data.manPriceListShopInfo[i].price); break;
+							case "perm" : $('#man-perm').val(data.manPriceListShopInfo[i].price); break;
+							case "color" : $('#man-color').val(data.manPriceListShopInfo[i].price); break;
+							case "care" : $('#man-care').val(data.manPriceListShopInfo[i].price); break;
+							default : console.log('ㅎㅎ');
+						}
+					}
+				},
+				error : function() {
+					console.log('ajax shop정보 실패');
+				}
+			});
+		});
+		
+	    /* AJAX 서버로 데이터 보내서 update */
+		$('#manBtn').click(function() {
+			var profileInput = document.getElementById("profileInput").files[0].name;
+			var photo1 = profileInput[0];
+			var shopPhotoName = profileInput[0].name;
+			console.log(profileInput);
 
-     /*  $(function() {
-          $( "#sortable" ).sortable();
-          $( "#sortable" ).disableSelection();
-      }); */
-      
+			$("form").ajaxSubmit({
+				dataType : "json",
+				url : '../../json/shopInfo/fileUpload.do',
+				data : {email : imsiEmail},
+				success : function(data) {
+					console.log(data);
+					console.log(data.result);
+				},
+				error : function(error) {
+					alert("요청 처리 중 오류가 발생하였습니다.");
+				}
+			});
+			
+			$.ajax({
+				type : 'post',
+				dataType : "json",
+				url : '../../json/shopInfo/update.do',
+				data : {
+					shopPhotoUrl : $('#shopProfile').attr('src'),
+					email : $('#email').val(),
+					licenseeNo : $('#licenseeNo').val(),
+					shopName : $('#shopName').val(),
+					shopAddr : $('#shopAddr').val(),
+					shopTel : $('#shopTel').val(),
+					shopIntro : $('#shopIntro').val(),
+					
+				},
+				success : function(data) {
+					console.log(data.status);
+					alert('등록완료');
+				},
+				error : function() {
+					console.log('등록 실패');
+				}
 
-    </script>
+			});
+
+		});
+		});
+</script>
+	    
+	    
     
 <!--     $('.input-read').prop('readonly', true);
     $('.select-read').attr('disabled', true); -->
     
     
 <!-- add버튼 -->
-<script>
+<!-- <script>
 $(function(){
 	$('#addBtn').click(function(){
 		var fields = $(':input').serializeArray();
@@ -398,17 +563,16 @@ $(function(){
 	});
 });
 function addRow(){
-	var html = "<li class='list-info'><div class='task-title'><div class='form-group'><div class='col-sm-2'><select class='select-read form-control round-form'>"
-	  				+ "<option>Man</option><option>Woman</option></select></div>"
-					+ "<div class='col-sm-3'><select class='select-read form-control round-form'><option>Cut</option><option>Perm</option>"
+	var html = "<li class='list-info'><div class='task-title'><div class='form-group'><div class='col-sm-3 text-center'><h4>Man</h4></div>"
+					+ "<div class='col-sm-3 text-center'>"
 					+ "<option>Color</option><option>Care</option><option>ETC</option></select></div>"
 					+ "<div class='col-sm-3'><input type='text' class='input-read form-control round-form text-center'></div>"
 					+ "<div class='col-sm-3'><input type='text' class='input-read form-control round-form text-center'></div>"
-					+ "<div class='col-sm-1'><button class='btn btn-danger fa fa-trash-o deleteBtn' name='del_btn' onClick='javascript:delRow(this)'></button>"
+					+ "<div class='col-sm-1'><button class='btn btn-success fa fa-check' name='check_btn' onClick='javascript:check(this)'></button>"
+            		+ "<button class='btn btn-primary fa fa-pencil' name='pencil_btn' onClick='javascript:pencil(this)'></button><button class='btn btn-danger fa fa-trash-o deleteBtn' name='del_btn' onClick='javascript:delRow(this)'></button>"
 	                + "</div></div></div></li>";
 	                
-	                /* <button class='btn btn-success fa fa-check' name='check_btn' onClick='javascript:check(this)'></button>"
-            		+ "<button class='btn btn-primary fa fa-pencil' name='pencil_btn' onClick='javascript:pencil(this)'></button> */
+	                /*  */
 	                
 	$('.task-list').append(html);
 }
@@ -416,8 +580,8 @@ function delRow(object){
 	var index = $(".list-info [name=del_btn]").index(object);			
 	$(".list-info").eq(index).remove();			
 }
-/* function pencil(object){						
-	var index = $(".list-info [name=pencil_btn]").index(object);			
+function pencil(object){						
+	var index = $("[name=pencil_btn]").index(object);			
 	if ($(this).eq(index)) {
 		$(this).attr('disabled',false);
 		$('.input-read').prop('readonly',false);
@@ -431,9 +595,9 @@ function check(object){
 		$('.select-read').attr('disabled',true);
 		$('.input-read').prop('readonly',true);
 	}
-} */
+}
 
-</script>
+</script> -->
 
 </body>
 </html>
