@@ -12,7 +12,7 @@ import beautychu.domain.StylePhoto;
 
 public interface StyleDao {
 	
-	 List<?> getList(StyleGrid styleList);
+	 List<?> getList(Style style);
 	  List<?> getGridList();
 	  StyleDetail getStyleDetail(int styleNo);
 	  

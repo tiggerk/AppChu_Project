@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import beautychu.dao.ShopInfoDao;
+import beautychu.domain.PriceListShopInfo;
 import beautychu.domain.ShopInfo;
 import beautychu.domain.ShopInfoPhoto;
 
@@ -86,6 +87,10 @@ public class ShopInfoService {
 		} // while end
 		return isSuccess;
 	} // fileUpload end
+
+	public void updatePrice(PriceListShopInfo priceListShopInfo) {
+		shopInfoDao.updatePrice(priceListShopInfo);		
+	}
 
 	/*@Transactional(rollbackFor=Exception.class, propagation=Propagation.REQUIRED)
 	  public void insertPhoto(ShopInfo shopInfo) {

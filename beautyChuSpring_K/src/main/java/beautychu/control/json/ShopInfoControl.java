@@ -1,6 +1,5 @@
 package beautychu.control.json;
 
-import java.io.File;
 import java.util.HashMap;
 
 import javax.servlet.ServletContext;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import beautychu.domain.PriceListShopInfo;
 import beautychu.domain.ShopInfo;
 import beautychu.service.ShopInfoService;
 
@@ -100,6 +100,22 @@ public class ShopInfoControl {
 		
 		resultMap.put("manPriceListShopInfo", shopInfoService.getManPriceList(email));
 		resultMap.put("womanPriceListShopInfo", shopInfoService.getWomanPriceList(email));
+		return resultMap;
+	}
+	
+	@RequestMapping("/updatePrice")
+	public Object updatePrice(String email, String type, String gender, int price,
+			HttpSession session) throws Exception {
+		
+		PriceListShopInfo priceListShopInfo = new PriceListShopInfo();
+		
+		shopInfoService.updatePrice(priceListShopInfo);
+		
+		HashMap<String, Object> resultMap = new HashMap<>();
+
+		session.setAttribute("updatePrice", priceListShopInfo);
+		resultMap.put("status", "success");
+		resultMap.put("updatePrice", priceListShopInfo);
 		return resultMap;
 	}
 	

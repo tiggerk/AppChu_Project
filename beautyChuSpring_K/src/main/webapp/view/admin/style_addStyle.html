@@ -426,12 +426,12 @@ $(function() {
 		}).done(function(){
 		    /* AJAX로 email로 sidebar shop 정보 가져오기 */
 		    $.ajax({
-				type : 'get',
+				type : 'post',
 				dataType : "json",
 				data : {
 					email : imsiEmail
 				},
-				url : '../../json/shop/list.do',
+				url : '../../json/shopInfo/list.do',
 				success : function(data) {
 					$('#sidebar-shopName').text(data.listShopInfo[0].shopName);
 					$('#sidebar-shopAddr').text(data.listShopInfo[0].shopAddr);
@@ -465,7 +465,6 @@ $(function() {
 			$.ajax({
 				url: '../../json/stylePhoto/fileUpload.do',
 					data: {
-						data,
 						email : imsiEmail
 					},
 					cache: false,

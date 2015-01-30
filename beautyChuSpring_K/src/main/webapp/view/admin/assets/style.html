@@ -1,17 +1,18 @@
+{{#each styleList}}
 <!-- Button trigger modal -->
 <div class="project col-lg-2 col-sm-3 col-xs-4 desc">
-	<div class="photo-wrapper" data-toggle="modal" data-target="#myModal">
+	<div class="photo-wrapper" data-toggle="modal" data-target="#{{styleName}}">
 		<div class="photo">
-			<img src="assets/img/s3.jpg" id="spotify"><br>
+			<img src="../../fileupload/{{stylePhotoUrl}}" id="spotify"><br>
 		</div>
 	</div>
 	<h4>
-		<strong>제목 cut</strong>
+		<strong>{{styleName}}</strong>
 	</h4>
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="{{styleName}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -20,7 +21,7 @@
 					<span aria-hidden="true">&times;</span>
 				</button>
 				<h4 class="modal-title" id="myModalLabel">
-					<i class="fa fa-angle-right"></i> Update Style
+					<i class="fa fa-angle-right"></i> Update Style - {{styleName}}
 				</h4>
 			</div>
 			<div class="modal-body">
@@ -31,11 +32,11 @@
 						<label class="col-sm-2 control-label"><b>분 류</b></label>
 						<div class="col-sm-5">
 							<select id="styleSort" class="form-control round-form">
-								<option>Cut</option>
-								<option>Perm</option>
-								<option>Color</option>
-								<option>Care</option>
-								<option>ETC</option>
+								<option id="cut">Cut</option>
+								<option id="perm">Perm</option>
+								<option id="color">Color</option>
+								<option id="care">Care</option>
+								<option id="etc">ETC</option>
 							</select>
 						</div>
 					</div>
@@ -54,22 +55,21 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label"><b>제 목</b></label>
 						<div class="col-sm-10">
-							<input type="text" id="styleName" class="form-control round-form">
+							<input type="text" class="form-control round-form" value="{{styleName}}">
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-sm-2 control-label"><b>가 격</b></label>
 						<div class="col-sm-10">
-							<input type="text" id="price" class="form-control round-form"
-								numberonly="true" maxlength="8">
+							<input type="text" id="price" class="form-control round-form" numberonly="true" maxlength="8"  value="{{stylePrice}}">
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-sm-2 control-label"><b>소 개</b></label>
 						<div class="col-sm-10">
-							<textarea id='styleIntro' name="style-intro" rows="2" cols="80"	class="form-control round-form"></textarea>
+							<textarea id='styleIntro' name="style-intro" rows="2" cols="80"	class="form-control round-form">{{styleIntro}}</textarea>
 							<div class="remaining text-right">
 								남은 글자수: <span class="info-count">100</span>
 							</div>
@@ -98,3 +98,38 @@
 		</div>
 	</div>
 </div>
+<script>
+{{styleSort}}
+$('#cut').attr('selected', 'selected');
+</script>
+{{/each}}
+<script>
+$('.remaining').each(function() {
+    // count 정보 및 count 정보와 관련된 textarea/input 요소를 찾아내서 변수에 저장한다.
+    var $count = $('.info-count', this);
+    var $input = $(this).prev();
+    // .text()가 문자열을 반환하기에 이 문자를 숫자로 만들기 위해 1을 곱한다.
+    var maximumCount = $count.text() * 1;
+    // update 함수는 keyup, paste, input 이벤트에서 호출한다.
+    var update = function() {
+        var before = $count.text() * 1;
+        var now = maximumCount - $input.val().length;
+        // 사용자가 입력한 값이 제한 값을 초과하는지를 검사한다.
+        if (now < 0) {
+            var str = $input.val();
+            alert('글자 입력수가 초과하였습니다.');
+            $input.val(str.substr(0, maximumCount));
+            now = 0;
+        }
+        // 필요한 경우 DOM을 수정한다.
+        if (before != now) {
+            $count.text(now);
+        }
+    };
+    // input, keyup, paste 이벤트와 update 함수를 바인드한다
+    $input.bind('input keyup paste', function() {
+        setTimeout(update, 0)
+    });
+    update();
+});
+</script>

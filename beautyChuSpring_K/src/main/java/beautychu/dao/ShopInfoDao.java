@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import beautychu.domain.PriceListShopInfo;
 import beautychu.domain.ShopInfo;
 import beautychu.domain.ShopInfoPhoto;
 
@@ -17,6 +18,7 @@ public interface ShopInfoDao {
 
 	List<?> getWomanPriceList(String email);
 	List<?> getManPriceList(String email);
+	void updatePrice(PriceListShopInfo priceListShopInfo);
 
 
 }

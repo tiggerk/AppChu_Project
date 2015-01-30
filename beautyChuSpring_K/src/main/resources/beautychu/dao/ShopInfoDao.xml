@@ -63,17 +63,24 @@
   
   <select id="getManPriceList" parameterType="map" resultMap="PriceListShopInfoMap">
     SELECT PRICELISTNO, TYPE, GENDER, PRICE, EMAIL
-    FROM PRICELIST 
+    FROM PRICELIST
     WHERE EMAIL = #{email}
     AND GENDER LIKE 'm%';
   </select>
   
   <select id="getWomanPriceList" parameterType="map" resultMap="PriceListShopInfoMap">
     SELECT PRICELISTNO, TYPE, GENDER, PRICE, EMAIL
-    FROM PRICELIST 
+    FROM PRICELIST
     WHERE EMAIL = #{email}
     AND GENDER LIKE 'w%';
   </select>
+  
+  <update id="updatePrice" parameterType="PriceListShopInfo">
+  	UPDATE PRICE (price)
+  	VALUES (#{price})
+  	WHERE EMAIL = #{email};
+  </update>
+  
  
   
 </mapper>

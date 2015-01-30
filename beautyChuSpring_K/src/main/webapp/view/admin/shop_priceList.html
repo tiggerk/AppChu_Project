@@ -287,28 +287,28 @@
 	                        		<tr>
 	                        			<td class="text-center"><h5>Cut</h5></td>
 	                        			<td class="text-center">
-	                        				<input id="man-cut" type="text" class="input-read form-control round-form text-center">
+	                        				<input id="man1" type="text" class="input-read form-control round-form text-center">
                         				</td>
 	                        		</tr>
 	                        		
 	                        		<tr>
 	                        			<td class="text-center"><h5>Perm</h5></td>
 	                        			<td class="text-center">
-	                        				<input id="man-perm" type="text" class="input-read form-control round-form text-center">
+	                        				<input id="man2" type="text" class="input-read form-control round-form text-center">
                         				</td>
 	                        		</tr>
 	                        		
 	                        		<tr>
 	                        			<td class="text-center"><h5>Color</h5></td>
 	                        			<td class="text-center">
-	                        				<input id="man-color" type="text" class="input-read form-control round-form text-center">
+	                        				<input id="man3" type="text" class="input-read form-control round-form text-center">
                         				</td>
 	                        		</tr>
 	                        		
 	                        		<tr>
 	                        			<td class="text-center"><h5>Care</h5></td>
 	                        			<td class="text-center">
-	                        				<input id="man-care" type="text" class="input-read form-control round-form text-center">
+	                        				<input id="man4" type="text" class="input-read form-control round-form text-center">
                         				</td>
 	                        		</tr>
 	                        		
@@ -477,10 +477,10 @@ var imsiEmail;
 					
 					for (var i = 0; i < data.manPriceListShopInfo.length; i++) {
 						switch (data.manPriceListShopInfo[i].type) {
-							case "cut" : $('#man-cut').val(data.manPriceListShopInfo[i].price); break;
-							case "perm" : $('#man-perm').val(data.manPriceListShopInfo[i].price); break;
-							case "color" : $('#man-color').val(data.manPriceListShopInfo[i].price); break;
-							case "care" : $('#man-care').val(data.manPriceListShopInfo[i].price); break;
+							case "cut" : $('#man1').val(data.manPriceListShopInfo[i].price); break;
+							case "perm" : $('#man2').val(data.manPriceListShopInfo[i].price); break;
+							case "color" : $('#man3').val(data.manPriceListShopInfo[i].price); break;
+							case "care" : $('#man4').val(data.manPriceListShopInfo[i].price); break;
 							default : console.log('ㅎㅎ');
 						}
 					}
@@ -493,50 +493,28 @@ var imsiEmail;
 		
 	    /* AJAX 서버로 데이터 보내서 update */
 		$('#manBtn').click(function() {
-			var profileInput = document.getElementById("profileInput").files[0].name;
-			var photo1 = profileInput[0];
-			var shopPhotoName = profileInput[0].name;
-			console.log(profileInput);
+			for(var i = 1; i < 5; i++) {
+				$.ajax({
+					type : 'post',
+					dataType : "json",
+					url : '../../json/shopInfo/updatePrice.do',
+					data : {
+						price : $('#man' + i).val(),
+						email : imsiEmail
+					},
+					success : function(data) {
+						console.log(data.status);
+						alert('등록완료');
+					},
+					error : function() {
+						console.log('등록 실패');
+					}
 
-			$("form").ajaxSubmit({
-				dataType : "json",
-				url : '../../json/shopInfo/fileUpload.do',
-				data : {email : imsiEmail},
-				success : function(data) {
-					console.log(data);
-					console.log(data.result);
-				},
-				error : function(error) {
-					alert("요청 처리 중 오류가 발생하였습니다.");
-				}
-			});
-			
-			$.ajax({
-				type : 'post',
-				dataType : "json",
-				url : '../../json/shopInfo/update.do',
-				data : {
-					shopPhotoUrl : $('#shopProfile').attr('src'),
-					email : $('#email').val(),
-					licenseeNo : $('#licenseeNo').val(),
-					shopName : $('#shopName').val(),
-					shopAddr : $('#shopAddr').val(),
-					shopTel : $('#shopTel').val(),
-					shopIntro : $('#shopIntro').val(),
-					
-				},
-				success : function(data) {
-					console.log(data.status);
-					alert('등록완료');
-				},
-				error : function() {
-					console.log('등록 실패');
-				}
-
-			});
+				});
+			}
 
 		});
-		});
+	});
 </script>
 	    
 	    

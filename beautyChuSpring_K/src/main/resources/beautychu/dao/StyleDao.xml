@@ -110,12 +110,17 @@
 	LIMIT 23
   </select>
   
-  <select id="getList" parameterType="StyleGrid" resultMap="styleGridMap">
-    SELECT T1.STYLENO, T1.EMAIL, T1.STYLENAME, T2.STYLEPHOTOURL 
+  <select id="getList" parameterType="Style" resultMap="styleMap">
+
+    SELECT T1.STYLENO, T1.EMAIL, T1.STYLENAME, T1.PRICE, T1.STYLEINTRO, T2.STYLEPHOTOURL 
     FROM STYLE T1 JOIN (SELECT STYLENO,STYLEPHOTOURL,STYLEPHOTONO FROM STYLEPHOTO GROUP BY STYLENO) T2 USING(STYLENO)
-    <if test="styleLength != null">
-		WHERE STYLELENGTH =#{styleLength}    
-    </if>
+    WHERE GENDER =#{gender}
+    <if test="styleLength != 'All'">
+		AND STYLELENGTH =#{styleLength}    
+    </if> 
+    <if test="styleSort != 'All'">
+		AND STYLESORT =#{styleSort}    
+    </if>	
      ORDER BY STYLENO
   </select>
   <!-- <select id="getList" parameterType="map" resultMap="styleGridMap">

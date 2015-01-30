@@ -197,7 +197,7 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-              	  <p class="centered"><a href="shop_info.html#"><img src="assets/img/ui-zac.jpg" class="img-circle" width="60"></a></p>
+              	  <p class="centered"><a href="shop_info.html#"><img id="sidebar-shopPhoto" class="img-circle" width="60"></a></p>
               	  <h5 id="sidebar-shopName" class="centered"></h5>
               	  <h6 id="sidebar-shopAddr" class="centered"></h6>
               	  <h6 id="sidebar-shopTel" class="centered"></h6>
@@ -387,7 +387,7 @@ var imsiEmail;
 				console.log("login 정보" + data.status);
 				console.log(data.loginUser);
 				$('#email').val(data.loginUser.email);
-				alert(data.loginUser.email + "정보가져옴");
+				console.log(data.loginUser.email + "정보가져옴");
 				imsiEmail = data.loginUser.email;
 			},
 			error : function() {
@@ -407,6 +407,7 @@ var imsiEmail;
 					console.log(data.listShopInfo);
 					console.log(data.listShopInfo[0].shopPhotoUrl);
 					
+					$('#sidebar-shopPhoto').attr('src', '/beautyChuSpring_K/fileupload' + data.listShopInfo[0].shopPhotoUrl);
 					$('#sidebar-shopName').text(data.listShopInfo[0].shopName);
 					$('#sidebar-shopAddr').text(data.listShopInfo[0].shopAddr);
 					$('#sidebar-shopTel').text(data.listShopInfo[0].shopTel);

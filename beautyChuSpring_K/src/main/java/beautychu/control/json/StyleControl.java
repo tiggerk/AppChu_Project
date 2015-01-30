@@ -32,10 +32,10 @@ public class StyleControl {
 	@Autowired ServletContext servletContext;
 
 	@RequestMapping("/list")
-	public Object list(StyleGrid styleList) throws Exception {
+	public Object list(Style style) throws Exception {
 
 		HashMap<String, Object> resultMap = new HashMap<>();
-		resultMap.put("styleList", styleService.getList(styleList));
+		resultMap.put("styleList", styleService.getList(style));
 		return resultMap;
 	}
 	

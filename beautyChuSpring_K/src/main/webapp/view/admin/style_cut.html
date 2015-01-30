@@ -18,6 +18,7 @@
     <link href="assets/css/style-responsive.css" rel="stylesheet">
 
     <script src="assets/js/jquery.js"></script>
+    <script type="text/javascript" src='../../js/handlebars-v2.0.0.js'></script>
 
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -288,104 +289,12 @@
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
       <section id="main-content">
-          <section class="wrapper site-min-height">
-          	<h3><i class="fa fa-angle-right"></i> Cut</h3>
+        <section class="wrapper site-min-height">
+        	<h3><i class="fa fa-angle-right"></i> Cut</h3>
           	<hr>
-				<div class="row mt">
-				
-					<!-- Button trigger modal -->
-					<div class="project col-lg-2 col-sm-3 col-xs-4 desc">
-						<div class="photo-wrapper" data-toggle="modal" data-target="#myModal">
-							<div class="photo">
-								<img src="assets/img/s3.jpg" id="spotify"><br>
-							</div>
-						</div>
-								<h4><strong>제목 cut</strong></h4>
-					</div>
-					
-					<!-- Modal -->
-					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					  <div class="modal-dialog">
-					    <div class="modal-content">
-					      <div class="modal-header">
-					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-angle-right"></i> Update Style</h4>
-					      </div>
-					      <div class="modal-body">
-					        <!-- BASIC FORM ELELEMNTS -->
-				                  	  
-				                      <form class="form-horizontal style-form" id="styleForm" method="post" enctype="multipart/formdata">
-				                      
-				                      	  <div class="form-group">
-				                          	<label class="col-sm-2 control-label"><b>분 류</b></label>
-				                          	<div class="col-sm-5">
-					                            <select id="styleSort" class="form-control round-form">
-												  <option>Cut</option>
-												  <option>Perm</option>
-												  <option>Color</option>
-												  <option>Care</option>
-												  <option>ETC</option>
-												</select>
-											</div>
-				                          </div>
-				                          
-				                          <div class="form-group">
-				                          	<label class="col-sm-2 control-label"><b>기 장</b></label>
-				                          	<div class="col-sm-5">
-					                            <select id="styleLength" class="form-control round-form">
-												  <option>Short</option>
-												  <option>Medium</option>
-												  <option>Long</option>
-												</select>
-											</div>
-				                          </div>
-										
-				                          <div class="form-group">
-				                              <label class="col-sm-2 control-label"><b>제 목</b></label>
-				                              <div class="col-sm-10">
-				                                  <input type="text" id="styleName" class="form-control round-form">
-				                              </div>
-				                          </div>
-				                          
-				                          <div class="form-group">
-				                              <label class="col-sm-2 control-label"><b>가 격</b></label>
-				                              <div class="col-sm-10">
-				                                  <input type="text" id="price" class="form-control round-form" numberonly="true" maxlength="8">
-				                              </div>
-				                          </div>
-				                          
-				                          <div class="form-group">
-				                              <label class="col-sm-2 control-label"><b>소 개</b></label>
-				                              <div class="col-sm-10">
-				                              	<textarea id='styleIntro' name="style-intro" rows="2" cols="80" class="form-control round-form"></textarea>
-												<div class="remaining text-right">남은 글자수: <span class="info-count">100</span></div>
-				                              </div>
-				                          </div>
-				                          
-				                          <div class="form-group" style="border-bottom:0;">
-				                              <label class="col-sm-2 control-label"><b>사 진</b></label>
-				                              <div class="col-sm-10">
-				                              	<input type="file" id="photofile" name="files[]" accept="image/*" multiple/>
-												<output id="list-output"><br></output>
-				                              </div>
-				                          </div>
-				                      </form>
-				                      <!-- end of BASIC FORM ELELEMNTS -->
-				                      
-					      </div> <!-- end of modal-body -->
-					      
-					      <div class="modal-footer">
-					        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					        <button type="button"  id="style-addBtn" class="btn btn-theme">Save changes</button>
-					      </div>
-					    </div>
-					  </div>
-					</div>
-					
-					
-					
-					
-		</div> <!-- end of row mt -->
+			<div id="main-list" class="row mt">
+				<!-- insert template --> 
+			</div>
 		
 		</section><!--/wrapper -->
       </section><!-- /MAIN CONTENT -->
@@ -404,7 +313,6 @@
   </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
-	<script src="assets/js/fancybox/jquery.fancybox.js"></script>    
     <script src="assets/js/bootstrap.min.js"></script>
     <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="assets/js/jquery.scrollTo.min.js"></script>
@@ -416,13 +324,20 @@
 
     <!--script for this page-->
 
-
-  <!-- 로드 스크립트!! -->
-	<!-- <script>
-		 $('aside').load('assets/sidebar.html');
-	</script>
-   -->
-   
+   <script>
+   $(function () {
+		$.getJSON('../../json/style/list.do?styleSort=Cut&gender=Female&styleLength=All', 
+			    function(data){
+								console.log(data);						
+					      $.get('assets/style.html', function(source){
+						    	  var template = Handlebars.compile(source);
+						    	  var html = template(data);
+						    	  /* console.log(html); */
+						    	  $('#main-list').html(html);
+				    	  });  
+			    });
+	});
+   </script>
    
   <script>
   /*
@@ -438,7 +353,7 @@
   });
   
   <!-- Browse Short... image preview ------------------------------------------------------------------------>
-  function handleFileSelect(evt) {
+  /* function handleFileSelect(evt) {
     var files = evt.target.files; // FileList object
 
     console.log("files" + files);
@@ -479,36 +394,7 @@
 	}
 
   document.getElementById('photofile').addEventListener('change', handleFileSelect, false);
-
-<!-- 스타일정보 maxlength -->
-$('.remaining').each(function() {
-      // count 정보 및 count 정보와 관련된 textarea/input 요소를 찾아내서 변수에 저장한다.
-      var $count = $('.info-count', this);
-      var $input = $(this).prev();
-      // .text()가 문자열을 반환하기에 이 문자를 숫자로 만들기 위해 1을 곱한다.
-      var maximumCount = $count.text() * 1;
-      // update 함수는 keyup, paste, input 이벤트에서 호출한다.
-      var update = function() {
-          var before = $count.text() * 1;
-          var now = maximumCount - $input.val().length;
-          // 사용자가 입력한 값이 제한 값을 초과하는지를 검사한다.
-          if (now < 0) {
-              var str = $input.val();
-              alert('글자 입력수가 초과하였습니다.');
-              $input.val(str.substr(0, maximumCount));
-              now = 0;
-          }
-          // 필요한 경우 DOM을 수정한다.
-          if (before != now) {
-              $count.text(now);
-          }
-      };
-      // input, keyup, paste 이벤트와 update 함수를 바인드한다
-      $input.bind('input keyup paste', function() {
-          setTimeout(update, 0)
-      });
-      update();
-  });
+ */
 </script>
   
 
