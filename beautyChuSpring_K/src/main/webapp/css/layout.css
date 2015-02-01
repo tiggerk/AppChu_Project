@@ -1,7 +1,7 @@
 @charset 'utf-8';
 html, body {margin:0; padding:0; font-family:'Nanum Gothic','돋움','dotum','AppleSDGothic', 'AppleGothic','arial',sans-serif; min-width: 1050px;}  /*mod 20140304 */
 html { position: relative;}
-body { margin: 0 auto;  background: #1f1f1f;  }
+body { margin: 0 auto;  /* background: #1f1f1f;  */ }
 body.home .wrapper{background: #000;}  /* mod 20140304 */
 .wrapper { width: auto; margin: 0 auto; overflow: hidden; max-width: 1920px; background: #fff; position: relative; }  /*mod 20140304 */
 
@@ -312,14 +312,14 @@ body.home .wrapper{background: #000;}  /* mod 20140304 */
 #footer > .inner { max-width: 1220px; min-width: 1000px; margin: 0 auto; position:relative;}
 #footer .upside {padding: 45px 0 30px; margin: 0 10px; border-bottom: 1px solid #353535; overflow:hidden}
 #footer .upside .widget {/*height: 80px;*/}
-#footer .upside .the-galleria { width:20%; float:left; position: relative; /*background: url(/web/img/common/footer-widget-split.png) repeat-y 100% 0;*/}
-#footer .upside .the-galleria > .inner { position: relative; padding-top:4px; width:100%;}
-#footer .upside .the-galleria h2 {/*position:absolute; top:0; left:0; */font-size:15px; color:#fff; font-family:'MyriadPro-Bold','Nanum Gothic'; height: 20px; padding-left:5px; line-height:16px; }
-#footer .upside .the-galleria ul {/*position:absolute; top:26px; left:0;*/ padding-left:5px;}
-#footer .upside .the-galleria ul li { padding-top: 4px;}
-#footer .upside .the-galleria ul li:first-child{margin-top:0}
-#footer .upside .the-galleria ul a { font-size:13px; text-decoration:none; color:#d9d9d9; font-family:'MyriadPro-Semibold','Nanum Gothic'; height:15px; line-height:14px; text-decoration:none }
-#footer .upside .the-galleria ul a:hover{text-decoration:underline}
+#footer .upside .the-beautychu { width:20%; float:left; position: relative; /*background: url(/web/img/common/footer-widget-split.png) repeat-y 100% 0;*/}
+#footer .upside .the-beautychu > .inner { position: relative; padding-top:4px; width:100%;}
+#footer .upside .the-beautychu h2 {/*position:absolute; top:0; left:0; */font-size:15px; color:#fff; font-family:'MyriadPro-Bold','Nanum Gothic'; height: 20px; padding-left:5px; line-height:16px; }
+#footer .upside .the-beautychu ul {/*position:absolute; top:26px; left:0;*/ padding-left:5px;}
+#footer .upside .the-beautychu ul li { padding-top: 4px;}
+#footer .upside .the-beautychu ul li:first-child{margin-top:0}
+#footer .upside .the-beautychu ul a { font-size:13px; text-decoration:none; color:#d9d9d9; font-family:'MyriadPro-Semibold','Nanum Gothic'; height:15px; line-height:14px; text-decoration:none }
+#footer .upside .the-beautychu ul a:hover{text-decoration:underline}
 
 
 #footer .upside .gift-n-card { float:left; width:14%; position: relative;}
@@ -333,17 +333,19 @@ body.home .wrapper{background: #000;}  /* mod 20140304 */
 
 
 #footer .upside .widget.etc { background: none;}
-#footer .upside .etc { width:66%; float:right;}
+#footer .upside .etc { width:80%; float:left;}
 #footer .upside .etc .etc-menu {width:100%;overflow:hidden; background:url(/web/img/common/footer-widget-split.png) repeat-y 100% 0;}
-#footer .upside .etc .etc-menu li { float:left; height: 80px; width:14.2%; text-align: center; background:url(/web/img/common/footer-widget-split.png) repeat-y 0 0;}
+#footer .upside .etc .etc-menu li { float:left; height: 80px; width:11.1%; text-align: center; background:url(/web/img/common/footer-widget-split.png) repeat-y 0 0;}
 #footer .upside .etc .etc-menu li a { width: 100%; height: 75px; padding-top:5px; display: block; font-size:12px; text-align:center; color:#fff; overflow: hidden; font-family:'Nanum Gothic'; text-decoration:none}  /* 20140328 */
-#footer .upside .etc .etc-menu li.m1 a {background:url(/web/img/common/etc-menu07.png) 50% 0 no-repeat;}
-#footer .upside .etc .etc-menu li.m2 a {background:url(/web/img/common/etc-menu01.png) 50% 0 no-repeat;}
-#footer .upside .etc .etc-menu li.m3 a {background:url(/web/img/common/etc-menu02.png) 50% 0 no-repeat;}
-#footer .upside .etc .etc-menu li.m4 a {background:url(/web/img/common/etc-menu03.png) 50% 0 no-repeat;}
-#footer .upside .etc .etc-menu li.m5 a {background:url(/web/img/common/etc-menu06.png) 50% 0 no-repeat;}
-#footer .upside .etc .etc-menu li.m6 a {background:url(/web/img/common/etc-menu04.png) 50% 0 no-repeat;}
-#footer .upside .etc .etc-menu li.m7 a {background:url(/web/img/common/etc-menu05.png) 50% 0 no-repeat;}
+#footer .upside .etc .etc-menu li.m1 a {background:url(../img/common/etc-menu01.png) 50% 10px no-repeat; background-size: 50px;}
+#footer .upside .etc .etc-menu li.m2 a {background:url(../img/common/etc-menu02.png) 50% 9px no-repeat; background-size: 50px;}
+#footer .upside .etc .etc-menu li.m3 a {background:url(../img/common/etc-menu03.png) 50% 10px no-repeat; background-size: 50px;}
+#footer .upside .etc .etc-menu li.m4 a {background:url(../img/common/etc-menu04.png) 50% 20px no-repeat; background-size: 70px;}
+#footer .upside .etc .etc-menu li.m5 a {background:url(../img/common/etc-menu05.png) 50% 30px no-repeat; background-size: 75px;}
+#footer .upside .etc .etc-menu li.m6 a {background:url(../img/common/etc-menu06.png) 50% 40px no-repeat; background-size: 85px;}
+#footer .upside .etc .etc-menu li.m7 a {background:url(../img/common/etc-menu07.png) 50% 40px no-repeat; background-size: 85px;}
+#footer .upside .etc .etc-menu li.m8 a {background:url(../img/common/etc-menu08.png) 50% 37px no-repeat; background-size: 85px;}
+#footer .upside .etc .etc-menu li.m9 a {background:url(../img/common/etc-menu09.png) 50% 40px no-repeat; background-size: 85px;}
 #footer .upside .etc .etc-menu li a:hover { background-position: 50% -81px; text-decoration:none} /* 20140328 */
 
 #footer .downside {padding:18px 0; margin: 0 10px; position:relative;} /* 20140308 mod */
@@ -352,7 +354,7 @@ body.home .wrapper{background: #000;}  /* mod 20140304 */
 #footer .downside .site-infos { float:left;}
 #footer .downside .footer-menu { padding: 9px 0 0 0; height: 22px;}
 #footer .downside .footer-menu li { float:left; background:url(/web/img/common/footer-menu-split.png) 100% 50% no-repeat; height: 13px; padding: 0 8px;}
-#footer .downside .footer-menu li a { font-size: 11px; color: #999; display: block; background:url(/web/img/common/footer-menu.png) no-repeat; height: 13px; text-indent: -9999em; overflow: hidden;}
+#footer .downside .footer-menu li a { font-size: 11px; color: #999; display: block; /* background:url(/web/img/common/footer-menu.png) no-repeat */; height: 13px; /* text-indent: -9999em; */ overflow: hidden;}
 #footer .downside .footer-menu li.m1 a { width:39px; background-position: 0 0;}
 #footer .downside .footer-menu li.m2 a { width:101px; background-position: -54px 0;}
 #footer .downside .footer-menu li.m3 a { width:39px; background-position: -171px 0;}
@@ -376,7 +378,7 @@ body.home .wrapper{background: #000;}  /* mod 20140304 */
 
 
 #footer .downside .company-info { /*padding-left:140px;*/ color: #999; font-size: 11px; margin:6px 0; } /* 20140308 mod */
-#footer .downside .company-info .info { float:left; background:url(/web/img/common/footer-company-info.png); width: 562px; height: 12px; text-indent: -9999em; overflow: hidden; margin-right: 6px;}
+#footer .downside .company-info .info { float:left; /* background:url(/web/img/common/footer-company-info.png); */ width: 562px; height: 12px; /* text-indent: -9999em; */ overflow: hidden; margin-right: 6px;}
 #footer .downside .company-info .email {color: #999; font-family: 'MyriadPro-Semibold', Helvetica, sans-serif; font-size: 12px; text-decoration:underline} /*20140308 add*/
 #footer .downside .copy {/*padding-left:140px; */ font-family: 'MyriadPro-Semibold', Helvetica, sans-serif; font-size: 10px; color: #999;} /* 20140308 mod */
 #footer .downside .copy strong {font-family: 'MyriadPro-Bold', Helvetica, sans-serif; }

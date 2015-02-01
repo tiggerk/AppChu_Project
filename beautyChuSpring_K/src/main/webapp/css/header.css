@@ -1,0 +1,73 @@
+@CHARSET "UTF-8";
+
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700,900);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+/* -- 서치바 -- */
+#search-bar {
+	display: block;
+	margin-top: 20px;
+	margin-left: 50px;
+	margin-right: 50px;
+	float: left;
+}
+#search {
+	width: auto;
+}
+#search input[type="text"] {
+    background: url(../images/search-white.png) no-repeat 10px 6px #444;
+    border: 0 none;
+    font: bold 12px Arial,Helvetica,Sans-serif;
+    color: #d7d7d7;
+    width:200px;
+    padding: 6px 15px 6px 35px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3); 
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+}
+
+#search input[type="text"]:focus {
+    background: url(../images/search-dark.png) no-repeat 10px 6px #fcfcfc;
+    color: #6a6f75;
+    width: 250px;
+    outline: none !important;
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+/* -- 서치바 끝 -- */
+
+
+
+#header-container {
+	top: 50px;
+	left: 0px;
+	width: 100%;
+	text-align: center;
+	background-color: #fff;
+}
+
+#header-container>h1 {
+	position: relative;
+	font-size: 3.0em;
+	font-weight: bold;
+}
+
+
+/* 메뉴바 */
+.jy-mypage { text-indent: 0;}
+
+/* 메뉴바 닉네임 */
+.user-nickname { color: white; background-color: rgba(22, 22, 22, 1); 
+								border: 1px solid rgba(22, 22, 22, 1); 
+								width: 90px;
+								}

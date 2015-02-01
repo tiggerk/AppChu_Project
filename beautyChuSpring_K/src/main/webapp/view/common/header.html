@@ -1,0 +1,608 @@
+<!-- 공통 header -->
+<script type="text/javascript" src="../js/common.js"></script>
+
+<!-- <link rel="stylesheet" type="text/css" href="../css/basic.css" /> -->
+
+
+<!-- login form css -->
+<link rel="stylesheet" type="text/css" href="../css/jy/jy_dialog.css" />
+<link rel="stylesheet" type="text/css" href="../css/jy/jy_dialog-ken.css" />
+<script src="../js/resources/jy/modernizr.custom.js"></script>
+
+<!-- Dialog JS -->
+<script src="../js/resources/jy/classie.js"></script>
+<script src="../js/resources/jy/dialogFx.js"></script>
+
+
+<div id="header">
+	<div class="inner">
+		<h1 class="logo">
+			<a id="logo-title" href="main.html">Beauty Chu~♥</a>
+		</h1>
+
+		<!-- #nav -->
+		<nav id="nav">
+
+			<!-- gnb -->
+			<ul class="gnb">
+
+				<li class="m1"><a href="kh-shopinfo.html"> <span
+						class="over"></span> <span class="label">SHOP INFO</span></a>
+					<div class="sub-menu">
+						<ul>
+							<li class="m1"><a href="#"> 전체 보기</a></li>
+							<li class="m2"><a href="#">강남/서초</a></li>
+							<li class="m3"><a href="#">압구정/청담</a></li>
+							<li class="m4"><a href="#">논현/신사</a></li>
+							<!-- <li class="m5"><a href="/svc/notice/web/kr/noticeList.do">공지사항</a></li>-->
+							<li class="m5"><a href="#" target="_blank" title="다른 지점보기">이대/신촌</a></li>
+							<li class="m6"><a href="#" title="갤러리아 면세점">홍대</a></li>
+						</ul>
+					</div></li>
+				<!-- end of li.m1 -->
+
+				<li class="m2"><a href="kh-styleman.html"><span
+						class="over"></span><span class="label">Man</span></a>
+					<div class="sub-menu">
+						<ul>
+							<li class="m2"><a href="#">Man Cut</a></li>
+							<li class="m3"><a href="#">Man Perm</a></li>
+							<li class="m4"><a href="#,">Man Color</a></li>
+							<li class="m5"><a href="#">Man Care</a></li>
+							<li class="m6"><a href="#">Man ETC</a></li>
+						</ul>
+
+					</div> <!-- Fashion &amp; Style Content -->
+					<div class="good-list-container">
+						<h2 class="title">Fashion &amp; Style Content</h2>
+					</div> <!-- Fashion &amp; Style Content --></li>
+
+				<!-- end of li.m2 -->
+
+				<li class="m3"><a href="yun-womanstylethumbnail.html"><span
+						class="over"></span><span class="label">woman</span></a>
+					<div class="sub-menu">
+						<ul>
+							<li class="m1"><a href="#">Woman Cut</a></li>
+							<li class="m2"><a href="#">Woman Perm</a></li>
+							<li class="m3_02"><a href="#">Woman Color</a></li>
+							<li class="m3"><a href="#">Woman Care</a></li>
+							<li class="m4"><a href="#">Woman ETC</a></li>
+						</ul>
+					</div></li>
+				<!-- end of li.m3 -->
+
+				<li class="m4">
+					<a href="kh-celebritylist.html"><span class="over"></span><span class="label">Celebrity</span></a>
+					<div class="sub-menu sub_depth6">
+						<ul>
+							<li class="m1"><a href="#">Celebrity Man</a></li>
+							<li class="m2"><a href="#">Celebrity Woman</a></li>
+						</ul>
+					</div>
+				</li>
+				<!-- search area -->
+				<li class="m5" style="border-right: 0;">
+					<form method="get" action="/search" id="search">
+						<input name="q" id="search-bar" type="text" placeholder="Search..." />
+					</form>
+				</li>
+			<!-- end of li.m4 -->
+
+				
+
+			</ul>
+			<!-- gnb -->
+
+
+
+		</nav>
+		<!-- #nav -->
+
+
+
+		<!-- sub-menu -->
+		<ul class="util-menu" id="util-menu">
+
+			<!-- 로그인 전 -->
+			<!-- <li id="before-login"> -->
+			<li class="join" id="join"><a data-dialog2="joindialog" title="회원가입">Join</a></li>
+			<li class="login" id="login"><a data-dialog1="logindialog" title="로그인">login</a></li>
+			<!-- </li> -->
+
+			<!-- 로그인 후 -->
+			<!-- <li id="after-login"> -->
+			<li class="jy-mypage" id="jy-mypage">
+			<a href="jy_personalinfo.html"title="마이페이지" 
+				 style="text-indent: 0; padding: 0; text-align: center;">
+			<img src="../img/logo_appchu.jpg" width="20" height="20"
+								class="jy-profileimg" id="user-mypage" alt="" 
+								style="border-radius:5px; margin: 25px 5px;"/>
+								<input class="user-nickname" id="user-mypage" value="" disabled>
+								<!-- <span class="user-nickname" id="user-mypage"></span>	 -->		
+			</a></li>
+			<li class="logout" id="logout">
+			<a title="로그아웃">logout</a></li>
+			<!-- </li> -->
+
+
+		</ul>
+		<!--sub-menu-->
+
+
+
+	</div>
+	<!-- end of div#header -->
+
+
+
+	<!-- login form -->
+	<div id="logindialog" class="dialog">
+		<div class="dialog__overlay"></div>
+		<div class="dialog__content">
+			<div class="jy-login-header-area">
+				<button class="action jy-btn-login-close" data-dialog-close>
+					<img src="../img/search/btn-close.png">
+				</button>
+			</div>
+			<form class="jy-form-signin" role="form">
+				<div class='jy-page-header'>
+					<h2 class="jy-form-signin-heading">로그인</h2>
+				</div>
+				<div class="jy-login-line">
+					<label for="inputEmail" class="sr-only">Email address</label> <input
+						type="email" id="jy-inputEmail" class="jy-form-control-login"
+						placeholder="beautychu@appchu.com" required autofocus>
+				</div>
+				<div class="jy-login-line">
+					<label for="inputPassword" class="sr-only">Password</label> <input
+						type="password" id="jy-inputPassword"
+						class="jy-form-control-login" placeholder="Password" required>
+				</div>
+
+				<button id="jy-btn-login" class="jy-btn-login" type="button">로그인</button>
+
+				<div class="jy-checkbox">
+					<label class="jy-checkbox-line"> <input type="checkbox"
+						value="remember-me"> 아이디 저장
+					</label>
+				</div>
+
+				<!-- 로그인 체크  -->
+				<div id="jy-login-check" style="height: 10px;"></div>
+				<!-- 로그인 체크  -->
+	
+				<button class="jy-btn-gojoin" id="jy-btn-gojoin" type="button" title="회원 가입하기">
+				회원 가입</button>
+			</form>
+		</div>
+	</div>
+	<!-- login form -->
+
+
+	<!-- join form -->
+	<div id="joindialog" class="dialog">
+		<div class="dialog__overlay"></div>
+
+		<!-- dialog__content -->
+		<div class="dialog__content">
+			<div class="jy-join-header-area">
+
+				<!-- page-header -->
+				<div class='jy-page-header'>
+					<h2 class='jy-form-signup-heading'>회원가입</h2>
+				</div>
+
+				<!-- page-header -->
+				<button class="action jy-btn-join-close" data-dialog-close>
+					<img src="../img/search/btn-close.png">
+				</button>
+			</div>
+
+			<!-- 회원가입 폼 -->
+			<form name='frm' class='form-horizontal jy-join' role='form'
+				method='post'>
+
+				<!-- 사용자 분류 -->
+				<div class='jy-form-group'>
+					<label class='jy-control-label' for="classuser1"> <strong
+						class='jy-class-user'>분류</strong>
+					</label>
+					<div class="jy-radio-user">
+						<input type="radio" class="jy-chk-user" id="jy-chk-user1"
+							name="chk-user" value="uchk1" checked>일반 회원 
+						<input type="radio" class="jy-chk-user" id="jy-chk-user2"
+							name="chk-user" value="uchk2">사업자 회원
+					</div>
+				</div>
+
+				<!-- 이메일 -->
+				<div class='jy-form-group'>
+					<label class='jy-control-label' for='inputEmail1'> <strong
+						class='jy-email'>이메일</strong>
+					</label>
+					<div class='jy-email-total'>
+						<div class='jy-email-div'>
+							<div class='jy-input-email'>
+								<input name='user_email' class='jy-form-control-join'
+									id='jy-user_email' type='email' maxlength='100'
+									placeholder='appchu@beautychu.com'>
+								<!-- 이메일입력 -->
+							</div>
+							<!-- /.row -->
+							<blockquote class='jy-alarm text-primary'></blockquote>
+							<!-- 이메일체크 메시지 알람 -->
+						</div>
+
+					</div>
+				</div>
+				<!-- 이메일 -->
+
+				<!-- 이메일 중복 체크  -->
+				<div id="jy-email-check" style="height: 20px;"></div>
+				<!-- 이메일 중복 체크  -->
+
+				<!-- 닉네임 -->
+				<div class='jy-form-group'>
+					<label class='jy-control-label' for='inputNickname1'> <strong
+						class='jy-nick'>닉네임</strong>
+					</label>
+					<div class='jy-input-nickname'>
+						<input name='user_nickname' class='jy-form-control-join'
+							id='jy-user_nickname' type='text' maxlength='50' placeholder=' '>
+					</div>
+				</div>
+				<!-- 닉네임 -->
+
+				<!-- 비밀번호 -->
+				<div class='jy-form-group'>
+					<label class='jy-control-label' for='inputPassword1'> <strong
+						class='jy-pw'>비밀번호</strong>
+					</label>
+					<div class='jy-input-user-pw'>
+						<input name='user_pw' class='jy-form-control-join' id='jy-user_pw'
+							type='password' maxlength='20' placeholder='4~20자로 입력해주세요.'>
+					</div>
+				</div>
+				<!-- 비밀번호 -->
+
+				<!-- 비밀번호확인 -->
+				<div class='jy-form-group'>
+					<label class='jy-control-label' for='inputPassword2'> <strong
+						class='jy-pwr'>비밀번호 확인 </strong>
+					</label>
+					<div class='jy-input-confirm-pw'>
+						<input name='confirm_pw' class='jy-form-control-join'
+							id='jy-confirm_pw' type='password' maxlength='20'
+							placeholder='비밀번호를 재입력 해주세요.'>
+					</div>
+				</div>
+				<!-- 비밀번호확인 -->
+
+				<!-- 비밀번호 일치 체크  -->
+				<div id="jy-pw-check" style="height: 10px;"></div>
+				<!-- 비밀번호 일치 체크  -->
+
+
+				<!-- 회원가입 완료 -->
+				<div class='jy-btn-area'>
+					<button id=jy-btn-join-fin class='jy-btn-join-fin' type='button'>
+						<!-- onclick='fn_form_chk();' -->
+						<span class='jy-btn-join'>회원 가입 완료</span>
+					</button>
+					<div class="clear"></div>
+					<div class='jy-register-alert'>
+						<p class="jy-alert-message">
+							아래의 이메일로 사업자 등록증을 보내주시면<br> 사업자 회원으로 등록해 드립니다.<br>
+							admin@beautychu.com
+						</p>
+					</div>
+				</div>
+				<!-- 회원가입 완료 -->
+
+			</form>
+		</div>
+	</div>
+	<!-- join form -->
+</div>
+
+<script>
+//alert("beautyChu에 방문해 주셔서 감사합니다^^");
+
+
+/* 사이트 열자마자 ajax로 로긴 여부 체크하여 page open */
+$.ajax({
+	type : 'get',
+	dataType : "json",
+	url : '../json/auth/loginUser.do',
+	success : function(data) {
+			
+			if(data.status != 'fail') {
+				console.log("login"+data.status);
+				$('.user-nickname').val(data.loginUser.name);
+				/* 다만 main 전체가 떴다가 아래가 사라짐.. */
+				$('.join').hide();
+				$('.login').hide();
+				
+			/* } else if (data.status == 'fail') { */
+				} else {
+				console.log("login"+data.status);
+				/* 다만 main 전체가 떴다가 아래가 사라짐.. */
+				$('.jy-mypage').hide();
+				$('.logout').hide();
+				
+			}
+			
+	},
+	error : function() {
+		console.log('로그인 ajax 실패');
+		
+	}
+
+});
+
+/* -------------------  */
+/* 프로필 사진 받기 */
+//$.ajax({
+//	type : 'get',
+//	dataType : "json",
+//	url : '../json/auth/loginUser.do',
+//	success : function(data) {
+//			
+//			if(data.status != 'fail') {
+//				console.log("login"+data.status);
+//				$('.user-nickname').val(data.loginUser.name);
+//				/* 다만 main 전체가 떴다가 아래가 사라짐.. */
+//				$('.join').hide();
+//				$('.login').hide();
+//				
+			/* } else if (data.status == 'fail') { */
+//				} else {
+//				console.log("login"+data.status);
+				/* 다만 main 전체가 떴다가 아래가 사라짐.. */
+//				$('.jy-mypage').hide();
+//				$('.logout').hide();
+//			}
+			
+//	},
+//	error : function() {
+//		console.log('로그인 ajax 실패');
+		
+//	}
+
+//});
+
+</script>
+
+<script>
+
+	/* 로그인 & 회원가입 dialog slide page */
+	(function() {
+
+		var logindlgtrigger = document.querySelector('[data-dialog1]'), 
+		logindialog = document.getElementById(logindlgtrigger.getAttribute('data-dialog1')), 
+		logindlg = new DialogFx(logindialog);
+
+		var joindlgtrigger = document.querySelector('[data-dialog2]'), 
+		joindialog = document.getElementById(joindlgtrigger.getAttribute('data-dialog2')), 
+		joindlg = new DialogFx(joindialog);
+
+		logindlgtrigger.addEventListener('click', logindlg.toggle.bind(logindlg));
+		joindlgtrigger.addEventListener('click', joindlg.toggle.bind(joindlg));
+
+
+		/* ajax node 연결 - 이메일 유효성 검사 */
+
+		var joinpass = 0; // 0이면 통과x  1이면 통과
+		var passwordpass = 0;
+
+		$("#jy-user_email").keyup(
+						function(data) {
+
+							var yunemail = $('#jy-user_email').val();
+							var yunregex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
+							if (yunregex.test(yunemail)) {
+								$.get("http://192.168.0.128:55555/id", {
+									id : $('#jy-user_email').val()
+								}, function(data) {
+									if (data.result === 'yes') {
+										$('#jy-email-check').html(
+												'사용가능한 아이디 입니다.')
+												.css("color","blue");
+										joinpass = 1;
+									} else if (data.result === 'no') {
+										$('#jy-email-check').html(
+												'중복된 아이디가 있습니다.')
+												.css("color","red");
+										joinpass = 0;
+									}
+								})
+							} else {
+								$('#jy-email-check').html("잘못된 이메일 형식입니다.")
+								.css("color","red");
+								
+								joinpass = 0;
+
+							}
+						});
+
+		/* 패스워드 일치 검사  */
+
+		function checkpassword() {
+			var password1 = $('#jy-user_pw').val();
+			var password2 = $('#jy-confirm_pw').val();
+
+			if (password1 === null || password2 === null) {
+				$('#jy-pw-check').html("비밀번호를 입력해주세요.");
+				passwordpass = 0;
+			} else if (password1 === password2) {
+				$('#jy-pw-check').html("패스워드가 일치 합니다.^^").css("color","blue");
+				passwordpass = 1;
+			} else {
+				$('#jy-pw-check').html("패스워드가 일치하지 않습니다..").css("color","red");
+				passwordpass = 0;
+			}
+		}
+
+		$("#jy-confirm_pw").keyup(function(data) {
+			checkpassword();
+		});
+
+		$("#jy-user_pw").keyup(function(data) {
+			checkpassword();
+		});
+
+		/* -------------------  */
+
+		/* 입력폼 빈칸 검사  */
+
+		$('#jy-btn-join-fin').click(function() {
+			if (passwordpass === 0) {
+				$('#jy-pw-check').html("패스워드를 동일하게 입력해 주세요.").css("color","red");
+
+			}
+			/* 
+			else if(jy-user_nickname===null||jy-user_nickname===null||jy-confirm_pw===null||jy-user_pw===null){
+				$('#jy-pw-check').html("필수 입력 사항을 모두 입력해 주세요.");
+			}
+			 */
+			else if (joinpass === 0) {
+				$('#jy-pw-check').html("올바른 아이디를 입력해 주세요.").css("color","red");
+			} else {
+
+				$.ajax({
+					type : 'post',
+					dataType : "json",
+					url : '../json/auth/join.do',
+					data : {
+						email : $('#jy-user_email').val(),
+						name : $('#jy-user_nickname').val(),
+						password : $('#jy-confirm_pw').val()
+					},
+					success : function(data) {
+						console.log("join"+data.status);
+						console.log(data.loginUser);
+						alert("가입이 완료되었습니다.\n 환영합니다^^");
+						location.href = 'main.html';
+
+					},
+					error : function() {
+						console.log('회원가입 ajax 실패');
+					}
+
+				});
+
+			}
+
+		});
+
+		/* -------------------  */
+
+		/* 로그인 자바스크립트  */
+
+		$('#jy-btn-login').click(function() {
+
+			var email = $('#jy-inputEmail').val();
+			var password = $('#jy-inputPassword').val();
+
+			if (email === '') {
+				$('#jy-login-check').html('이메일을 입력 해주세요.').css("color","red");
+			} else if (password === '') {
+				$('#jy-login-check').html('비밀번호를 입력 해주세요.').css("color","red");
+			} else {
+
+				$.ajax({
+					type : 'post',
+					dataType : "json",
+					url : '../json/auth/login.do',
+					data : {
+						'email' : email,
+						'password' : password
+					},
+					success : function(data) {
+						if (data.loginUser) {
+							console.log("login"+data.status);
+							alert(data.loginUser.name + " 님 로그인 되었습니다.");
+							location.href = 'main.html';
+							
+						} else {
+							$('#jy-login-check').html('아이디 혹은 비밀번호가 맞지 않습니다.').css("color","red");
+
+						}
+					},
+					error : function() {
+						console.log('로그인 ajax 실패');
+					}
+
+				});
+			}
+
+		});
+		/* -------------------  */
+		
+	  /* (미구현) 로그인 페이지에서 회원가입 버튼 누르면 회원가입 페이지로 넘어가기 */
+ 		$('#jy-btn-gojoin').click(function(){
+			//alert("join click!"); 			
+			//$('.join').
+			//$('.join').click();
+			//$('#joindialog').show();
+		})
+		
+
+		/* 사업자 메시지 보이기 */
+		$('.jy-register-alert').hide();
+		
+		$('#jy-chk-user1').click(function(){
+			//$('#jy-chk-user1').attr("checked") == "checked";
+			$('.jy-register-alert').hide();
+		});
+		
+		$('#jy-chk-user2').click(function(){
+			//$('#jy-chk-user1').attr("checked") == "checked";
+			$('.jy-register-alert').show();
+		});
+
+
+		
+		
+	})();
+	
+
+	 
+</script>
+<script type="text/javascript">
+
+	(function() {
+		/* click to mypage account */
+		$('.jy-mypage').click(function() {
+			alert("마이페이지 입니다!");
+			console.log("마이페이지 입니다!");
+		});
+
+		/* -------------------  */
+
+		/* 로그아웃 자바스크립트  */
+		$('.logout').click(function() {
+			
+			$.ajax({
+				dataType : "json",
+				url : '../json/auth/logout.do',
+				success : function() {
+					console.log('로그아웃 되었습니다.');
+				  alert("로그아웃 되었습니다.");
+				  location.href = 'main.html';
+				},
+				error : function() {
+					console.log('로그아웃 ajax 실패 ');
+				}
+			});
+
+		});
+		/* -------------------  */
+
+
+
+
+})();
+
+</script>
