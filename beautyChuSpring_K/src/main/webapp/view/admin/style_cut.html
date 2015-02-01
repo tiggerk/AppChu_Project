@@ -223,10 +223,10 @@
       <!--sidebar start-->
       <aside>
           <div id="sidebar"  class="nav-collapse ">
-              sidebar menu start
+              <!-- sidebar menu start -->
               <ul class="sidebar-menu" id="nav-accordion">
               
-              	  <p class="centered"><a href="shop_info.html#"><img src="assets/img/ui-zac.jpg" class="img-circle" width="60"></a></p>
+              	  <p class="centered"><a href="shop_info.html#"><img class="img-circle" width="60"></a></p>
               	  <h5 id="sidebar-shopName" class="centered"></h5>
               	  <h6 id="sidebar-shopAddr" class="centered"></h6>
               	  <h6 id="sidebar-shopTel" class="centered"></h6>
@@ -244,15 +244,15 @@
                   <li class="sub-menu">
                       <a class="active"  href="javascript:;" >
                           <i class="fa fa-edit"></i>
-                          <span>Style</span>
+                          <span>Woman Style</span>
                       </a>
                       <ul class="sub">
-                          <li><a href="style_addStyle.html">Add Style</a></li>
-                          <li class="active"><a  href="style_cut.html">Cut</a></li>
-                          <li><a  href="style_perm.html#">Perm</a></li>
-                          <li><a  href="style_color.html#">Color</a></li>
-                          <li><a  href="style_care.html#">Care</a></li>
-                          <li><a  href="style_etc.html#">ETC</a></li>
+                          <li><a href="style_addStyle.html">Add Woman Style</a></li>
+                          <li class="active"><a  href="style_cut.html">Woman Cut</a></li>
+                          <li><a  href="style_perm.html#">Woman Perm</a></li>
+                          <li><a  href="style_color.html#">Woman Color</a></li>
+                          <li><a  href="style_care.html#">Woman Care</a></li>
+                          <li><a  href="style_etc.html#">Woman ETC</a></li>
                       </ul>
                   </li>
 
@@ -290,7 +290,7 @@
       <!--main content start-->
       <section id="main-content">
         <section class="wrapper site-min-height">
-        	<h3><i class="fa fa-angle-right"></i> Cut</h3>
+        	<h3><i class="fa fa-angle-right"></i> Woman Cut</h3>
           	<hr>
 			<div id="main-list" class="row mt">
 				<!-- insert template --> 
@@ -324,7 +324,49 @@
 
     <!--script for this page-->
 
-   <script>
+   <script type="text/javascript">
+	var imsiEmail;
+	  $(function() {
+		    /* AJAX로 email 로그인 정보 가져오기 */
+		    $.ajax({
+				type : 'get',
+				dataType : "json",
+				url : '../../json/auth/loginUser.do',
+				success : function(data) {
+					console.log("login 정보" + data.status);
+					console.log(data.loginUser);
+					$('#email').val(data.loginUser.email);
+					console.log(data.loginUser.email + "정보가져옴");
+					imsiEmail = data.loginUser.email;
+				},
+				error : function() {
+					console.log('ajax 실패');
+				}
+			}).done(function(){
+			    /* AJAX로 email로 sidebar shop 정보 가져오기 */
+			    $.ajax({
+					type : 'get',
+					dataType : "json",
+					data : {
+						email : imsiEmail
+					},
+					url : '../../json/shopInfo/list.do',
+					success : function(data) {
+						console.log(imsiEmail);
+						console.log(data.listShopInfo);
+						console.log(data.listShopInfo[0].shopPhotoUrl);
+						
+						$('#sidebar-shopPhoto').attr('src', '/beautyChuSpring_K/fileupload' + data.listShopInfo[0].shopPhotoUrl);
+						$('#sidebar-shopName').text(data.listShopInfo[0].shopName);
+						$('#sidebar-shopAddr').text(data.listShopInfo[0].shopAddr);
+						$('#sidebar-shopTel').text(data.listShopInfo[0].shopTel);
+					},
+					error : function() {
+						console.log('ajax shop정보 실패');
+					}
+				});
+			});
+	
    $(function () {
 		$.getJSON('../../json/style/list.do?styleSort=Cut&gender=Female&styleLength=All', 
 			    function(data){
