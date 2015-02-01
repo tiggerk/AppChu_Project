@@ -6,13 +6,14 @@ public class Member implements Serializable {
 
 
 	private static final long serialVersionUID = 1L;
+	
 	String email;
 	int memberNumber;
 	String phone;
 	String address;
 	String name;
 	String password;
-	
+	String profilePhoto;
 	
 	public String getEmail() {
 		return email;
@@ -50,15 +51,20 @@ public class Member implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	
-	
-	@Override
-	public String toString() {
-		return "Member [email=" + email + ", memberNumber=" + memberNumber
-				+ ", phone=" + phone + ", address=" + address + ", name="
-				+ name + ", password=" + password + "]";
-	}
+	public String getProfilePhoto() {
+    return profilePhoto;
+  }
+  public void setProfilePhoto(String profilePhoto) {
+    this.profilePhoto = profilePhoto;
+  }
+  
+  
+  @Override
+  public String toString() {
+    return "Member [email=" + email + ", memberNumber=" + memberNumber
+        + ", phone=" + phone + ", address=" + address + ", name=" + name
+        + ", password=" + password + ", profilePhoto=" + profilePhoto + "]";
+  }
 	
 	
 }
