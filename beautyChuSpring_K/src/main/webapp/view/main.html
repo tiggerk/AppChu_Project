@@ -738,8 +738,8 @@ footer {
 				<!-- best shop -->
 				<div class="best-shop-wrap">
 					<div class="bg" style="display: block;"></div>
-					<div class="cont1080 prolisttype1 prolist5 best">
 						<h2>Show Best Shop</h2>
+					<div class="cont1080 prolisttype1 prolist5 best">
 						<ul>
 							<li>
 								<span class="icon_best icon_best1">BEST 01</span>
@@ -820,15 +820,16 @@ footer {
 						</ul>
 					</div>
 				</div> <!-- end of wrap best shop -->
-
 			
 			</div> <!-- #content -->
-		</div> <!-- .wrapper -->
-	</div> <!-- .wrap-chu -->
-
+			
 			<footer id="footer">
 				<!-- footer 건들지 말긔! -->
 			</footer>
+			
+		</div> <!-- .wrapper -->
+	</div> <!-- .wrap-chu -->
+
 
 	
 	
@@ -837,12 +838,12 @@ footer {
 
 	<!-- header, footer 로드 스크립트!! -->
 	<script>
-		 $('header').load('common/before_header.html');
+		 $('header').load('common/header.html');
 		 $('footer').load('common/footer.html');
 		
 		/* 
 		window.setTimeout('window.location.reload()', 7000); //60초마다 새로고침
-		 */
+		  */
 	</script>
 	
 	
@@ -860,10 +861,6 @@ footer {
 			success : function(data) {
 				console.log(data);
 				console.log(data.mainStyleList[0]);
-				
-				/* $('#shopProfile').attr('src','/beautyChuSpring_K/fileupload' + data.listShopInfo[0].shopPhotoUrl);
-				$('#licenseeNo').val(data.styleList[0].);
-				 */
 			},
 			error : function() {
 				console.log('ajax shop정보 실패');
@@ -876,8 +873,8 @@ footer {
 				var html = template(data);
 				$('#main-style-div').html(html);
 			});  
-	    }); /* end of main style list */
-		    
+	    });
+		/* end of main style list */
 	    
 		/* main celebrity list */
 			$.ajax({
@@ -902,10 +899,9 @@ footer {
 					var html = template(data);
 					$('#main-celebrity').html(html);
 				});  
-		    }); /* end of main celebrity list */
-		 
+		    });
 	 });
-	
+	 /* end of main celebrity list */
 	</script>
 	
 	

@@ -198,7 +198,7 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-              	  <p class="centered"><a href="shop_info.html#"><img src="assets/img/ui-zac.jpg" class="img-circle" width="60"></a></p>
+              	  <p class="centered"><a href="shop_info.html#"><img id="sidebar-shopPhoto" class="img-circle" width="100"></a></p>
               	  <h5 id="sidebar-shopName" class="centered"></h5>
               	  <h6 id="sidebar-shopAddr" class="centered"></h6>
               	  <h6 id="sidebar-shopTel" class="centered"></h6>
@@ -211,6 +211,32 @@
                       </a>
                       <ul class="sub">
                           <li><a  href="coupon.html">Coupon Management</a></li>
+                      </ul>
+                  </li>
+                  
+                  <li class="sub-menu">
+                      <a class="active" href="javascript:;" >
+                          <i class="fa fa-key"></i>
+                          <span>Shop</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="shop_info.html">Shop Info</a></li>
+                          <li class="active"><a  href="shop_priceList.html">Price List</a></li>
+                      </ul>
+                  </li>
+                  
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-edit"></i>
+                          <span>Man Style</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a href="style_man_addStyle.html">Add Man Style</a></li>
+                          <li><a  href="style_man_cut.html">Man Cut</a></li>
+                          <li><a  href="style_man_perm.html#">Man Perm</a></li>
+                          <li><a  href="style_man_color.html#">Man Color</a></li>
+                          <li><a  href="style_man_care.html#">Man Care</a></li>
+                          <li><a  href="style_man_etc.html#">Man ETC</a></li>
                       </ul>
                   </li>
                   
@@ -229,16 +255,6 @@
                       </ul>
                   </li>
 
-                  <li class="sub-menu">
-                      <a class="active" href="javascript:;" >
-                          <i class="fa fa-key"></i>
-                          <span>Shop</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="shop_info.html">Shop Info</a></li>
-                          <li class="active"><a  href="shop_priceList.html">Price List</a></li>
-                      </ul>
-                  </li>
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="fa fa-star-o"></i>
@@ -424,7 +440,7 @@ var imsiEmail;
 				console.log(data.status);
 				console.log(data.loginUser);
 				$('#email').val(data.loginUser.email);
-				alert(data.loginUser.email + "정보가져옴");
+				console.log(data.loginUser.email + "정보가져옴");
 				imsiEmail = data.loginUser.email;
 			},
 			error : function() {
@@ -443,6 +459,7 @@ var imsiEmail;
 					console.log(imsiEmail);
 					console.log(data.listShopInfo[0].shopPhotoUrl);
 					
+					$('#sidebar-shopPhoto').attr('src', '/beautyChuSpring_K/fileupload' + data.listShopInfo[0].shopPhotoUrl);
 					$('#sidebar-shopName').text(data.listShopInfo[0].shopName);
 					$('#sidebar-shopAddr').text(data.listShopInfo[0].shopAddr);
 					$('#sidebar-shopTel').text(data.listShopInfo[0].shopTel);

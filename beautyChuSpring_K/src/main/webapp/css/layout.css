@@ -213,7 +213,7 @@ body.home .wrapper{background: #000;}  /* mod 20140304 */
 .util-menu > li.login:hover > a,
 .util-menu > li.login > a:focus { background-position: 50% -70px; }
 
-.util-menu > li.logout > a { background:url(../img/common/sm-logout.png) 50% 0 no-repeat; width:22px; }
+.util-menu > li.logout > a { background:url(../img/common/sm-logout.png) 50% 0 no-repeat; width: 40px;/* width:22px; */ }
 .util-menu > li.logout:hover > a,
 .util-menu > li.logout > a:focus { background-position: 50% -70px; }
 
@@ -312,7 +312,7 @@ body.home .wrapper{background: #000;}  /* mod 20140304 */
 #footer > .inner { max-width: 1220px; min-width: 1000px; margin: 0 auto; position:relative;}
 #footer .upside {padding: 45px 0 30px; margin: 0 10px; border-bottom: 1px solid #353535; overflow:hidden}
 #footer .upside .widget {/*height: 80px;*/}
-#footer .upside .the-beautychu { width:20%; float:left; position: relative; /*background: url(/web/img/common/footer-widget-split.png) repeat-y 100% 0;*/}
+#footer .upside .the-beautychu { width:20%; float:left; position: relative; /*background: url(../img/common/footer-widget-split.png) repeat-y 100% 0;*/}
 #footer .upside .the-beautychu > .inner { position: relative; padding-top:4px; width:100%;}
 #footer .upside .the-beautychu h2 {/*position:absolute; top:0; left:0; */font-size:15px; color:#fff; font-family:'MyriadPro-Bold','Nanum Gothic'; height: 20px; padding-left:5px; line-height:16px; }
 #footer .upside .the-beautychu ul {/*position:absolute; top:26px; left:0;*/ padding-left:5px;}
@@ -334,8 +334,8 @@ body.home .wrapper{background: #000;}  /* mod 20140304 */
 
 #footer .upside .widget.etc { background: none;}
 #footer .upside .etc { width:80%; float:left;}
-#footer .upside .etc .etc-menu {width:100%;overflow:hidden; background:url(/web/img/common/footer-widget-split.png) repeat-y 100% 0;}
-#footer .upside .etc .etc-menu li { float:left; height: 80px; width:11.1%; text-align: center; background:url(/web/img/common/footer-widget-split.png) repeat-y 0 0;}
+#footer .upside .etc .etc-menu {width:100%;overflow:hidden; background:url(../img/common/footer-widget-split.png) repeat-y 100% 0;}
+#footer .upside .etc .etc-menu li { float:left; height: 80px; width:11.1%; text-align: center; background:url(../img/common/footer-widget-split.png) repeat-y 0 0;}
 #footer .upside .etc .etc-menu li a { width: 100%; height: 75px; padding-top:5px; display: block; font-size:12px; text-align:center; color:#fff; overflow: hidden; font-family:'Nanum Gothic'; text-decoration:none}  /* 20140328 */
 #footer .upside .etc .etc-menu li.m1 a {background:url(../img/common/etc-menu01.png) 50% 10px no-repeat; background-size: 50px;}
 #footer .upside .etc .etc-menu li.m2 a {background:url(../img/common/etc-menu02.png) 50% 9px no-repeat; background-size: 50px;}
@@ -384,7 +384,7 @@ body.home .wrapper{background: #000;}  /* mod 20140304 */
 #footer .downside .copy strong {font-family: 'MyriadPro-Bold', Helvetica, sans-serif; }
 
 #footer .downside .family-sites { float:right; margin-top:10px; position: relative;}
-#footer .downside .family-sites .btn-fs {border:1px solid #9c9c9c; line-height: 26px; width:120px; text-indent: 14px;font-family: 'MyriadPro-Semibold', Helvetica, sans-serif; font-size: 12px; color: #fff; display: block; text-decoration: none; background:#0f0f0f url(/web/img/common/icon-dropdown.png) no-repeat 100% 50%;}
+#footer .downside .family-sites .btn-fs {border:1px solid #9c9c9c; line-height: 26px; width:120px; text-indent: 14px;font-family: 'MyriadPro-Semibold', Helvetica, sans-serif; font-size: 12px; color: #fff; display: block; text-decoration: none; background:#0f0f0f url(../img/common/icon-dropdown.png) no-repeat 100% 50%;}
 #footer .downside .family-sites .site-list { position: absolute; bottom: 100%; width: 120px; border:1px solid #9c9c9c; border-bottom:0; margin-bottom:0px; background: #0f0f0f; padding: 10px 0;}
 #footer .downside .family-sites .site-list li { padding: 4px 14px; }
 #footer .downside .family-sites .site-list li a { font-size: 11px; color: #999; text-decoration: none;}

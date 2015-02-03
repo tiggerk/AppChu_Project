@@ -226,7 +226,7 @@
               <!-- sidebar menu start -->
               <ul class="sidebar-menu" id="nav-accordion">
               
-              	  <p class="centered"><a href="shop_info.html#"><img class="img-circle" width="60"></a></p>
+              	  <p class="centered"><a href="shop_info.html#"><img id="sidebar-shopPhoto" class="img-circle" width="100"></a></p>
               	  <h5 id="sidebar-shopName" class="centered"></h5>
               	  <h6 id="sidebar-shopAddr" class="centered"></h6>
               	  <h6 id="sidebar-shopTel" class="centered"></h6>
@@ -240,7 +240,33 @@
                           <li><a  href="coupon.html">Coupon Management</a></li>
                       </ul>
                   </li>
-
+                  
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-key"></i>
+                          <span>Shop</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="shop_info.html">Shop Info</a></li>
+                          <li><a  href="shop_priceList.html">Price List</a></li>
+                      </ul>
+                  </li>
+                  
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-edit"></i>
+                          <span>Man Style</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a href="style_man_addStyle.html">Add Man Style</a></li>
+                          <li><a  href="style_man_cut.html">Man Cut</a></li>
+                          <li><a  href="style_man_perm.html#">Man Perm</a></li>
+                          <li><a  href="style_man_color.html#">Man Color</a></li>
+                          <li><a  href="style_man_care.html#">Man Care</a></li>
+                          <li><a  href="style_man_etc.html#">Man ETC</a></li>
+                      </ul>
+                  </li>
+                  
                   <li class="sub-menu">
                       <a class="active"  href="javascript:;" >
                           <i class="fa fa-edit"></i>
@@ -256,16 +282,6 @@
                       </ul>
                   </li>
 
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-key"></i>
-                          <span>Shop</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="shop_info.html">Shop Info</a></li>
-                          <li><a  href="shop_priceList.html">Price List</a></li>
-                      </ul>
-                  </li>
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="fa fa-star-o"></i>
@@ -379,6 +395,7 @@
 				    	  });  
 			    });
 	});
+  });
    </script>
    
   <script>

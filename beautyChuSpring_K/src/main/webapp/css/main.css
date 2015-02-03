@@ -199,7 +199,7 @@ html.home,body.home { background:#1f1f1f !important;}
 position: relative;
 margin: 0 auto;
 width: 1080px;
-height: 600px;
+height: 450px;
 padding-top: 50px;
 }
 
@@ -208,7 +208,7 @@ padding-top: 50px;
 	margin-top: -1px;
 }
 
-.best-shop-wrap .bg { background: url(../img/main/show-window-center.png) no-repeat 50% 0; height: 100%; position:absolute; width: 100%; }
+.best-shop-wrap .bg { background: url(../img/main/show-window-center.png) no-repeat 50% 0; height: 40%; position:absolute; width: 100%; }
 
 .best-shop-wrap h2 {
 background: url(../img/main/title-best-shop.png) no-repeat;
@@ -220,7 +220,7 @@ position: absolute;
 left: 50%;
 margin-left: -50px;
 z-index: 100;
-top: 54px;
+top: 904px;
 }
 
 /* 반응형 스타일 같음
