@@ -37,4 +37,23 @@ public class CouponControl {
     return resultMap;
     
   }
+  
+  @RequestMapping("/couponList")
+  public Object couponList(Coupon coupon, HttpSession session) throws Exception {
+    
+    Member member =  (Member) session.getAttribute("loginUser");
+    if (session.getAttribute("loginUser") != null) {
+      coupon.setsEmail(member.getEmail());
+    
+      couponService.couponList(coupon);
+    }
+    
+    HashMap<String, Object> resultMap = new HashMap<>();
+    resultMap.put("couponList", couponService.couponList(coupon));
+    
+    System.out.println("coupon Data -----> " + resultMap);
+    return resultMap;
+    
+  }
+  
 }

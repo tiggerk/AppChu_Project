@@ -28,4 +28,12 @@ public void checkCoupon(Coupon coupon) {
   couponDao.checkCoupon(coupon);
 }
 
+public List<?> couponList(Coupon coupon) {
+	  HashMap<String, String> params = new HashMap<>();
+	  String sEmail = coupon.getsEmail();
+	  params.put("sEmail", sEmail);
+	  return couponDao.couponList(params);
+	
+}
+
 }

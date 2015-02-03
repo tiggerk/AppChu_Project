@@ -8,6 +8,7 @@ import beautychu.domain.Coupon;
 public interface CouponDao {
 
   List<?> viewCoupon(HashMap params);
+  List<?> couponList(HashMap params);
   
   void checkCoupon(Coupon coupon);
 }
