@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="beautychu.dao.CouponDao">
+ 
+    <resultMap type="Coupon" id="cCouponMap">
+  	<id column="LICENSEENO" property="licenseeNo"/>
+  	<result column="COUPONCODE" property="couponCode"/>
+  	<result column="ENDDATE" property="endDate"/>
+  	<result column="STARTDATE" property="startDate"/>
+  	<result column="USEDATE" property="useDate"/>
+  	<result column="DISCOUNT" property="discount"/>
+  	<result column="COST" property="cost"/>
+  	<result column="C_CONTENT" property="cContent"/>
+  	<result column="CEMAIL" property="cEmail"/>
+  	<result column="SEMAIL" property="sEmail"/>
+  </resultMap>
+  
+  
+  <!-- COUPON -->
+    <select id="CCoupon" parameterType="Coupon">
+  	SELECT COUPONCODE, STARTDATE, ENDDATE, USEDATE, DISCOUNT, COST,C_CONTENT
+  	FROM COUPON
+  	WHERE CEMAIL=#{cEmail};
+  </select>
+  
+  <!-- CUSTOMER's VIEW --> 
+  <select id="viewCoupon" parameterType="map" resultMap="cCouponMap">
+    SELECT T1.C_CONTENT, T1.COUPONCODE, T1.STARTDATE, T1.ENDDATE, T1.USEDATE
+  		FROM COUPON T1 LEFT JOIN CUSTOMER T2
+  		ON T1.CEMAIL = T2.EMAIL
+  		LEFT JOIN MEMBER T3
+  		ON T2.EMAIL = T3.EMAIL
+  	WHERE T1.CEMAIL=#{cEmail}
+  	ORDER BY T1.STARTDATE DESC;
+  		
+  	<!-- 사용완료 조건 -->
+  	 <!-- 
+  	<if test="useDate != null" >	
+  	 AND T1.USEDATE NOT IN ('')
+  	</if> 
+  	  -->
+  	<!-- 기간 만료 조건 -->
+		<!--   	
+		<if test="endDate < CURDATE()" >	
+  	 AND T1.ENDDATE < CURDATE()
+  	</if>  
+  	 -->
+  </select>
+  
+  <!-- SHOP's VIEW --> 
+  <select id="couponList" parameterType="map" resultMap="cCouponMap">
+    SELECT T1.CEMAIL, T1.C_CONTENT, T1.COUPONCODE, T1.STARTDATE, T1.ENDDATE, T1.USEDATE
+  		FROM COUPON T1 LEFT JOIN CUSTOMER T2
+  		ON T1.CEMAIL = T2.EMAIL
+  		LEFT JOIN MEMBER T3
+  		ON T2.EMAIL = T3.EMAIL
+  	WHERE T1.SEMAIL=#{sEmail}
+  	ORDER BY T1.STARTDATE DESC;
+  </select>
+  
+  
+	<!-- ADMIN's VIEW -->
+	<select id="checkCoupon" parameterType="Coupon">
+  	SELECT CEMAIL, COUPONCODE, STARTDATE, ENDDATE, USEDATE
+  		FROM COUPON
+  		WHERE SEMAIL=#{sEmail}; 
+  </select>
+    
+<!--
+    <select id="SCoupon" parameterType="map" resultMap="ScouponMap">
+  	SELECT LICENSEENO, COUPONCODE, STARTDATE, ENDDATE, USEDATE, DISCOUNT, COST,C_CONTENT
+  	FROM COUPON
+  	WHERE SEMAIL=#{sEmail};
+  </select>
+ -->  
+ 
+  
+  <!-- MAKE COUPON -->
+<!--   <insert id="makeCoupon" parameterType="Coupon">
+  INSERT INTO COUPON ()
+  VALUES ()
+  WHERE ;
+  </insert> -->
+  
+  <!-- DELETE COUPON -->
+<!--   <delete id="deleteCoupon" parameterType="Coupon">
+  DELETE FROM COUPON
+  WHERE =#{};
+  </delete> -->
+  
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
