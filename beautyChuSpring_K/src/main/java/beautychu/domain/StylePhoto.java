@@ -43,4 +43,5 @@ public class StylePhoto implements Serializable {
 				+ styleNo + ", url=" + url + ", photoList=" + photoList + "]";
 	}
 	
+	
 }

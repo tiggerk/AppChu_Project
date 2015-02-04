@@ -11,7 +11,7 @@ public class StyleGrid implements Serializable {
 	String 	styleName;
 	String   	styleLength;
 	String 	gender;
-	String		styleSort;
+	String	styleSort;
 	String 	stylePhotoUrl;
 	String 	people;
 	

@@ -8,15 +8,12 @@ public class ShopDetail implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 
-	String			email;
+	String		email;
 	String 		shopName;
-	String			ShopIntro;
-	String			shopAddr;
+	String		ShopIntro;
+	String		shopAddr;
 	int				shopTel;
 	List<?>		shopPhoto;
-	
-	
-	
 	
 	public String getEmail() {
 		return email;

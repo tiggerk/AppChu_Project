@@ -15,7 +15,7 @@ public class Review implements Serializable {
 	Date 		date;
 	String 	email;
 	String 	name;
-	String		reviewbtn;
+	String	reviewbtn;
 	String  	shopEmail;
 	List<?> 	reviewList;
 	
