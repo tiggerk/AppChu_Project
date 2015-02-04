@@ -8,12 +8,11 @@
   <resultMap type="StylePhoto" id="stylePhotoMap">
     <id column="STYLEPHOTONO" property="stylePhotoNo"/>
     <result column="STYLENO" property="styleNo"/>
-    <result column="STYLEPHOTO" property="stylePhoto"/>
-
+    <result column="STYLEPHOTOURL" property="url"/>
   </resultMap>
   
   <select id="getList" parameterType="map" resultMap="stylePhotoMap">
-    SELECT STYLEPHOTONO,STYLENO,STYLEPHOTO
+    SELECT STYLEPHOTONO,STYLENO,STYLEPHOTOURL
     FROM STYLEPHOTO
     WHERE STYLENO=#{styleNo}
   </select>

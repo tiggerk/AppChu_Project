@@ -3,21 +3,6 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- 	
-	int styleNo;
-	String email;
-	String people;
-	String gender;
-	String styleSort;
-	String styleLength;
-	String styleName;
-	int price;
-	String styleIntro;
-	String stylePhotoNo;
-	String stylePhotoUrl;
-	MultipartFile photofile;
-	List<?> photoList; -->
-
 <mapper namespace="beautychu.dao.StyleDao">
 
   <!-- 객체의 컬럼과 프로퍼티를 연결한다. -->
@@ -36,12 +21,10 @@
     <result column="PHOTOLIST" property="photoList"/>     -->
   </resultMap>
   
-  <!-- 객체의 컬럼과 프로퍼티를 연결한다. -->
   <resultMap type="StylePhoto" id="stylePhotoMap">
-  	<!-- PK 컬럼은 id 태그를 사용하여 지정한다. -->
     <id column="STYLEPHOTONO" property="stylePhotoNo"/>
     <result column="STYLENO" property="styleNo"/>
-    <result column="STYLEPHOTOURL" property="stylePhotoUrl"/>
+    <result column="STYLEPHOTOURL" property="url"/>
   </resultMap>
   
   <resultMap type="StyleGrid" id="styleGridMap">
@@ -110,27 +93,27 @@
 	LIMIT 23
   </select>
   
-  <select id="getList" parameterType="Style" resultMap="styleMap">
-
-    SELECT T1.STYLENO, T1.EMAIL, T1.STYLENAME, T1.PRICE, T1.STYLEINTRO, T2.STYLEPHOTOURL 
+  <select id="getList" parameterType="StyleGrid" resultMap="styleGridMap">
+    SELECT T1.STYLENO, T1.EMAIL, T1.STYLENAME, T2.STYLEPHOTOURL 
     FROM STYLE T1 JOIN (SELECT STYLENO,STYLEPHOTOURL,STYLEPHOTONO FROM STYLEPHOTO GROUP BY STYLENO) T2 USING(STYLENO)
-    WHERE GENDER =#{gender}
+    WHERE STYLENO LIKE '%%' 
+    <if test="gender">
+       AND GENDER =#{gender}
+    </if>
     <if test="styleLength != 'All'">
 		AND STYLELENGTH =#{styleLength}    
     </if> 
     <if test="styleSort != 'All'">
 		AND STYLESORT =#{styleSort}    
     </if>	
+    <if test="styleName">
+		AND STYLENAME LIKE CONCAT('%', #{styleName} , '%')
+	</if>
+	<if test="people">
+		AND PEOPLE = #{people}
+	</if>	
      ORDER BY STYLENO
   </select>
-  <!-- <select id="getList" parameterType="map" resultMap="styleGridMap">
-    SELECT T1.STYLENO, T1.STYLENAME, T2.STYLEPHOTOURL 
-    FROM STYLE T1
-    JOIN
-    (SELECT STYLENO,STYLEPHOTOURL,STYLEPHOTONO FROM STYLEPHOTO GROUP BY STYLENO) T2
-    USING(STYLENO)
-    ORDER BY STYLENO
-  </select> -->
   
   <select id="getStyleDetail" parameterType="int" resultMap="styleDetailMap">
     SELECT STYLENO, STYLENAME, STYLEINTRO, PRICE , EMAIL
@@ -138,17 +121,6 @@
     WHERE STYLENO =#{value}
     <!-- ORDER BY STYLENO -->
   </select>
-  
-  <!-- <select id="getMainShopList" parameterType="map" resultMap="mainShopMap">
-    SELECT S2.EMAIL,S2.SHOPNAME,S2.SHOPADDR,S2.SHOPTEL,S3.SHOPPHOTOURL
-      FROM STYLE S1
-      LEFT JOIN SHOP S2
-      ON S1.EMAIL = S2.EMAIL
-      LEFT JOIN SHOPPHOTO S3
-      ON S2.EMAIL = S3.EMAIL
-      WHERE S1.STYLENO = #{value}
-      LIMIT 1
-  </select> -->
   
   <insert id="insertStyle" parameterType="Style" useGeneratedKeys="true" keyColumn="STYLENO" keyProperty="styleNo">
     INSERT INTO STYLE (EMAIL,PEOPLE,GENDER,STYLESORT,STYLELENGTH,STYLENAME,PRICE,STYLEINTRO)
@@ -159,16 +131,6 @@
   	INSERT INTO STYLEPHOTO (STYLENO, STYLEPHOTOURL)
     VALUES (#{styleNo}, #{stylePhotoUrl});
   </insert>
-  
-  <!-- <update id="updateStyle" parameterType="Style" >
-    UPDATE STYLE A 
-    LEFT JOIN STYLEPHOTO B
-    ON A.STYLENO = B.STYLENO
-    SET STYLESORT,STYLELENGTH,STYLENAME,PRICE,STYLEINTRO, STYLEPHOTO
-    VALUES (#{stylePhotoUrl});
-    FROM STYLE T1, STYLEPHOTO T2
-    WHERE T1.STYLENO = T2.STYLENO;
-  </update> -->
   
   <select id="selectPhoto" parameterType="int" resultMap="stylePhotoMap">
     SELECT STYLEPHOTONO, STYLENO, STYLEPHOTOURL
@@ -186,6 +148,7 @@
 	ORDER BY REVIEWNO DESC
 	LIMIT 4
   </select>
+  
 </mapper>
 
 

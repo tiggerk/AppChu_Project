@@ -11,21 +11,77 @@
     <result column="ADDR" property="address"/>
     <result column="NAME" property="name"/>
     <result column="PASSWORD" property="password"/>
-
+   <!--  <result column="PROFILEPHOTO" property="profilePhoto"/> -->
   </resultMap>
-  
+   
+   <resultMap type="Customer" id="customerMap">
+  	<id column="EMAIL" property="email"/>
+  	<result column="COUPONCODE" property="couponCode"/>
+  	<result column="PROFILEPHOTO" property="profilePhoto"/>
+  </resultMap>
+
+  <!-- MEMBER CRUD -->
   <select id="existUser" parameterType="map" resultMap="memberMap">
+		SELECT T1.EMAIL, PHONE, ADDR, NAME, PROFILEPHOTO
+		FROM MEMBER T1 LEFT JOIN CUSTOMER T2
+		ON T1.EMAIL = T2.EMAIL
+		WHERE T1.EMAIL=#{email} AND PASSWORD=#{password};  
+<!-- 
     SELECT EMAIL,PHONE,ADDR,NAME 
     FROM MEMBER
     WHERE EMAIL=#{email} AND PASSWORD=#{password}
+ --> 
   </select>
   
   <select id="insertUser" parameterType="Member" >
     INSERT INTO MEMBER (EMAIL,NAME,PASSWORD)
-    VALUES (#{email},#{name},#{password})
+    VALUES (#{email},#{name},#{password});
   </select>
   	 
+  <update id="updateUser" parameterType="Member">
+  	UPDATE MEMBER T1 LEFT JOIN CUSTOMER T2
+  	ON T1.EMAIL = T2.EMAIL
+  	SET
+  		NAME=#{name},
+			ADDR=#{address},
+			PHONE=#{phone},
+			PASSWORD=#{password},
+			PROFILEPHOTO=#{profilePhoto}
+		WHERE T1.EMAIL=#{email};	
+<!--   
+  	UPDATE MEMBER SET 
+			NAME=#{name},
+			ADDR=#{address},
+			PHONE=#{phone},
+			PASSWORD=#{password}
+		WHERE EMAIL=#{email};
+ -->
+		
+  </update>
   
+  <delete id="deleteUser" parameterType="Member">
+  	DELETE FROM MEMBER
+  	WHERE EMAIL=#{email};
+  </delete>
+  
+  
+   <!-- PROFILEPHOTO -->
+   <select id="insertPPhoto" parameterType="Customer" >
+    INSERT INTO CUSTOMER (PROFILEPHOTO)
+    VALUES (#CprofilePhoto});
+  </select>
+   
+  <select id="setPPhoto" parameterType="Customer">
+  	SELECT PROFILEPHOTO
+  	FROM CUSTOMER
+  	WHERE EMAIL=#{email};
+  </select>
+  
+  <update id="updatePPhoto" parameterType="Member">
+  	UPDATE CUSTOMER SET
+  		PROFILEPHOTO=#{profilePhoto}
+  		WHERE EMAIL=#{email}; 
+  </update>
   
 </mapper>
 
