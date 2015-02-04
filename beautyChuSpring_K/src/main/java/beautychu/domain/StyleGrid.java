@@ -11,8 +11,9 @@ public class StyleGrid implements Serializable {
 	String 	styleName;
 	String   	styleLength;
 	String 	gender;
-	String	styleSort;
+	String		styleSort;
 	String 	stylePhotoUrl;
+	String 	people;
 	
 	public int getStyleNo() {
 		return styleNo;
@@ -56,14 +57,36 @@ public class StyleGrid implements Serializable {
 	public void setStylePhotoUrl(String stylePhotoUrl) {
 		this.stylePhotoUrl = stylePhotoUrl;
 	}
-	
+	public String getPeople() {
+		return people;
+	}
+	public void setPeople(String people) {
+		this.people = people;
+	}
 	@Override
 	public String toString() {
 		return "StyleGrid [styleNo=" + styleNo + ", email=" + email
 				+ ", styleName=" + styleName + ", styleLength=" + styleLength
 				+ ", gender=" + gender + ", styleSort=" + styleSort
-				+ ", stylePhotoUrl=" + stylePhotoUrl + "]";
+				+ ", stylePhotoUrl=" + stylePhotoUrl + ", people=" + people
+				+ "]";
 	}
+
+	
+	
+	
+	
+	
+
+
+	
+
+	
+	
+
+
+	
+	
 	
 	
 }

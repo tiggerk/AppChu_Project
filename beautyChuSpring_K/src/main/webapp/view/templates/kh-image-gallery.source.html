@@ -1,4 +1,7 @@
-﻿    <script>
+﻿        	<script type="text/javascript" src="../js/resources/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../js/resources/kh/jssor.js"></script>
+    <script type="text/javascript" src="../js/resources/kh/jssor.slider.js"></script>
+    <script>
 
         jQuery(document).ready(function ($) {
 
@@ -79,6 +82,7 @@
                     $Class: $JssorThumbnailNavigator$,              //[Required] Class to create thumbnail navigator instance
                     $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
 
+
                     $ActionMode: 1,                                 //[Optional] 0 None, 1 act by click, 2 act by mouse hover, 3 both, default value is 1
                     $SpacingX: 8,                                   //[Optional] Horizontal space between each thumbnail in pixel, default value is 0
                     $DisplayPieces: 6,                             //[Optional] Number of pieces to display, default value is 1
@@ -106,7 +110,10 @@
     </script>
     <!-- Jssor Slider Begin -->
     <!-- You can move inline styles to css file or css block. -->
-    <div><h1>Celebrity</h1></div>
+    <div class="kh-bgtitle"><h1>Celebrity</h1></div>
+            		<div id=yun-buttondiv>
+			<img class=yun-exit src="../images/yun-shopdetail/exit-icon.png">
+		</div>
     
     <div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 480px;
         height: 716px; background: #191919; overflow: hidden;">
@@ -173,6 +180,7 @@
                 <img u="thumb" src="../images/kh-slider/alila/thumb-12.jpg" />
             </div>
         </div>
+
         
         <!-- Arrow Navigator Skin Begin -->
 
@@ -198,9 +206,6 @@
         </div>
         <!-- Thumbnail Navigator Skin End -->
     </div>
-    	<script type="text/javascript" src="../js/resources/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" src="../js/resources/kh/jssor.js"></script>
-    <script type="text/javascript" src="../js/resources/kh/jssor.slider.js"></script>
     <!-- Jssor Slider End -->
 <!-- </body>
 </html> -->

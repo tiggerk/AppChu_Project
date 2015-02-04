@@ -71,70 +71,123 @@
 	<div id="wrap-chu" class="wrap-chu">
 
  -->
+<!-- <link rel="import" href="../js/resources/jquery-1.9.1.min.js">
+  <link rel="import" href="../js/resources/kh/jssor.js">
+  <link rel="import" href="../js/resources/kh/jssor.slider.js"> -->
 
+
+
+
+<!-- <script type="text/javascript" src="../js/resources/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../js/resources/kh/jssor.js"></script>
+    <script type="text/javascript" src="../js/resources/kh/jssor.slider.js"></script> -->
 <div id=yun-shopdetailcontainer>
 
 	<!--*****************************************************************************************-->
 	<!--**************************** 샵사진 슬라이드가 들어가는 div *****************************-->
-	<div id=yun-shopphotolist class=yun-shopcontainerdiv>
-
-		<div class=yun-shopphotobig>
-			<img class=yun-shopphotobig src="../images/shop/shop1.jpg">
-		</div>
-		<div id=yun-shopphotosmall>
-			<img class=yun-shopphotosmall src="../images/shop/shop2.jpg">
-		</div>
-		<div id=yun-shopphotosmall>
-			<img class=yun-shopphotosmall src="../images/shop/shop3.jpg">
-		</div>
-		<div id=yun-shopphotosmall>
-			<img class=yun-shopphotosmall src="../images/shop/shop4.jpg">
-		</div>
-		<div id=yun-shopphotosmall>
-			<img class=yun-shopphotosmall src="../images/shop/shop5.jpg">
-		</div>
-
-	</div>
+	<div id='yun-shopphotolist' class=yun-shopcontainerdiv></div>
 
 	<!--*****************************************************************************************-->
 	<!--**************************** 버튼 div  **************************************************-->
 	<div id=yun-shopcontent class=yun-shopcontainerdiv>
 		<div id=yun-buttondiv>
 			<img class=yun-back src="../images/yun-shopdetail/back-icon.png">
-			<img class=yun-exit src="../images/yun-shopdetail/exit-icon.png">
+			<!-- <img class=yun-exit src="../images/yun-shopdetail/exit-icon.png"> -->
 		</div>
 		<!--*****************************************************************************************-->
 		<!--**************************** 샵 제목 div  ***********************************************-->
 
 		<div id=yun-shoptitle>
-			<h1>Fabien.H</h1>
+			<h1>{{shop.shopName}}</h1>
 		</div>
 		<!--*****************************************************************************************-->
 		<!--**************************** 샵 내용 div **************************************-->
 
 		<div id='yun-shopcontentdetail'>
-			<pre>
-1.화학적 알칼리를 사용하지 않고 아미노산 단백질로만 시술합니다. 
-2.세라마이드 함유로 모발세포의 응집력을 강화시켰습니다.
-3.고중합 실리콘 함유로 자연스런 웨이브와 매끄러움 윤기가 뛰어납니다.
-4.프로테인 중화제로 웨이브와 클리닉 효과가 오래 지속됩니다.
-</pre>
+			<div style="height:80px;">
+			<p>{{shop.shopIntro}}</p>
+			</div>
+			<div style="height:20px;">
+			<span><strong>주소:</strong>{{shop.shopAddr}}</span>
+			</div>
+			<span><strong>전화번호:</strong>{{shop.shopTel}}</span>
+
+
+
 		</div>
 
 
 
 
 		<div class=buttondiv>
-			<div class="ui button yun-shoppricelist">Price List</div>
-			<div class="ui button get-coupon">Get Coupon</div>
+			<div class="ui black basic button yun-shoppricelist">Price List
+				></div>
+			<div class="ui black basic button kh-shopmap"
+				data-email="{{shop.email}}">지도보기 ></div>
+			<div class="md-modal md-effect-1" id="modal-1">
+				<div class="md-content">
+					<h3>쿠폰 발급</h3>
+					<div>
+						<p>쿠폰이 발급 되었습니다.</p>
+						<!-- 					<ul>
+						<li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+						<li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+						<li><strong>Close:</strong> click on the button below to close the modal.</li>
+					</ul> -->
+						<!-- <button style="display:inline;">쿠폰함 이동</button> -->
+						<button class="md-close">닫기</button>
+					</div>
+				</div>
+			</div>
+			<button class="md-trigger" data-modal="modal-1">쿠폰 발급</button>
+			<div class="md-overlay" style="background: rgba(0, 0, 0, 0.8);"></div><!-- the overlay element -->
 		</div>
 
-		<div id=yun-shopcomment class=yun-shopcomment>
-			<img class=yun-shopcomment src="../images/yun-shopdetail/comment.png" />
-
-		</div>
+		<div id=yun-shopcomment class=yun-shopcomment></div>
 	</div>
 </div>
+
+<script>
+
+$( document ).ready(function() {
+	$(".kh-smalldetail").css("display", "none");
+$(".yun-shopstyle").hover(
+		  function () {
+			  $(this).find(".kh-smallbasic").css("display", "none");
+			  $(this).find(".kh-smalldetail").css("display", "block");
+			  $(this).find(".kh-gradation").css("display", "block");
+		  },
+		  function () {
+			  $(this).find(".kh-smallbasic").css("display", "block");
+			  $(this).find(".kh-smalldetail").css("display", "none");
+			  $(this).find(".kh-gradation").css("display", "none");
+		  }
+		);
+});
+
+
+
+
+
+</script>
+<script type="text/javascript" src="../js/resources/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../js/resources/kh/jssor.js"></script>
+<script type="text/javascript" src="../js/resources/kh/jssor.slider.js"></script>
+<!-- 쿠폰 -->
+
+		<!-- classie.js by @desandro: https://github.com/desandro/classie -->
+		<script src="../js/resources/coupon/classie.js"></script>
+		<script src="../js/resources/coupon/modalEffects.js"></script>
+
+		<!-- for the blur effect -->
+		<!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
+		<script>
+			// this is important for IEs
+			var polyfilter_scriptpath = '/js/';
+		</script>
+		<script src="../js/resources/coupon/cssParser.js"></script>
+		<script src="../js/resources/coupon/css-filters-polyfill.js"></script>
+
 <!-- 
 	</div>
 
