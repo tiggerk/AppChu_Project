@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Beauty Chu~♥</title>
+
+
+<!-- 쿠폰 알림 css -->
+<link rel="stylesheet" type="text/css"
+	href="../css/resources/coupon/default.css" />
+<link rel="stylesheet" type="text/css"
+	href="../css/resources/coupon/component.css" />
+<script src="../js/resources/coupon/modernizr.custom.js"></script>
+
+
+<!-- 라디오버튼  -->
+
+<link rel="stylesheet" href="../css/resources/radiobutton.css" />
+<!-- 마페 -->
+
+<link rel="shortcut icon" href="../images/favicon.ico"
+	type="image/x-icon">
+<link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" type="text/css" href="../css/basic.css" />
+
+<script type="text/javascript" src="../js/modernizr.min.js"></script>
+<script type="text/javascript" src="../js/jquery.easing.js"></script>
+<script type="text/javascript" src="../js/jquery-scrolltofixed-min.js"></script>
+<script type="text/javascript" src='../js/handlebars-v2.0.0.js'></script>
+
+<!-- 마페 -->
+<link rel="stylesheet" href="../css/resources/starrr.css">
+<link rel="stylesheet"
+	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../css/yun/button.min.css">
+<!-- 스타일 -->
+<!-- 댓글 -->
+<link rel="stylesheet" href="../css/jy/jy_DG_Slider.css" type="text/css"
+	media="all" />
+
+<!-- 지도 -->
+<script type="text/javascript"
+	src="//apis.daum.net/maps/maps3.js?apikey=e5353ee43c5a9ea624372eb7cb8e99b1646087a2&libraries=services"></script>
+
+
+<!-- 썸네일 이미지 -->
+<!-- 헤더랑 충돌중	<link rel="stylesheet" type="text/css" href="../css/thumnail.css" /> -->
+<link rel="stylesheet" type="text/css" href="../css/shop.css" />
+
+<!-- 공통 스크립트 -->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+
+
+<script>
+			window.intro = 'yes';
+	</script>
+
+<!-- 	page가 home일 경우에만 로드하는 js -->
+<!-- 공통 스크립트 -->
+
+
+<script type="text/javascript" src="../js/resources/kh/jssor.js"></script>
+<script type="text/javascript" src="../js/resources/kh/jssor.slider.js"></script>
+
+
+<!-- 썸네일이미지 -->
+<script type="text/javascript" src="../js/shop.js"></script>
+
+<style type="text/css">
+
+/* 스타일 적용 공간! */
+
+/* ============================================================== */
+
+/*  댓글 스타일 */
+.comment {
+	height: 50px;
+}
+
+.kh-reviewbtn {
+	display: none;
+}
+
+.btn {
+	display: block;
+	float: right;
+}
+
+.none {
+	display: none;
+}
+
+.reviewUpdateForm {
+	float: left;
+}
+
+.review-btn {
+	float: right;
+}
+
+.kh-selected .band .band-comment pre {
+	display: none;
+}
+
+/* ========================== */
+.wrap-chu {
+	width: 1200px;
+	height: 100%;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+html {
+	height: 100%;
+}
+
+header {
+	height: 100px;
+}
+
+footer {
+	text-align: center;
+}
+
+body {
+	height: 100%;
+	display: table;
+	width: 100%;
+}
+
+#footer {
+	height: 100px;
+}
+
+.yun-container {
+	width: 100%;
+	margin: 0 auto;
+	height: 100%;
+	display: table;
+}
+
+.yun-info-bg {
+	width: 1150px;
+	height: 600px;
+	float: left;
+	position: relative;
+	margin: 5px;
+	margin-top: 10px;
+	display: none;
+}
+
+.yun-info-cl {
+	height: 100%;
+}
+
+.yun-box {
+	position: relative;
+	width: 280px;
+	height: 427px;
+	float: left;
+	margin: 5px;
+	font-size: 40px;
+	overflow: hidden;
+	border: 1px #c5c5c5 solid;
+	margin-bottom: 25px;
+	margin-top: 20px;
+}
+
+.yun-edge {
+	
+}
+
+.yun-selected {
+	
+}
+
+.yun-boximage {
+	width: 280px;
+	height: 370px;
+}
+
+.kh-basic {
+	position: absolute;
+	bottom: 0px;
+	width: 280px;
+	text-align: center;
+	height: 57px;
+	color: black;
+	font-size: 30px;
+	border-top: 1px #c5c5c5 solid;
+}
+
+.kh-basic h2 {
+	color: black;
+	margin-top: 15px;
+}
+
+.kh-detail h2 {
+	color: white;
+	margin-top: 10px;
+	font-size: 30px;
+}
+
+.kh-detail p {
+	color: white;
+	margin-top: 15px;
+	font-size: 15px;
+}
+
+.kh-detail .starrr {
+	margin-top: 6px;
+}
+
+.kh-basic .starrr {
+	margin-top: 10px;
+}
+
+.kh-detail {
+	position: absolute;
+	bottom: 0px;
+	width: 280px;
+	text-align: center;
+	height: 140px;
+	color: white;
+	display: none;
+}
+
+.kh-gradation {
+	position: absolute;
+	top: 0px;
+	width: 280px;
+	height: 370px;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: none;
+}
+
+.yun-shop-button .yun-shoppricelist {
+	float: left;
+}
+
+/* ============================================================== */
+/* yun-test.html css */
+#changediv {
+	position: relative;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.yun-div {
+	position: absolute;
+	background-color: #DCDBD9;
+}
+
+#yun-div1 {
+	/* 	background-image: url("../images/yun-test/shopimg.png"); */
+	z-index: 1;
+}
+/* ============================================================== */
+\
+
+/* ============================================================== */
+/* yun-shoppricelist.html css */
+#yun-shopdetailcontainer {
+	width: 1150px;
+	height: 590px;
+	background-color: white;
+	border-top: 1px #c5c5c5 solid;
+	border-bottom: 1px #c5c5c5 solid;
+}
+
+#yun-shopstylelist {
+	width: 700px;
+	height: 560px;
+	float: left;
+	margin-left: 20px;
+	margin-top: 35px;
+	/* border: 1px red solid; */
+}
+
+#yun-shoppricelist {
+	height: 585px;
+	width: 410px;
+	float: right;
+	padding: 1px;
+	margin: 3px;
+}
+
+.kh-pricelist {
+	width: 195px;
+	height: 168px;
+	float: left;
+	margin: 4px;
+	text-align: center;
+}
+
+.kh-priceicon img {
+	height: 110px;
+	width: 110px;
+	border-radius: 5px;
+}
+
+.kh-lengthprice {
+	margin-top: 5px;
+}
+
+.yun-shopstyle {
+	width: 168px;
+	height: 178px;
+	float: left;
+	margin-left: 5px;
+	margin-top: 5px;
+	position: relative;
+}
+
+.kh-smallbasic {
+	position: absolute;
+	bottom: 0px;
+	text-align: center;
+	width: 155px;
+	height: 22px;
+	background-color: rgba(0, 0, 0, 0.5);
+	padding-top: 7px;
+	border-radius: 0 0 5px 5px;
+	color: white;
+}
+
+.kh-smalldetail {
+	position: absolute;
+	bottom: 0px;
+	text-align: center;
+	width: 155px;
+	height: 178px;
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 5px;
+	color: white;
+}
+
+.kh-smalldetailinfo {
+	margin-top: 75px;
+}
+
+#yun-buttondiv {
+	height: 50px;
+	float: right;
+}
+
+#yun-pricelistsection {
+	height: 500px;
+}
+
+.yun-shopstyleimage {
+	width: 155px;
+	height: 178px;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.yun-shoppricelist {
+	
+}
+/* ============================================================== */
+/* yun-styledetail.html css */
+#yun-styledetailcontainer {
+	width: 1150px;
+	height: 600px;
+	background-color: white;
+}
+
+.yun-stylecontainerdiv {
+	width: 528px;
+	height: 560px;
+	float: left;
+	margin-left: 30px;
+	margin-top: 20px;
+}
+
+#yun-buttondiv {
+	height: 50px;
+	float: right;
+}
+
+.yun-stylephotobig {
+	width: 520px;
+	height: 500px;
+	float: left;
+	margin-bottom: 3px;
+}
+
+.yun-stylephotosmall {
+	width: 50px;
+	height: 50px;
+	float: left;
+	margin-left: 3px;
+}
+
+#yun-styletitle {
+	height: 50px;
+	font-size: 30px;
+}
+
+#yun-stylecontentdetail {
+	height: 130px;
+	line-height: 20px;
+}
+/* 댓글 */
+.yun-stylecomment {
+	width: 100%;
+	margin-top: 52px;
+}
+
+/* ============================================================== */
+/* yun-shopdetail.html css */
+#yun-shopdetailcontainer {
+	width: 1150px;
+	height: 598px;
+	background-color: white;
+	border-top: 1px #c5c5c5 solid;
+	border-bottom: 1px #c5c5c5 solid;
+}
+
+.yun-shopcontainerdiv {
+	width: 528px;
+	height: 560px;
+	float: left;
+	margin-left: 30px;
+	margin-top: 20px;
+}
+
+#yun-buttondiv {
+	height: 50px;
+	float: right;
+}
+
+.yun-shopphotobig {
+	width: 520px;
+	height: 500px;
+	float: left;
+	margin-bottom: 3px;
+}
+
+.yun-shopphotosmall {
+	width: 50px;
+	height: 50px;
+	float: left;
+	margin-left: 3px;
+}
+
+#yun-shoptitle {
+	height: 50px;
+	font-size: 30px;
+}
+
+.yun-pricetitle {
+	float: left;
+	font-size: 30px;
+}
+
+#yun-shopcontentdetail {
+	height: 130px;
+	line-height: 20px;
+}
+
+.yun-shopcomment {
+	width: 100%;
+	margin-top: 60px;
+}
+
+.row {
+	height: 100%;
+	boredr: 1px green solid;
+}
+
+/* ============================================================== */
+/* ==============================버튼 스타일================================ */
+.buttondiv {
+	text-align: center;
+}
+
+.ui.basic.button, .ui.basic.buttons .button {
+	border-radius: 3px;
+}
+</style>
+
+</head>
+<body class="home">
+	<div style="background-color: white;">
+
+		<header>
+			<!-- header 건들지 말긔! -->
+		</header>
+
+
+		<!--	<div id=changediv >
+			<div id=div1>1 <button class='yun-pricelist' type="button">price list</button>
+			</div>
+
+		</div> -->
+		<div id="wrap-chu" class="wrap-chu">
+			<div style="text-align: center;">
+				<DIV
+					style="font-size: 50px; height: 50px; padding: 20px; margin-top: 20px; margin-bottom: 40px;">WOMAN &nbsp; COLOR</DIV>
+				<table style="margin: auto;">
+					<tr>
+						<td><input type="radio" name="radiog_dark" id="radio1"
+							class="css-checkbox" checked="checked" /> <label for="radio1"
+							class="css-label" data-sort="All">ALL</label></td>
+						<td><input type="radio" name="radiog_dark" id="radio2"
+							class="css-checkbox" /> <label for="radio2" class="css-label"
+							data-sort="SHORT">SHORT</label></td>
+						<td><input type="radio" name="radiog_dark" id="radio3"
+							class="css-checkbox" /> <label for="radio3" class="css-label"
+							data-sort="Medium">MEDIUM</label></td>
+						<td><input type="radio" name="radiog_dark" id="radio4"
+							class="css-checkbox" /> <label for="radio4" class="css-label"
+							data-sort="Long">LONG</label></td>
+					</tr>
+				</table>
+			</div>
+			<div class="yun-container"
+				style="border-top: 2px black solid; margin-top: 10px; padding-left: 30px;"></div>
+
+			<!--  			<div class="yun-box">
+				<img class="yun-boximage" src="../images/main/woman (1).png">
+					<div class="kh-basic">
+						<h2>러블리 펌</h2>
+						<div class="starrr"></div>
+					</div>
+					<div class="kh-detail">
+						<h2>러블리 펌</h2>
+						<div class="starrr"></div>
+						<p>♥mychu 추가</p>
+					</div>
+					<div class="kh-gradation"></div>
+			</div>  -->
+
+		</div>
+
+		<footer>
+			<!-- footer 건들지 말긔! -->
+		</footer>
+
+		<!-- 	<script type="text/javascript"
+		src='../js/resources/jquery-2.1.1.min.js'></script>
+	<script src="../js/resources/starrr.js"></script> -->
+
+		<script type="text/javascript">
+	<!-- header, footer 로드 스크립트!! -->
+		$('header').load('common/header.html'); 
+		$('footer').load('common/footer.html');
+
+		
+		<!-- 썸네일 로드 스크립트!! -->		
+		
+		
+		
+
+			var oldWrapPos = -1;
+			var pagebtnnum ;
+		
+		 $('div').on("click",".yun-box",function(event){
+			event.stopPropagation();
+			var container = $('.yun-container');
+			var elements = container.children();
+			
+			container.children().removeClass('yun-selected'); // 기존에 selected 된 클레스를 리셋
+			$(this).addClass('yun-selected'); //누른 div에 selected 표시
+			var selectedPos = $(".yun-box").index(this); // 누른 div의 index값 저장
+			console.log("selectedPos:" + selectedPos);
+			var elementsInRow = 4; // 너비 4칸으로 고정
+		 	var row = Math.floor(selectedPos / elementsInRow) + 1;
+		 	console.log("row:" + row);
+			//floor는 버리는 함수 누른인덱스/너비 4칸 +1해서 몇번째 줄인지 구함
+			var wrapPos = (row * elementsInRow);
+			console.log("wrapPos:" + wrapPos);
+			// 만약 마지막 줄을 선택했다면 마지막 엘리먼트를 이용한다. 
+			var size = elements.length; //총 div의 갯수
+			if (wrapPos >= size) {
+				wrapPos = size;
+			}
+			//wrapPos 끝인덱스를 저장한다.
+			wrapPos = wrapPos - 1;
+			//인덱스는 0부터 시작하므로 -1을 해준다.
+			
+			if (selectedPos == oldWrapPos) {
+				$('.yun-info-bg').slideUp(function() {
+					$(this).remove();
+				});
+				oldWrapPos = -1;
+			} else {
+				oldWrapPos = selectedPos;
+				elements.removeClass('yun-edge');
+				$(elements[wrapPos]).addClass('yun-edge');
+				$('.yun-info-bg').slideUp(function() {
+					$(this).remove();
+				});
+					$('.yun-edge').after('<div id=changediv class="yun-info-bg"><div id=yun-div1 class=yun-div></div></div>');
+					/* $('#yun-div1').load('templates/yun-styledetail.html'); */
+					loadStyleDetail($(this).attr('data-no')); 
+				 	
+					$('.yun-info-bg').slideDown();
+					setTimeout(function () {  $('html, body').animate({scrollTop:$('.yun-info-bg').position().top-75}, 'slow');  });
+					pagebtnnum=2;
+			}
+		}); 
+		
+/* 		$('div').on("click",".yun-box",function(){
+			console.log(container);
+			container.children().removeClass('yun-selected'); // 기존에 selected 된 클레스를 리셋
+			$(this).addClass('yun-selected'); //누른 div에 selected 표시
+			var selectedPos = $(this).index(); // 누른 div의 index값 저장
+			var elementsInRow = 4; // 너비 4칸으로 고정
+		 	var row = Math.floor(selectedPos / elementsInRow) + 1;
+			//floor는 버리는 함수 누른인덱스/너비 4칸 +1해서 몇번째 줄인지 구함
+			var wrapPos = (row * elementsInRow);
+			// 만약 마지막 줄을 선택했다면 마지막 엘리먼트를 이용한다. 
+			var size = elements.length; //총 div의 갯수
+			if (wrapPos >= size) {
+				wrapPos = size;
+			}
+			//wrapPos 끝인덱스를 저장한다.
+			wrapPos = wrapPos - 1;
+			//인덱스는 0부터 시작하므로 -1을 해준다.
+			
+			if (selectedPos == oldWrapPos) {
+				$('.yun-info-bg').slideUp(function() {
+					$(this).remove();
+				});
+				oldWrapPos = -1;
+			} else {
+				oldWrapPos = selectedPos;
+				elements.removeClass('yun-edge');
+				$(elements[wrapPos]).addClass('yun-edge');
+				$('.yun-info-bg').slideUp(function() {
+					$(this).remove();
+				});
+				$('.yun-edge').after('<div id=changediv class="yun-info-bg"><div id=yun-div1 class=yun-div><div></div>');
+				$('#yun-div1').load('templates/yun-styledetail.html');
+				$('.yun-info-bg').slideDown();
+				setTimeout(function () {  $('html, body').animate({scrollTop:$('.yun-info-bg').position().top-75}, 'slow');  });
+				pagebtnnum=2;
+			}
+		}); */
+		
+		
+
+		<!--썸네일 상세페이지 앞뒤이동 &오버레이 스크립트 -->		
+
+
+		
+		
+	/* 	$(document).ready(function(){
+			
+			if(pagebtnnum<2){
+				$('.yun-back').css('display','none')
+			}	
+			
+		});
+		 */
+		
+		 $('div').on("click","#kh-reviewAdd",function() {
+			 event.stopPropagation();
+			 /* $.getJSON('../json/auth/loginUser.do', 
+					    function(data){
+						if(data.loginUser == null){
+							alert("로그인 후 이용해 주세요");
+						}
+					    });	 */
+			 $.ajax({
+					type : 'post',
+					dataType : "json",
+					url : '../json/review/reviewAdd.do',
+					data : {
+						content : $('#kh-content').val(),
+						star : $('#kh-star').val(),
+						styleNo : $(this).attr('data-no')
+						
+					},
+					success : function(data) {
+						console.log(data.status);
+						console.log(data.loginUser);
+						/* location.href = 'jy_main.html'; */
+					},
+					error : function() {
+						console.log('댓글입력 ajax 실패');
+						alert("로그인 후 이용해 주세요");
+					}
+				});
+			 
+				
+				refreshReview($(this).attr('data-no')); 
+
+
+			});
+		 
+		 
+		 
+		 $('div').on("click", '.reviewDelete-btn', function(){
+			 event.stopPropagation();
+			 if (confirm('댓글을 삭제하시겠습니까?')) {
+					  deleteReview($(this).attr('data-reviewNo'));
+						  refreshReview($("#kh-reviewAdd").attr('data-no'));
+
+				  
+				 /*  $.get(deleteReview($(this).attr('data-reviewNo'))).done(function() {
+					  refreshReview($("#kh-reviewAdd").attr('data-no'));
+					}); */
+				} else {
+				    // Do nothing!
+				}
+			});
+
+
+/* 		 $('div').on("click", '#kh-btnUpdate', function(){
+			 event.stopPropagation();
+			 if (confirm('댓글을 삭제하시겠습니까?')) {
+				 deleteReview($(this).attr('data-reviewNo'));
+				  refreshReview($("#kh-reviewAdd").attr('data-no'));
+				} else {
+				    // Do nothing!
+				}
+			}); */
+
+		 
+		 
+		 
+		 	function refreshReview(productNo) {
+		 		$.getJSON('../json/style/detail.do?styleNo='+productNo, 
+		 			    function(data){
+		 			      
+		 			      $.get('templates/jy_commenttemp.html', function(source){
+		 			    	  var template = Handlebars.compile(source);
+		 			    	  var html = template(data);
+		 			    	  $('#yun-stylecomment').html(html);
+		 			      });
+		 			      
+		 			    });
+		 	 	}
+		 
+		 
+		 
+		 
+		 
+
+		$('div').on("click",".yun-shop-button",function() {
+			event.stopPropagation();
+			console.log($(this).attr('data-email')); 
+			/* $('#yun-div'+pagebtnnum).load('templates/yun-shopdetail.html'); */
+			
+			
+			loadShop($(this).attr('data-email')); 
+			loadShopReview($(this).attr('data-email'));
+			
+			pagebtnnum++;
+		});
+		
+		
+
+		$('div').on("click",".yun-shoppricelist",function() {
+			event.stopPropagation();
+			$('<div>').appendTo("#changediv").attr({"id":"yun-div"+pagebtnnum,"class":"yun-div"})
+			.css({"z-index":pagebtnnum,"margin-left":"100%"}).animate({ marginLeft: "0px" }, 500);
+			
+			
+			
+			$('#yun-div'+pagebtnnum).load('templates/yun-shoppricelist.html');
+			pagebtnnum++;
+		});
+
+		
+		$('div').on("click",".yun-back",function(){
+			event.stopPropagation();
+			pagebtnnum--;
+			if(pagebtnnum!='1'){
+			$('#yun-div'+pagebtnnum).animate({marginLeft: "-100%" }, 500,function(){
+				$(this).remove();
+			})
+			}
+		});
+		
+		
+/* 		$('div').on("click",".yun-back",function(){
+			event.stopPropagation();
+			pagebtnnum--;
+			if(pagebtnnum!='1'){
+			$('#yun-div'+pagebtnnum).remove();
+			}
+		}); */
+		
+/* 		$('div').on("click",".yun-exit",function(){
+			event.stopPropagation();
+			$('.yun-info-bg').slideUp(function() {
+				$(this).remove();
+			});
+		}); */
+		
+		
+		
+		/* 가격표에서 스타일 클릭 */
+/* 		$('div').on("click",".yun-shopstyle",function() {
+			event.stopPropagation();
+			$('<div>').fadeIn('fast').appendTo("#changediv").attr({"id":"yun-div"+pagebtnnum,"class":"yun-div"})
+			.css({"z-index":pagebtnnum,"margin-left":"100%"}).animate({ marginLeft: "0px" }, 500);
+			 $('#yun-div'+pagebtnnum).load('templates/yun-styledetail.html'); 	
+			
+			
+			pagebtnnum++;
+
+		}); */
+		
+		
+
+
+		
+	$(document).on('mouseenter', '.yun-box',  function(){
+			
+			
+			  /* $(this).find(".kh-detail").css("display", "block"); */
+			  $(this).find(".kh-gradation").css("display", "block");
+			  
+		}).on('mouseleave', '.yun-box', function() {
+		  $(this).find(".kh-basic").css("display", "block");
+		  $(this).find(".kh-detail").css("display", "none");
+		  $(this).find(".kh-gradation").css("display", "none");
+
+	});
+		
+		
+
+		
+		/** 기현아 사랑해... 나는 언제나 너만 바라보고 있어~    -조게이*/
+		$('div').on("click",".get-coupon",function(){
+			event.stopPropagation();
+			alert("쿠폰이 발급되었습니다!");
+		});
+		
+			/* 샵 지도 클릭 */
+			$(document).on('click', '.kh-shopmap',  function(){
+				console.log("ssssssssssssssss");
+		 		loadMap($(this).attr('data-email'));
+		 		});
+		
+
+		
+		
+		/* 스타일 리스트 로드 */		
+		$.getJSON('../json/style/list.do?people=normal&styleSort=Color&gender=woman&styleLength=All', 
+			    function(data){
+								console.log(data);						
+
+					      $.get('templates/style-table.html', function(source){
+						    	  var template = Handlebars.compile(source);
+						    	  var html = template(data);
+						    	  $('.yun-container').html(html);
+						    	});  
+					    });
+
+/* 		$.getJSON('../json/auth/loginUser.do', 
+					    function(data){
+								console.log(data);						
+
+					      $.get('templates/style-table.html', function(source){
+						    	  var template = Handlebars.compile(source);
+						    	  var html = template(data);
+						    	  $('.yun-container').html(html);
+						    	});  
+					    });
+ */				
+				
+				
+				
+				
+				function deleteReview(reviewNo) {
+					  $.getJSON('../json/review/delete.do?no=' + reviewNo, 
+					    function(data){
+					      if (data.status == 'success') {
+					    	  
+					      }
+					    });
+					}
+				
+				
+				
+				
+				
+				$('div').on("click","#kh-content",function(){
+					event.stopPropagation();
+					$.getJSON('../json/auth/loginUser.do', 
+						    function(data){
+							if(data.loginUser == null){
+								alert("로그인 후 이용해 주세요");
+							}		
+						    });
+				});
+				
+				$('div').on("click",".reviewUpdate-btn",function(){
+					event.stopPropagation();
+						$(".right").removeClass("kh-selected");
+						$(this).parent().parent().addClass("kh-selected");
+						var reviewNo = $(this).attr("data-reviewNo");
+						$("#kh-btnUpdateCancel-"+reviewNo).css("display", "block");
+						$("#kh-btnUpdate-"+reviewNo).css("display", "none");
+						$("#kh-reviewContent-"+reviewNo).css("display", "none");
+						$("#kh-reUpdateForm-"+reviewNo).css("display", "block");
+						$("#kh-updateAdd-"+reviewNo).css("display", "block");
+				});
+				
+				$('div').on("click",".reviewUpdateCancel-btn",function(){
+					event.stopPropagation();
+					var reviewNo = $(this).attr("data-reviewNo");
+					$("#kh-btnUpdateCancel-"+reviewNo).css("display", "none");
+					$("#kh-btnUpdate-"+reviewNo).css("display", "block");
+					$("#kh-reUpdateForm-"+reviewNo).css("display", "none");
+					$("#kh-updateAdd-"+reviewNo).css("display", "none");
+					$("#kh-reviewContent-"+reviewNo).css("display", "block");
+				
+				});
+				
+ 				$('div').on("click",".review-btn",function(){
+					event.stopPropagation();
+					var reviewNo = $(this).attr("data-reviewNo");
+					console.log("수정한것::"+ $("#kh-reUpdateForm-" + reviewNo).val());
+					updateReview(reviewNo);
+					refreshReview($("#kh-reviewAdd").attr('data-no'));
+				}); 
+				
+ 				
+ 				/* 라디오 버튼 클릭 */
+ 				
+ 				$(document).on('click', '.css-label',  function(){
+ 					console.log($(this).attr("data-sort"));
+ 					styleLength($(this).attr("data-sort"));
+ 				});
+ 				
+
+				
+				
+				
+ 				function updateReview(no) {
+					  $.post('../json/review/updateReview.do'
+					      , {
+						  	 reviewNo : $('#kh-updateAdd-'+no).attr("data-reviewNo"),
+						  	 content  : $('#kh-reUpdateForm-'+no).val(),
+					        styleNo : $('#kh-reviewAdd').attr("data-no")
+					      } 
+					      , function(result){
+					        if (result.status == "success") {
+					        } else {
+					          alert("변경 실패!");
+					        }
+					      } 
+					      , 'json')
+					   .fail(function(jqXHR, textStatus, errorThrown){ 
+					     alert(textStatus + ":" + errorThrown);
+					   });
+					}  
+				
+ 				
+ 				/* 샵 디테일 로드  */
+ 				function loadShop(email) {
+ 					$.getJSON('../json/shop/view.do?mail='+email, function(data){
+ 							console.log(data);
+ 						      $.get('templates/yun-shopdetail.html', function(source){
+ 							    	  var template = Handlebars.compile(source);
+ 							    	  var html = template(data);
+ 										$('<div>').fadeIn('fast').appendTo("#changediv").attr({"id":"yun-div"+pagebtnnum,"class":"yun-div"})
+ 										.css({"z-index":pagebtnnum,"margin-left":"100%"}).animate({ marginLeft: "0px" }, 500);
+ 							    	  $('#yun-div'+pagebtnnum).html(html);
+ 							    	});  
+ 						      
+ 	 					     $.get('templates/kh-shopimage-gallery.html', function(source){
+ 						    	  var template = Handlebars.compile(source);
+ 						    	  var html = template(data);
+ 					    		  $('#yun-div'+pagebtnnum+' '+'#yun-shopphotolist').html(html);	  
+ 						      }); 
+ 			 			      $.get('templates/jy_commenttemp.html', function(source){
+ 			 			    	  var template = Handlebars.compile(source);
+ 			 			    	  var html = template(data);
+ 			 			    	  $('#yun-shopcomment').html(html);
+ 			 			    	console.log(yyyyMMdd(data.review0.date));
+ 			 			    	$('.kh-reviewDate').val(yyyyMMdd(data.review0.date));
+ 			 			      });
+ 	 					     
+ 						    });
+ 				 	} 
+				
+				/* 댓글 날짜 */
+ 				function yyyyMMdd(date) {
+ 					  if (date) {
+ 					    var date = new Date(date);
+ 					    var str = date.getFullYear() + '-';
+ 					    
+ 					    if (date.getMonth() < 9) str += '0';
+ 					    str += (date.getMonth() + 1) + '-';
+ 					    
+ 					    if (date.getDate() < 10) str += '0';
+ 					    str += date.getDate();
+ 					    
+ 					    return str;
+ 					    
+ 					  } else {
+ 					    return '';
+ 					  }
+ 					}
+ 				/* 스타일 디테일 로드 */
+ 				function loadStyleDetail(styleNo) {
+					$.getJSON('../json/style/detail.do?styleNo='+styleNo, 
+						    function(data){
+						console.log(data);
+						      $.get('templates/kh-styledetail.html', function(source){
+							    	  var template = Handlebars.compile(source);
+							    	  var html = template(data);
+							    	  $('#yun-div1').html(html);
+	 						    	  $('#kh-styleName').html(data.styleDetail.styleName);
+							    	  $('#kh-intro').html(data.styleDetail.styleIntro);
+							    	  $('#kh-time').html(data.styleDetail.skillTime);
+							    	  /* $('#kh-price').html(data.styleDetail.price);  */
+							    	});  
+						      $.get('templates/kh-imgthumnail.html', function(source){
+						    	  var template = Handlebars.compile(source);
+						    	  var html = template(data);
+						    	  $('#yun-shopphotolist').html(html);
+						      });
+						      $.get('templates/jy_commenttemp.html', function(source){
+						    	  var template = Handlebars.compile(source);
+						    	  var html = template(data);
+						    	  $('#yun-stylecomment').html(html);
+						    	  for(var i = 0; i< data.review.length; i++){
+						    		  console.log(yyyyMMdd(data.review[i].date));  
+	 			 			    	$('.kh-reviewDate'+data.review[i].date).html(yyyyMMdd(data.review[i].date));
+						    	  }
+	 			 			    	
+	 			 			    	
+						      });
+						    });
+				 	}
+ 				
+ 				/* 기장 분류 */
+ 				function styleLength(styleLength) {
+ 					$.getJSON('../json/style/list.do?people=normal&styleSort=Color&gender=woman&styleLength='+styleLength, 
+ 						    function(data){
+ 											console.log(data);						
+ 								      $.get('templates/style-table.html', function(source){
+ 									    	  var template = Handlebars.compile(source);
+ 									    	  var html = template(data);
+ 									    	  console.log(html);
+ 									    	  $('.yun-container').html(html);
+ 									    	});  
+ 								    });
+				 	}
+ 				
+ 				
+ 				/* 샵 댓글 로드 */
+ 				
+ 				function loadShopReview(email) {
+		 		$.getJSON('../json/review/reviewList.do?shopEmail='+email, 
+		 			    function(data){
+		 			console.log(data);
+		 			      $.get('templates/jy_commenttemp.html', function(source){
+		 			    	  var template = Handlebars.compile(source);
+		 			    	  var html = template(data);
+		 			    	  $('#yun-shopcomment').html(html);
+		 			      });
+		 			    });
+		 	 	}
+ 				
+ 				
+				/* 지도보기 */
+		function loadMap(email) {
+ 		$.getJSON('../json/shop/view.do?mail='+email,
+			    function(data){
+			console.log(data);
+			      $.get('templates/yun-maptemp.html', function(source){
+			    	  var template = Handlebars.compile(source);
+			    	  var html = template(data);
+			    	  console.log(html);
+			    	  $('#yun-div'+pagebtnnum+' #yun-shopphotolist').html(html);
+			      });
+			    });
+	 	}
+	</script>
+	</div>
+</body>
+</html>
+
+
