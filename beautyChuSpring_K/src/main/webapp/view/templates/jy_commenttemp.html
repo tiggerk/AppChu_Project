@@ -1,0 +1,129 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<title>Beauty Chu~♥</title>
+
+<meta charset="UTF-8">
+
+<link rel="shortcut icon" href="../images/favicon.ico"
+	type="image/x-icon">
+<link rel="icon" href="../images/favicon.ico" type="image/x-icon"> -->
+<!-- 
+<script type='text/javascript'
+	src='http://code.jquery.com/jquery-1.7.2.js'></script>
+<script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script> -->
+
+<!-- comment css -->
+<!-- <link rel="stylesheet" href="../css/jy/jy_DG_Slider.css" type="text/css"
+	media="all" /> -->
+
+<!-- </head> -->
+
+<!-- <body class="home">
+	<jy_header> header 건들지 말긔! </jy_header>
+ -->
+
+
+<div class="write-comment-form">
+	<div class="jy-phot-comment">
+		<div class="jy-profile-phot">
+			<img class="prof-phot" src="../images/logo_appchu.jpg" width="40"
+				height="40" />
+		</div>
+	</div>
+	<div class="comment">
+		<div class="jy-text-comment">
+			<div class="jy-wr-comment">
+				<textarea id="kh-content" class="write-comment" title="댓글을 입력하세요"
+					placeholder="댓글을 입력하세요"></textarea>
+
+				<div class="jy-submit-comment">
+					<div class="jy-comment-icon">
+						<!-- <i class="jy-comment-submit-icon">입력</i>-->
+						<button id="kh-reviewAdd" class="jy-comment-submit-icon"
+							data-no="{{styleDetail.styleNumber}}">입력</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="jy-comment-wrap">
+	<ul class="jy-comment-list2">
+
+		<li class="jy-row-comment">{{#each review}}
+			<div class="comment">
+				<div class="left">
+					<img src="../images/logo_appchu.jpg" width="40" height="40"
+						class="img-circle img-responsive" alt="" />
+				</div>
+				<div class="right">
+					<div class="album">
+						<span class="icon buyer">실이용자</span> <strong>{{name}}</strong>
+						<button id="kh-btnDelete-{{reviewNo}}"
+							class="{{reviewbtn}} reviewDelete-btn"
+							data-reviewNo="{{reviewNo}}">삭제</button>
+						<button id="kh-btnUpdate-{{reviewNo}}"
+							class="{{reviewbtn}} reviewUpdate-btn"
+							data-reviewNo="{{reviewNo}}">수정</button>
+						<button id="kh-btnUpdateCancel-{{reviewNo}}"
+							class="{{reviewbtn}} reviewUpdateCancel-btn"
+							data-reviewNo="{{reviewNo}}" style="display: none;">수정취소</button>
+					</div>
+					<div class="band">
+						<div class="band-comment">
+							<pre id="kh-reviewContent-{{reviewNo}}">{{content}}</pre>
+							<textarea id="kh-reUpdateForm-{{reviewNo}}"
+								class='reviewUpdateForm' rows="2" cols="33"
+								style="display: none;">{{content}}</textarea>
+							<button id="kh-updateAdd-{{reviewNo}}"
+								class="jy-comment-submit-icon review-btn"
+								data-reviewNo="{{reviewNo}}" style="display: none;">입력</button>
+						</div>
+						<div class="band-comment kh-reviewDate{{date}}">{{date}}</div>
+					</div>
+				</div>
+			</div> {{/each}}
+
+		</li>
+
+	</ul>
+</div>
+
+
+<!-- .wrap-chu -->
+
+
+
+<!-- 	<script src="http://code.jquery.com/jquery-latest.js"
+		type="text/javascript"></script>
+	<script src="../js/resources/jy/jquery.DG_Slider.min.js"
+		type="text/javascript"></script>
+	<script type="text/javascript">
+		(function($) {
+			$(function() {
+				
+				$('.jy-comment-list').DG_Slider({
+					auto : false,
+					pager : true
+				});
+				
+			});
+		}(jQuery))
+	</script> -->
+
+<!-- header, footer 로드 스크립트!! -->
+<!-- 	<script>
+		 $('jy_header').load('common/jy_header.html');
+		 /*$('footer').load('common/footer.html'); */
+		
+		/*  
+		window.setTimeout('window.location.reload()', 50000); 
+		 */ 
+	</script> -->
+
+<!-- 
+</body>
+</html> -->

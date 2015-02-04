@@ -1,0 +1,25 @@
+<table class="jy-coupon-table" id="jy-coupon-table">
+	<tr>
+		<th>쿠폰명</th>
+		<th>쿠폰 코드</th>
+		<th>사용기간</th>
+		<th>사용여부</th>
+	</tr>
+
+	{{#each viewCoupon}}
+	<tr id="cCouponData" style="height: auto;">
+		<td>{{cContent}}</td>
+		<td>{{couponCode}}</td>
+		<td>{{startDate}} ~ {{endDate}}</td> 
+		{{#if useDate}}
+		<td>사용 완료 ({{useDate}})</td> 
+		{{else}}
+		<td style="color: blue;">사용 가능{{useDate}}</td> 
+		{{/if}}
+
+	</tr>
+	{{/each}}
+
+
+</table>
+

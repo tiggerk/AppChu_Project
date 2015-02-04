@@ -1,0 +1,104 @@
+
+ 	<script type="text/javascript" src="../js/shop.js"></script>
+
+	<div class="quick_view">
+		<div class="desc_area">
+			<!-- 썸네일, 어워드 -->
+			<div class="thumnail">
+				<div class="label_bthum">
+					<div class="label_awrd">
+						
+					</div>
+					<div class="big_thum" id="proBigImg">
+					{{#each photos}}
+						<img src="../fileupload/{{url}}" alt="이미지 주소를 다시 확인해주세요" />
+					{{/each}}	
+					</div>
+				</div>
+				<div class="s_thum" id="productImg">
+				{{#each photos}}
+					<a href="javascript:void(0);">
+					<img src="../fileupload/{{url}}" alt="썸네일1" />
+					</a>
+				{{/each}}	
+				</div>
+			</div>
+			<!--// 썸네일, 어워드 -->
+
+			<!-- 상품설명, 구매버튼 -->
+<!-- 			<div class="wrap_intro">
+				<div class="title_prd">
+					
+						<h1><span>잇츠스킨 제주<BR />마유 크림</span><em>It’s Skin Jeju Horse Oil Cream</em></h1>
+						
+					<p>제주도 청정자연의 마유가 18% 함유되어 풍부한 보습, 피부를 탄력있게<BR />가꾸어 주는 주름개선 기능성 크림</p>
+				</div>
+				<div class="desc_prd">
+					<dl>
+						<dt>판매가격</dt>
+						
+						<dd class="price">
+							<strong>49,000<span>원</span></strong>
+							<input type="hidden" name="P_PRICE" value="49000" />
+						</dd>
+						
+					</dl>
+					<dl>
+						<dt>포인트</dt>
+						<dd>
+							<div class="point">
+								<strong>0</strong> Point <span class="point_777">(일반2%, VIP/프레스티지 5%)</span>
+							</div>
+							포인트 추가 이벤트시 노출
+							
+							// 포인트 추가 이벤트시 노출
+						</dd>
+					</dl>
+					<dl>
+						<dt>용량</dt>
+						<dd>50 ml</dd>
+					</dl>
+
+					
+
+					옵션없음: CSS display:block
+					<div class="no_op">
+						<dl>
+							<dt>수량</dt>
+							<dd>
+								<div class="add_minus" id="productCnt">
+									<a class="btn_minus" href="javascript:void(0);"><img src="/images/btn/subtraction.gif" alt="수량 감소" /></a>
+									<input type="text" title="수량" name="pCnt" value="1" />
+									<a class="btn_add" href="javascript:void(0);"><img src="/images/btn/add_01.gif" alt="수량 증가" /></a>
+								</div>
+							</dd>
+						</dl>
+						<div class="total">
+							<dl>
+								<dt>총 주문금액</dt>
+								
+									<dd><strong id="viewTotalPrice">49,000</strong>원</dd>
+									
+							</dl>
+						</div>
+						
+						<div class="btn_prd">
+							<a class="btn_1e1e1e btn_style02" href="javascript:buyGo('2299', 'p');" style="width:298px;">바로 구매</a>
+							<div class="cart_wish">
+								<a class="btn_fff btn_style02" href="javascript:cartGo('2299', 'p');" style="width:149px;">장바구니</a>새창팝업_511x230
+								
+								<a class="btn_fff btn_style02" href="javascript:loginConfirm('p');" style="width:148px;">WISH LIST</a>새창팝업_511x230
+								
+							</div>
+						</div>
+						
+					</div>
+					// 옵션없음: CSS display:block
+					
+
+				</div>
+			</div>
+			// 상품설명, 구매버튼
+			<a href="/shop/view.asp?P_IDX=2299" target="_parent">상품 자세히 보기</a> -->
+		</div>
+	</div>
