@@ -1,23 +1,6 @@
 package beautychu.control.json;
 
 /*
-import java.io.File;
-import java.util.HashMap;
-
-import javax.servlet.ServletContext;
-
-import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import beautyChu.domain.Product;
-import beautyChu.service.MakerService;
-import beautyChu.service.ProductService;
-
 @Controller("json.productControl")
 @RequestMapping("/json/product")
 public class ProductControl {
@@ -26,7 +9,7 @@ public class ProductControl {
   
   @Autowired MakerService       makerService;
   @Autowired ProductService     productService;
-  @Autowired ServletContext 	servletContext;
+  @Autowired ServletContext servletContext;
  
   @RequestMapping(value="/add", method=RequestMethod.POST)
   public Object add(Product product) throws Exception {  
@@ -106,7 +89,6 @@ public class ProductControl {
 }
 
 */
-
 
 
 

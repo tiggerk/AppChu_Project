@@ -22,7 +22,7 @@ import beautychu.domain.StyleGrid;
 import beautychu.service.StylePhotoService;
 import beautychu.service.StyleService;
 
-@Controller("json.StyleControl")
+@Controller("json.styleControl")
 @RequestMapping("/json/style")
 public class StyleControl {
 //	static Logger log = Logger.getLogger(ProductControl.class);
@@ -32,13 +32,12 @@ public class StyleControl {
 	@Autowired ServletContext servletContext;
 
 	@RequestMapping("/list")
-	public Object list(Style style) throws Exception {
-
+	public Object list(StyleGrid styleList) throws Exception {
+		System.out.println(styleList);
 		HashMap<String, Object> resultMap = new HashMap<>();
-		resultMap.put("styleList", styleService.getList(style));
+		resultMap.put("styleList", styleService.getList(styleList));
 		return resultMap;
 	}
-	
 	
 	@RequestMapping("/detail")
 	public Object detail(Review review,Model model,HttpSession session) throws Exception {
@@ -78,7 +77,6 @@ public class StyleControl {
 		return resultMap;
 	}
 	
-	
 	@RequestMapping(value="/add", method=RequestMethod.POST)
 	  public Object add(Style style) throws Exception {  
 	    if (style.getPhotofile() != null
@@ -101,7 +99,6 @@ public class StyleControl {
 	    return resultMap;
 	  }
 	
-	
 	/*AJAX post방식*/
 	@RequestMapping(value="/fileUpload", method=RequestMethod.POST)
 	public ModelAndView fileUpload(MultipartHttpServletRequest mRequest, int styleNo) {
@@ -120,4 +117,5 @@ public class StyleControl {
 		return mav;
 	}
 	
+
 }

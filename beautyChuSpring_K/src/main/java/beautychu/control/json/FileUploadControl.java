@@ -84,7 +84,6 @@ public class FileUploadControl {
 	    
 	    if (shopInfo.getPhotofile() != null
 	        && !shopInfo.getPhotofile().isEmpty()) {
-
 	      String fileuploadRealPath = 
 	        servletContext.getRealPath("/fileupload");
 	      String filename = System.currentTimeMillis() + "_"; 
@@ -104,8 +103,3 @@ public class FileUploadControl {
 	
 	
 }
-
-
-
-
-
