@@ -95,14 +95,11 @@ public class ShopInfoService {
 	/*@Transactional(rollbackFor=Exception.class, propagation=Propagation.REQUIRED)
 	  public void insertPhoto(ShopInfo shopInfo) {
 	    shopInfoDao.insertPhoto(shopInfo);
-
 	    if (shopInfo.getPhoto() != null) {
 	    	shopInfoDao.insertPhoto(shopInfo);
 	    }
 	  }*/
 }
-
-
 
 
 

@@ -25,8 +25,8 @@ public class StyleService {
 		return styleDao.getMainCelebrityList(); 
 	}
 
-	public List<?> getList(Style style) {
-		return styleDao.getList(style); 
+	public List<?> getList(StyleGrid styleList) {
+		return styleDao.getList(styleList); 
 	}
 
 	public List<?> getGridList() {

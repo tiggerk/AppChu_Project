@@ -12,28 +12,28 @@ import beautychu.domain.Coupon;
 
 @Service
 public class CouponService {
-  @Autowired CouponDao couponDao;
-  @Autowired MemberDao memberDao;
+	@Autowired CouponDao couponDao;
+	@Autowired MemberDao memberDao;
 
-   
-public List<?> viewCoupon(Coupon coupon) {
-  
-  HashMap<String, String> params = new HashMap<>();
-  String cEmail = coupon.getcEmail();
-  params.put("cEmail", cEmail);
-  return couponDao.viewCoupon(params);
-}
 
-public void checkCoupon(Coupon coupon) {
-  couponDao.checkCoupon(coupon);
-}
+	public List<?> viewCoupon(Coupon coupon) {
 
-public List<?> couponList(Coupon coupon) {
-	  HashMap<String, String> params = new HashMap<>();
-	  String sEmail = coupon.getsEmail();
-	  params.put("sEmail", sEmail);
-	  return couponDao.couponList(params);
-	
-}
+		HashMap<String, String> params = new HashMap<>();
+		String cEmail = coupon.getcEmail();
+		params.put("cEmail", cEmail);
+		return couponDao.viewCoupon(params);
+	}
+
+	public void checkCoupon(Coupon coupon) {
+		couponDao.checkCoupon(coupon);
+	}
+
+	public List<?> couponList(Coupon coupon) {
+		HashMap<String, String> params = new HashMap<>();
+		String sEmail = coupon.getsEmail();
+		params.put("sEmail", sEmail);
+		return couponDao.couponList(params);
+
+	}
 
 }

@@ -72,10 +72,3 @@ public class StylePhotoService {
 		return isSuccess;
 	} // fileUpload end
 }
-
-
-
-
-
-
-
