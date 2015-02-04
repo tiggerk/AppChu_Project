@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 	int styleNumber;
+	String people;
+	String gender;
+	String styleLength;
+	String styleName;
+	String styleIntro;
+	int SkillTime;
+	int price;
+	String email; -->
+
+<mapper namespace="beautychu.dao.ShopDao">
+
+
+  
+
+  <resultMap type="ShopDetail" id="shopDetailMap">
+  	<id column="EMAIL" property="email"/>
+  	<result column="SHOPNAME" property="shopName"/>
+  	<result column="SHOPINTRO" property="shopIntro"/>
+  	<result column="SHOPADDR" property="shopAddr"/>
+  	<result column="SHOPTEL" property="shopTel"/>
+  </resultMap> 
+  
+  <resultMap type="ShopPhoto" id="shopPhotoMap">
+  	<id column="SHOPPHOTONO" property="no"/>
+  	<result column="EMAIL" property="email"/>
+  	<result column="SHOPPHOTOURL" property="url"/>
+  </resultMap>
+  
+  <resultMap type="ShopList" id="shopListMap">
+  	<id column="EMAIL" property="email"/>
+  	<result column="SHOPNAME" property="shopName"/>
+  	<result column="SHOPADDR" property="shopAddr"/>
+  	<result column="SHOPPHOTONO" property="shopPhotoNo"/>
+  	<result column="SHOPPHOTOURL" property="shopPhotoUrl"/>
+  </resultMap>
+
+	<select id="getShopDetail" parameterType="String" resultMap="shopDetailMap">
+	
+		SELECT EMAIL, SHOPNAME, SHOPINTRO, SHOPADDR, SHOPTEL
+    	FROM SHOP
+		WHERE 	EMAIL =#{value}
+	</select>
+	
+	<select id="selectPhoto" parameterType="String" resultMap="shopPhotoMap">
+        SELECT SHOPPHOTONO, EMAIL, SHOPPHOTOURL
+    		FROM SHOPPHOTO
+    WHERE EMAIL = #{value}
+   </select>
+   
+   
+  <select id="selectShopList" parameterType="map" resultMap="shopListMap">
+
+    SELECT T1.EMAIL, T1.SHOPNAME, T1.SHOPADDR, T2.SHOPPHOTONO, T2.SHOPPHOTOURL 
+    FROM SHOP T1 JOIN (SELECT SHOPPHOTONO,SHOPPHOTOURL,EMAIL FROM SHOPPHOTO GROUP BY EMAIL) T2 USING(EMAIL)
+  </select>
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+  
+ 
+
+  
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="beautychu.dao.CustomerDao">
+  
+<!--   <resultMap type="Customer" id="customerMap">
+  	<id column="EMAIL" property="email"/>
+  	<result column="COUPONCODE" property="couponCode"/>
+  	<result column="PROFILEPHOTO" property="profilePhoto"/>
+  </resultMap>
+   -->
+  
+  <!-- PROFILEPHOTO -->
+<!--   <select id="setPPhoto" parameterType="Customer">
+  	SELECT PROFILEPHOTO
+  	FROM CUSTOMER
+  	WHERE EMAIL=#{email};
+  </select>
+  
+  <update id="updatePPhoto" parameterType="Customer">
+  	UPDATE CUSTOMER SET
+  		PROFILEPHOTO=#{profilePhofo}
+  		WHERE EMAIL=#{email}; 
+  </update>
+   -->
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

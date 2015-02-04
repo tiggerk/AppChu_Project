@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 	int styleNumber;
+	String people;
+	String gender;
+	String styleLength;
+	String styleName;
+	String styleIntro;
+	int SkillTime;
+	int price;
+	String email; -->
+
+<mapper namespace="beautychu.dao.ReviewDao">
+
+
+  
+  
+  <resultMap type="Review" id="reviewListMap">
+  	<id column="REVIEWNO" property="reviewNo"/>
+  	<result column="STYLENO" property="styleNo"/>
+  	<result column="NAME" property="name"/>
+  	<result column="CONTENT" property="content"/>
+  	<result column="STAR" property="star"/>
+  	<result column="REPORTDATE" property="date"/>
+  </resultMap>
+  
+  
+  <resultMap type="Review" id="reviewMap">
+  	<id column="REVIEWNO" property="reviewNo"/>
+  	<result column="STYLENO" property="styleNo"/>
+  	<result column="NAME" property="name"/>
+  	<result column="CONTENT" property="content"/>
+  	<result column="STAR" property="star"/>
+  	<result column="REPORTDATE" property="date"/>
+  	<result column="REVIEWBTN" property="reviewbtn"/>
+  </resultMap>
+
+
+	
+<!-- 	<select id="selectReviewList" parameterType="int" resultMap="reviewListMap">
+		SELECT  T2.REVIEWNO, T2.STYLENO, T1.NAME, T2.CONTENT, T2.STAR, T2.REPORTDATE
+		FROM MEMBER T1 JOIN REVIEW T2 USING(EMAIL)
+		WHERE STYLENO=#{value}
+  	</select> -->
+	
+  <select id="selectReviewList" parameterType="Review" resultMap="reviewMap">
+	SELECT  T2.REVIEWNO, T2.STYLENO, T1.NAME, T2.CONTENT, T2.STAR, T2.REPORTDATE ,
+						CASE WHEN T2.EMAIL = #{email} THEN 'btn' ELSE 'none' END REVIEWBTN
+	FROM MEMBER T1 JOIN REVIEW T2 USING(EMAIL)
+	WHERE EMAIL=#{shopEmail}
+	ORDER BY REVIEWNO DESC
+	LIMIT 4
+  </select>
+	
+	<select id="insertReview" parameterType="map" resultMap="reviewMap">
+    INSERT INTO REVIEW (STYLENO, CONTENT, STAR, REPORTDATE, EMAIL)
+    VALUES (#{styleNo},#{content},#{star},current_date,#{email})
+	</select>
+	
+	
+	<delete id="deleteReview" parameterType="int">
+    DELETE FROM REVIEW WHERE REVIEWNO=#{value}
+  	</delete>
+	
+	
+
+   <update id="updateReview" parameterType="Review">
+    UPDATE REVIEW SET 
+      CONTENT =#{content},
+      REPORTDATE = current_date
+    WHERE REVIEWNO =#{reviewNo}
+  </update>  
+  
+</mapper>
+
+
+
+
+
