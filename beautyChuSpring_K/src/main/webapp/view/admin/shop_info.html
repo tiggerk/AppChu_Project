@@ -423,12 +423,12 @@ var imsiEmail;
 					console.log(data.listShopInfo);
 					console.log(data.listShopInfo[0].shopPhotoUrl);
 					
-					$('#sidebar-shopPhoto').attr('src', '/beautyChuSpring_K/fileupload' + data.listShopInfo[0].shopPhotoUrl);
+					$('#sidebar-shopPhoto').attr('src', '/beautyChuSpring_K/fileupload/' + data.listShopInfo[0].shopPhotoUrl);
 					$('#sidebar-shopName').text(data.listShopInfo[0].shopName);
 					$('#sidebar-shopAddr').text(data.listShopInfo[0].shopAddr);
 					$('#sidebar-shopTel').text(data.listShopInfo[0].shopTel);
 					
-					$('#shopProfile').attr('src','/beautyChuSpring_K/fileupload' + data.listShopInfo[0].shopPhotoUrl);
+					$('#shopProfile').attr('src','/beautyChuSpring_K/fileupload/' + data.listShopInfo[0].shopPhotoUrl);
 					$('#licenseeNo').val(data.listShopInfo[0].licenseeNo);
 					$('#shopName').val(data.listShopInfo[0].shopName);
 					$('#shopAddr').val(data.listShopInfo[0].shopAddr);
@@ -453,6 +453,7 @@ var imsiEmail;
 				url : '../../json/shopInfo/fileUpload.do',
 				data : {email : imsiEmail},
 				success : function(data) {
+					alert("수정완료");
 					console.log(data);
 					console.log(data.result);
 				},

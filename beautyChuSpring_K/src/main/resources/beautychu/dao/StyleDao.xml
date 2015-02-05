@@ -39,6 +39,7 @@
     <result column="STYLENAME" property="styleName"/>
     <result column="SHOPNAME" property="shopName"/>
     <result column="STYLENO" property="styleNo"/>
+    <result column="GENRE" property="genre"/>
   </resultMap>
   
   <resultMap type="MainCelebrity" id="mainCelebrityMap">
@@ -69,7 +70,7 @@
   </resultMap>
 
   <select id="getMainStyleList" parameterType="map" resultMap="mainStyleMap">
-   	SELECT S3.STYLEPHOTOURL, S1.STYLENAME, S2.SHOPNAME, S1.STYLENO
+   	SELECT S3.STYLEPHOTOURL, S1.STYLENAME, S2.SHOPNAME, S1.STYLENO, S1.GENRE
     FROM STYLE S1
     LEFT JOIN SHOP S2
     ON S1.EMAIL = S2.EMAIL

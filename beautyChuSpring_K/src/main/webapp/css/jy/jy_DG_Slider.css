@@ -1,6 +1,6 @@
 /* html,body,ul,li{margin:0;padding:0; font-family:arial} */
 .jy-comment-wrap ul {
-width: 400px;  height: 300px; overflow: hidden;
+width: 530px;  height: 250px; overflow: hidden;
 }
 
 .jy-comment-wrap li {
@@ -11,7 +11,7 @@ width: 40px; height:40px; float: left; margin: 5px 0px;
 }
 
 .jy-comment-wrap .right {
-width: 350px; height:auto; float: left; margin-left: 10px; margin: 5px 0px 5px 10px;
+width: 475px; height:auto; float: left; margin-left: 10px; margin: 5px 0px 5px 10px;
 }
 
 .jy-comment-wrap .right .album {
@@ -31,6 +31,11 @@ width: 190px;
 .jy-comment-wrap .jy-DG-wrapper {
 margin: 0 auto; /* border:5px solid #ddd; border-radius:10px; */ padding:5px;
 }
+
+.jy-DG-window {
+	height: 240px;
+}
+
 /* prev, next button effect css */ 
 .jy-comment-wrap .jy-DG-prev {
 position: absolute; top: 45%; left: -40px; width: 31px; height: 31px; 
@@ -81,17 +86,17 @@ text-decoration: none; margin:2px;
 
 /* write commnet form css */
 
-.write-comment-form { margin:0 auto; margin-top: 150px; height: 50px; width: 400px; }
+.write-comment-form { margin:0 auto; margin-top: -50px; height: 50px; width: 528px; }
 .jy-commentform {margin-top: 100px; margin-left:50px; width:350px; height:50px; color:white;}
 #jy-comments { width: 100%;}
 .jy-btn-comment { float:right; margin-top: 10px; margin-right: -5px;}
 	
 .jy-comment-list { border-radius:0 0 2px 2px; width: 350px;}	
 .jy-wr-comment { }
-.write-comment { width: 290px; height: 34px; margin-left: 5px;}
+.write-comment { width: 390px; height: 34px; margin-left: 5px;}
 .jy-profile-phot { float: left; width: 40px; height: 40px;}
 .jy-submit-comment { float: right; text-align: center; } 
-.jy-comment-submit-icon { height: 40px; width: 50px;}	
+.jy-comment-submit-icon { height: 44px; width: 80px;}	
 
 .buyer { border:1px solid green; color: green; padding: 1px; border-radius:3px;}
 .nobuy { border:1px solid orange; color: orange; padding: 1px; border-radius:3px;}

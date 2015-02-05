@@ -459,7 +459,7 @@ var imsiEmail;
 					console.log(imsiEmail);
 					console.log(data.listShopInfo[0].shopPhotoUrl);
 					
-					$('#sidebar-shopPhoto').attr('src', '/beautyChuSpring_K/fileupload' + data.listShopInfo[0].shopPhotoUrl);
+					$('#sidebar-shopPhoto').attr('src', '/beautyChuSpring_K/fileupload/' + data.listShopInfo[0].shopPhotoUrl);
 					$('#sidebar-shopName').text(data.listShopInfo[0].shopName);
 					$('#sidebar-shopAddr').text(data.listShopInfo[0].shopAddr);
 					$('#sidebar-shopTel').text(data.listShopInfo[0].shopTel);
@@ -508,9 +508,10 @@ var imsiEmail;
 			});
 		});
 		
-	    /* AJAX 서버로 데이터 보내서 update */
+/* 	     AJAX 서버로 데이터 보내서 update */
 		$('#manBtn').click(function() {
-			for(var i = 1; i < 5; i++) {
+			alert('수정완료');
+/* 			for(var i = 1; i < 5; i++) {
 				$.ajax({
 					type : 'post',
 					dataType : "json",
@@ -528,9 +529,14 @@ var imsiEmail;
 					}
 
 				});
-			}
+			} */
 
+		}); 
+		$('#womanBtn').click(function() {
+			alert('수정완료');
+			
 		});
+		
 	});
 </script>
 	    

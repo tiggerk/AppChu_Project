@@ -10,8 +10,15 @@ public class MainStyle implements Serializable {
 	String styleName;
 	String shopName;
 	int styleNo;
+	String genre;
 	
 	
+	public String getGenre() {
+		return genre;
+	}
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
 	public String getShopName() {
 		return shopName;
 	}
@@ -36,14 +43,13 @@ public class MainStyle implements Serializable {
 	public void setStylePhotoUrl(String stylePhotoUrl) {
 		this.stylePhotoUrl = stylePhotoUrl;
 	}
-	
-	
 	@Override
 	public String toString() {
 		return "MainStyle [stylePhotoUrl=" + stylePhotoUrl + ", styleName="
 				+ styleName + ", shopName=" + shopName + ", styleNo=" + styleNo
-				+ "]";
+				+ ", genre=" + genre + "]";
 	}
+	
 	
 	
 }

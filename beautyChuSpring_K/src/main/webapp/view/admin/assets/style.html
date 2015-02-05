@@ -1,7 +1,7 @@
-{{#each styleList}}
+ {{#each styleList}}
 <!-- Button trigger modal -->
-<div class="project col-lg-2 col-sm-3 col-xs-4 desc">
-	<div class="photo-wrapper" data-toggle="modal" data-target="#{{styleName}}">
+<div class="project col-lg-2 col-xs-4 desc">
+	<div class="photo-wrapper" data-toggle="modal" data-target="#styleNo{{styleNo}}">
 		<div class="photo">
 			<img src="../../fileupload/{{stylePhotoUrl}}" id="spotify"><br>
 		</div>
@@ -12,7 +12,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="{{styleName}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="styleNo{{styleNo}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -93,17 +93,23 @@
 
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="button" id="style-addBtn" class="btn btn-theme">Save changes</button>
+				<button type="button" id="style-addBtn" class="btn btn-theme" onclick="styleclick()">Save changes</button>
 			</div>
 		</div>
 	</div>
 </div>
-<script>
-{{styleSort}}
-$('#cut').attr('selected', 'selected');
-</script>
 {{/each}}
 <script>
+$("#style-addBtn").on("click",function(){
+	alert("수정완료");
+});
+
+function styleclick(){
+	
+	alert("수정완료");
+}
+
+
 $('.remaining').each(function() {
     // count 정보 및 count 정보와 관련된 textarea/input 요소를 찾아내서 변수에 저장한다.
     var $count = $('.info-count', this);

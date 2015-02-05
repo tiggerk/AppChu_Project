@@ -449,7 +449,7 @@ $(function() {
 				},
 				url : '../../json/shopInfo/list.do',
 				success : function(data) {
-					$('#sidebar-shopPhoto').attr('src', '/beautyChuSpring_K/fileupload' + data.listShopInfo[0].shopPhotoUrl);
+					$('#sidebar-shopPhoto').attr('src', '/beautyChuSpring_K/fileupload/' + data.listShopInfo[0].shopPhotoUrl);
 					$('#sidebar-shopName').text(data.listShopInfo[0].shopName);
 					$('#sidebar-shopAddr').text(data.listShopInfo[0].shopAddr);
 					$('#sidebar-shopTel').text(data.listShopInfo[0].shopTel);
@@ -522,7 +522,7 @@ $(function() {
 				data : {
 					email : imsiEmail,
 					people : 'normal',
-					gender : 'woman',
+					gender : 'man',
 					styleSort : $('#styleSort option:selected').val(),
 					styleLength : $('#styleLength option:selected').val(),
 					styleName : $('#styleName').val(),

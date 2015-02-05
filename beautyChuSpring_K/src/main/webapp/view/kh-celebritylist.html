@@ -16,7 +16,6 @@
 <!-- 라디오버튼  -->
 
 <link rel="stylesheet" href="../css/resources/radiobutton.css" />
-<!-- 마페 -->
 
 <link rel="shortcut icon" href="../images/favicon.ico"
 	type="image/x-icon">
@@ -45,7 +44,6 @@
 
 
 <!-- 썸네일 이미지 -->
-<!-- 헤더랑 충돌중	<link rel="stylesheet" type="text/css" href="../css/thumnail.css" /> -->
 <link rel="stylesheet" type="text/css" href="../css/shop.css" />
 
 <!-- 공통 스크립트 -->
@@ -120,10 +118,6 @@ header {
 	height: 100px;
 }
 
-footer {
-	text-align: center;
-}
-
 body {
 	height: 100%;
 	display: table;
@@ -131,7 +125,7 @@ body {
 }
 
 #footer {
-	height: 100px;
+	height: auto;
 }
 
 .yun-container {
@@ -168,14 +162,6 @@ body {
 	margin-top: 20px;
 }
 
-.yun-edge {
-	
-}
-
-.yun-selected {
-	
-}
-
 .yun-boximage {
 	width: 280px;
 	height: 370px;
@@ -192,9 +178,19 @@ body {
 	border-top: 1px #c5c5c5 solid;
 }
 
+.buttondiv {
+	display: none;
+}
+
+h3 {
+	display: none;
+}
+
 .kh-basic h2 {
-	color: black;
+	color: #999;
 	margin-top: 15px;
+	font-family: Nanum Gothic Bold, MyriadPro-Semibold, Helvetica, sans-serif;
+	font-size: 0.7em;
 }
 
 .kh-detail h2 {
@@ -500,7 +496,7 @@ body {
 		<div id="wrap-chu" class="wrap-chu">
 			<div style="text-align: center;">
 				<DIV
-					style="font-size: 50px; height: 50px; padding: 20px; margin-top: 20px; margin-bottom: 40px;">CELEBRITY</DIV>
+					style="font-family: MyriadPro-Semibold, Helvetica, sans-serif;font-size: 50px; height: 50px; padding: 20px; margin-top: 20px; margin-bottom: 40px;">CELEBRITY</DIV>
 				<table style="margin: auto;">
 					<tr>
 						<td><input type="radio" name="radiog_dark" id="radio1"
@@ -518,32 +514,14 @@ body {
 					</tr>
 				</table>
 			</div>
-			<div class="yun-container"
-				style="border-top: 2px black solid; margin-top: 10px; padding-left: 30px;"></div>
-
-			<!--  			<div class="yun-box">
-				<img class="yun-boximage" src="../images/main/woman (1).png">
-					<div class="kh-basic">
-						<h2>러블리 펌</h2>
-						<div class="starrr"></div>
-					</div>
-					<div class="kh-detail">
-						<h2>러블리 펌</h2>
-						<div class="starrr"></div>
-						<p>♥mychu 추가</p>
-					</div>
-					<div class="kh-gradation"></div>
-			</div>  -->
+			<div class="yun-container" style="border-top: 2px black solid; margin-top: 10px; padding-left: 30px;"></div>
 
 		</div>
 
-		<footer>
+		<footer id="footer">
 			<!-- footer 건들지 말긔! -->
 		</footer>
 
-		<!-- 	<script type="text/javascript"
-		src='../js/resources/jquery-2.1.1.min.js'></script>
-	<script src="../js/resources/starrr.js"></script> -->
 
 		<script type="text/javascript">
 	<!-- header, footer 로드 스크립트!! -->
